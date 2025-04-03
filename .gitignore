@@ -16,4 +16,7 @@
 
 # Data and output safety
 data/raw/*
+!data/raw/**
+!data/raw/*.csv
+!data/raw/*.xlsx
 output/*
