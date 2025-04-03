@@ -20,3 +20,4 @@ data/raw/*
 !data/raw/*.csv
 !data/raw/*.xlsx
 output/*
+._*
