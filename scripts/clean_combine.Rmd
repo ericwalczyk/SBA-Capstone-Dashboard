@@ -49,54 +49,51 @@ write_csv(cbp_all_years, "data/cleaned/cbp_2017_2022.csv")
 
 ```{r}
 ## Cleaning federal contract data files and combining into single csv
-> library(readr)
-> library(dplyr)
-> library(stringr)
-> library(purrr)
-> 
-> contract_path <- "data/cleaned/"
-> 
-> # Find all FY summary files
-> contract_files <- list.files(
-+     path = contract_path,
-+     pattern = "^fy\\d{4}_summary\\.csv$",
-+     full.names = TRUE
-+ )
-> 
-> # Load each file and extract the fiscal year
-> load_contract_file <- function(file) {
-+     year <- str_extract(file, "\\d{4}") %>% as.integer()
-+     
-+     read_csv(file, show_col_types = FALSE) %>%
-+         mutate(year = year)
-+ }
-> 
-> # Combine all years
-> contract_all <- map_dfr(contract_files, load_contract_file)
->                                                                                                                 
-> # Clean and select relevant columns
-> contract_all <- contract_all %>%
-+     mutate(
-+         county_fips       = str_pad(as.character(county_fips), 5, pad = "0"),
-+         naics_code        = as.character(naics_code),
-+         total_obligation  = as.numeric(total_obligation),
-+         fiscal_year       = as.integer(fiscal_year)
-+     ) %>%
-+     select(county_fips, year, fiscal_year, state, agency, naics_code, naics_description, total_obligation) %>%
-+     arrange(county_fips, year)
-> 
-> # Save combined file
-> write_csv(contract_all, file.path(contract_path, "fed_contracts_2017_2025.csv"))
->                                                                                                               
-> cat("Combined federal contracts saved to: data/cleaned/fed_contracts_2017_2025.csv\n")
+library(readr)
+library(dplyr)
+library(stringr)
+library(purrr)
+
+contract_path <- "data/cleaned/"
+
+# Find all summary CSVs
+contract_files <- list.files(
+  path = contract_path,
+  pattern = "^fy\\d{4}_summary\\.csv$",
+  full.names = TRUE
+)
+
+# Load each CSV and tag it with its year
+load_contract_file <- function(file) {
+  year <- str_extract(file, "\\d{4}") %>% as.integer()
+  df <- read_csv(file, col_types = cols(.default = "c")) %>%
+    mutate(year = year)
+
+  # Standardize column names (if they exist)
+  df <- df %>%
+    mutate(
+      county_fips   = str_pad(county_fips, 5, pad = "0"),
+      total_awards  = if ("total_awards" %in% names(.)) as.integer(total_awards) else NA_integer_,
+      sum_obligated = if ("sum_obligated" %in% names(.)) as.numeric(sum_obligated) else NA_real_,
+      avg_award     = if ("avg_award" %in% names(.)) as.numeric(avg_award) else NA_real_
+    )
+
+  return(df)
+}
+
+# Combine all into one dataframe
+contract_all <- map_dfr(contract_files, load_contract_file)
+
+# Save it
+write_csv(contract_all, file.path(contract_path, "fed_contracts_2017_2025.csv"))
 
 
 ## had issues with column names again. tried to merge based on 2017 column names
 ## so I used the following code to check all the column names for all the files
-> walk(contract_files, ~{
-+     cat("Checking:", .x, "\n")
-+     print(names(read_csv(.x, n_max = 1)))
-+ })
+walk(contract_files, ~{
+  cat("Checking:", .x, "\n")
+  print(names(read_csv(.x, n_max = 1)))
+})
 
 ## then used that to run the code above
 ```
