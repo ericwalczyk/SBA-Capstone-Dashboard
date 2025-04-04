@@ -1,0 +1,164 @@
+---
+title: "Fed Contract Data Cleaning"
+author: "Eric Walczyk"
+date: "2025-04-03"
+output: html_document
+---
+```{r}
+library(DBI)
+library(duckdb)
+
+## after downloading the raw data files from USAspending.gov I tried to 
+## use SQL to combine all the seperate files with only the variables we need
+## but couldn't get that to work, so I linked my database in DBeaver to R using
+## .duckdb. Once I connected I ran a test merge on the 2017 files, and saved 
+## it back in our repo under the cleaned data folder.
+
+# Connect to DuckDB
+con <- dbConnect(duckdb::duckdb(),
+  dbdir = "/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/raw/usa_spending/contracts/contracts.duckdb"
+)
+
+# Load all FY2017 CSV chunks
+dbExecute(con, "
+  CREATE OR REPLACE TABLE fy2017_contracts AS
+  SELECT * FROM read_csv_auto('/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/raw/usa_spending/FY2017_All_Contracts_Full_20250324/FY2017_All_Contracts_Full_20250325_*.csv');
+")
+
+# Summarize FY2017 data
+dbExecute(con, "
+CREATE OR REPLACE TABLE fy2017_summary AS
+SELECT
+  2017 AS fiscal_year,
+  prime_award_transaction_place_of_performance_county_fips_code AS county_fips,
+  primary_place_of_performance_state_code AS state,
+  awarding_agency_name AS agency,
+  naics_code, -- Add NAICS code here
+  naics_description AS naics_description,
+  SUM(federal_action_obligation) AS total_obligation
+FROM fy2017_contracts
+WHERE prime_award_transaction_place_of_performance_county_fips_code IS NOT NULL
+  AND federal_action_obligation IS NOT NULL
+GROUP BY county_fips, state, agency, naics_code, naics_description;
+")
+
+
+# export table to CSV
+dbExecute(con, "
+COPY fy2017_summary TO '/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/cleaned/fy2017_summary.csv' (HEADER, DELIMITER ',');
+")
+
+dbDisconnect(con)
+```
+
+
+
+```{r}
+## Then I tried to do the samething for 2018, and ran into an issue with a 
+## column0() error which was causing the code to fail due to different headers
+## I checked the column names in R and the terminal and it appeared that 
+## everything matched. Digging in a bit I found it could be an issue with BOM
+## and that it wasn't a big deal to remove it, so I wrote a script in terminal
+## to delete all the BOM data for the 2018 csv files.
+
+# Connect to DuckDB
+con <- dbConnect(duckdb::duckdb(),
+  dbdir = "/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/raw/usa_spending/contracts/contracts.duckdb"
+)
+
+# Load all FY2018 CSV chunks from the BOM-cleaned files
+dbExecute(con, "
+  CREATE OR REPLACE TABLE fy2018_contracts AS
+  SELECT * FROM read_csv_auto('/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/raw/usa_spending/FY2018/*_clean.csv', ignore_errors=true);
+")
+
+# Summarize FY2018 data
+dbExecute(con, "
+  CREATE OR REPLACE TABLE fy2018_summary AS
+  SELECT
+    2018 AS fiscal_year,
+    prime_award_transaction_place_of_performance_county_fips_code AS county_fips,
+    primary_place_of_performance_state_code AS state,
+    awarding_agency_name AS agency,
+    naics_code,
+    naics_description,
+    SUM(federal_action_obligation) AS total_obligation
+  FROM fy2018_contracts
+  WHERE prime_award_transaction_place_of_performance_county_fips_code IS NOT NULL
+    AND federal_action_obligation IS NOT NULL
+  GROUP BY county_fips, state, agency, naics_code, naics_description;
+")
+
+
+# export table to CSV
+dbExecute(con, "
+COPY fy2018_summary TO '/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/cleaned/fy2018_summary.csv' (HEADER, DELIMITER ',');
+")
+
+# disconnect
+dbDisconnect(con)
+```
+
+
+
+```{r}
+## Removing the BOM data seemed to work so I wrote another script in the 
+## terminal to remove it for all files in the 2019 - 2025 folders, then took
+## the code above and put it into a function to get the cleaned data for 
+## the rest of the years. I saved all of those CSVs to our repository and 
+## pushed to our github.
+
+process_fiscal_year <- function(fy) {
+  # Construct table and file names based on fiscal year
+  contracts_table <- sprintf("fy%s_contracts", fy)
+  summary_table   <- sprintf("fy%s_summary", fy)
+  csv_path        <- sprintf("/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/raw/usa_spending/FY%s/*_clean.csv", fy)
+  output_path     <- sprintf("/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/cleaned/fy%s_summary.csv", fy)
+  
+  # Connect to DuckDB
+  con <- dbConnect(duckdb::duckdb(),
+                   dbdir = "/Volumes/vorb/02_school/capstone/SBA-Capstone-Dashboard/data/raw/usa_spending/contracts/contracts.duckdb")
+  
+  # Load all CSV chunks from the BOM-cleaned files into a contracts table
+  query_contracts <- sprintf("
+    CREATE OR REPLACE TABLE %s AS
+    SELECT * FROM read_csv_auto('%s', ignore_errors=true);
+  ", contracts_table, csv_path)
+  dbExecute(con, query_contracts)
+  
+  # Summarize data: group by the needed columns and sum federal_action_obligation
+  query_summary <- sprintf("
+    CREATE OR REPLACE TABLE %s AS
+    SELECT
+      %s AS fiscal_year,
+      prime_award_transaction_place_of_performance_county_fips_code AS county_fips,
+      primary_place_of_performance_state_code AS state,
+      awarding_agency_name AS agency,
+      naics_code,
+      naics_description,
+      SUM(federal_action_obligation) AS total_obligation
+    FROM %s
+    WHERE prime_award_transaction_place_of_performance_county_fips_code IS NOT NULL
+      AND federal_action_obligation IS NOT NULL
+    GROUP BY county_fips, state, agency, naics_code, naics_description;
+  ", summary_table, fy, contracts_table)
+  dbExecute(con, query_summary)
+  
+  # Export the summary table to CSV
+  query_export <- sprintf("
+    COPY %s TO '%s' (HEADER, DELIMITER ',');
+  ", summary_table, output_path)
+  dbExecute(con, query_export)
+  
+  # Disconnect from the database
+  dbDisconnect(con)
+  
+  cat("Fiscal Year", fy, "processed and exported to", output_path, "\n")
+}
+
+# Process fiscal years 2019 through 2025
+for(fy in 2019:2025) {
+  process_fiscal_year(fy)
+}
+```
+
