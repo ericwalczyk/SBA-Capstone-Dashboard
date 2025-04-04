@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 data/cleaned/cbp_2017_2022.csv filter=lfs diff=lfs merge=lfs -text
+data/cleaned/all_fed_contracts.csv filter=lfs diff=lfs merge=lfs -text
