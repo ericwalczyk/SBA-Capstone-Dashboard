@@ -1,0 +1,122 @@
+---
+title: "Untitled"
+author: "Eric Walczyk"
+date: "2025-04-04"
+output: html_document
+---
+
+
+```{r}
+## cleaning Community Business Profile data for 2017-2022
+
+cbp_dir <- "data/raw/county_biz_patterns/"
+
+# List of files and years
+years <- 2017:2022
+file_names <- paste0("cbp", substr(years, 3, 4), "co.txt")
+
+# Define column widths for 2020–2022 (same as 2017–2019 for core fields)
+cbp_widths <- fwf_widths(
+  c(2, 3, 6, 1, 1, 12, 12, 12, 12, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+    8, 8, 8, 8),
+  col_names = c("fipstate", "fipscty", "naics", "emp_flag", "emp_size", 
+                "q1_payroll", "annual_payroll", "emp", "establishments", 
+                paste0("N", 1:17)) # extra columns, just in case
+)
+
+# Function to load and clean a single CBP file
+load_cbp_file <- function(file, year) {
+  read_fwf(file, cbp_widths, col_types = cols(.default = "c")) %>%
+    mutate(
+      county_fips = str_pad(fipstate, 2, pad = "0") %>% paste0(str_pad(fipscty, 3, pad = "0")),
+      year = year
+    )
+}
+
+# Loop over all years and stack
+cbp_all_years <- purrr::map2_dfr(
+  file.path(cbp_dir, file_names),
+  years,
+  load_cbp_file
+)
+
+# Save cleaned file
+write_csv(cbp_all_years, "data/cleaned/cbp_2017_2022.csv")
+
+
+## The final file was 1.5GB so I used GIT LFS to push it through manually
+```
+
+```{r}
+## Cleaning federal contract data files and combining into single csv
+> library(readr)
+> library(dplyr)
+> library(stringr)
+> library(purrr)
+> 
+> contract_path <- "data/cleaned/"
+> 
+> # Find all FY summary files
+> contract_files <- list.files(
++     path = contract_path,
++     pattern = "^fy\\d{4}_summary\\.csv$",
++     full.names = TRUE
++ )
+> 
+> # Load each file and extract the fiscal year
+> load_contract_file <- function(file) {
++     year <- str_extract(file, "\\d{4}") %>% as.integer()
++     
++     read_csv(file, show_col_types = FALSE) %>%
++         mutate(year = year)
++ }
+> 
+> # Combine all years
+> contract_all <- map_dfr(contract_files, load_contract_file)
+>                                                                                                                 
+> # Clean and select relevant columns
+> contract_all <- contract_all %>%
++     mutate(
++         county_fips       = str_pad(as.character(county_fips), 5, pad = "0"),
++         naics_code        = as.character(naics_code),
++         total_obligation  = as.numeric(total_obligation),
++         fiscal_year       = as.integer(fiscal_year)
++     ) %>%
++     select(county_fips, year, fiscal_year, state, agency, naics_code, naics_description, total_obligation) %>%
++     arrange(county_fips, year)
+> 
+> # Save combined file
+> write_csv(contract_all, file.path(contract_path, "fed_contracts_2017_2025.csv"))
+>                                                                                                               
+> cat("Combined federal contracts saved to: data/cleaned/fed_contracts_2017_2025.csv\n")
+
+
+## had issues with column names again. tried to merge based on 2017 column names
+## so I used the following code to check all the column names for all the files
+> walk(contract_files, ~{
++     cat("Checking:", .x, "\n")
++     print(names(read_csv(.x, n_max = 1)))
++ })
+
+## then used that to run the code above
+```
+
+
+```{r}
+## now i'm trying to get the data we need from the Small Business Credit Survey
+## which downloads as an excel file with data across multiple sheets. So I 
+## started with checking the sheet names and the first few rows of the 
+## geography section to get an idea of what those headings are.
+
+library(readxl)
+
+# load sheet names
+sheets <- excel_sheets("data/raw/sbcs/sbcs.xlsx")
+
+# load geography tab
+sbcs_geo <- read_excel("data/raw/sbcs/sbcs.xlsx", sheet = "Geography") %>%
+  clean_names()
+
+head(sbcs_geo)
+```
+
