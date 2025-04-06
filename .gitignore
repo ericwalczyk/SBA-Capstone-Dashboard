@@ -21,3 +21,4 @@ data/raw/*
 !data/raw/*.xlsx
 output/*
 ._*
+fedcon.duckdb
