@@ -38,6 +38,26 @@ fedcon <- fedcon %>%
     naics_group = add_naics_group(naics_code)
   )
 
+## Now i'm going to check the distribution of all the contracts, then will
+## check the distribution of contracts by industry group so I can get an idea
+## of the ranges for building the dashboard component
+library(dplyr)
+
+summary_stats <- fedcon %>%
+  mutate(under_250k = total_obligation <= 250000) %>%  # Create a logical TRUE/FALSE column
+  group_by(under_250k) %>%
+  summarize(
+    count = n(),  # how many contracts
+    avg_value = mean(total_obligation, na.rm = TRUE),
+    median_value = median(total_obligation, na.rm = TRUE),
+    max_value = max(total_obligation, na.rm = TRUE),
+    min_value = min(total_obligation, na.rm = TRUE)
+  )
+
+print(summary_stats)
+
+## A vast majority of contracts are less than $250k, which is good for our
+## project if we want to zone in on small contracts to small businesses
 
 ## The function worked so now I will build a distribution map
 ## that can be filtered by year, agency, and naics group
@@ -117,10 +137,17 @@ server <- function(input, output, session) {
       df <- df %>% filter(naics_group == input$naics_group)
     }
     
+    # adding a $250,000 max contract value filter for stability 
+    df <- df %>% filter(total_obligation <= 250000)
+    
     df %>%
       group_by(county_fips) %>%
       summarize(total_obligation = sum(total_obligation, na.rm = TRUE), .groups = "drop")
   })
+  
+  
+  ## COME BACK AND ADD STATE OUTLINES
+  
   
   ## joining filtered data with map geometry
   map_data <- reactive({
