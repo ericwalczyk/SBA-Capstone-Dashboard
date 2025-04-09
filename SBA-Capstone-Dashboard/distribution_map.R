@@ -9,7 +9,10 @@
 
 library(shiny)
 
-fedcon <- read_csv("data/cleaned/all_fed_contracts.csv")
+fedcon <- read_csv("data/cleaned/all_fedcon.csv")
+
+smcon <- fedcon %>%
+  filter(award_amount <= 250000)
 
 ## I am going to write a function to group naics industries into 10 broad
 ## categories by pulling the first two digits of the naics_code and using it
@@ -92,7 +95,7 @@ fedcon_filtered_test <- fedcon %>%
   summarize(total_obligation = sum(total_obligation, na.rm = TRUE))
 
 map_data <- counties_sf %>%
-  left_join(fedcon_filtered_test, by = c("GEOID" = "county_fips"))
+  left_join(fedcon, by = c("GEOID" = "county_fips"))
 
 glimpse(map_data)
 
@@ -106,9 +109,9 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("year", "Year",
-                  min = min(fedcon$year),
-                  max = max(fedcon$year),
-                  value = min(fedcon$year),
+                  min = min(fedcon$fiscal_year),
+                  max = max(fedcon$fiscal_year),
+                  value = min(fedcon$fiscal_year),
                   step = 1,
                   sep = ""),
       selectInput("agency", "Agency", 
