@@ -1,0 +1,10 @@
+name: sba-capstone-deploy
+title:
+username: ericwalczyk
+account: ericwalczyk
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14495892
+bundleId: 10096700
+url: https://ericwalczyk.shinyapps.io/sba-capstone-deploy/
+version: 1

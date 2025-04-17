@@ -52,6 +52,7 @@ process_fiscal_year <- function(fy) {
       UPPER(contracting_officers_determination_of_business_size) = 'SMALL BUSINESS' AS is_small_business,
       woman_owned_business = 'Y' AS is_woman_owned,
       veteran_owned_business = 'Y' AS is_veteran_owned,
+      minority_owned_business = 'Y' AS is_minority_owned,
 
       -- Total obligation for group
       SUM(federal_action_obligation) AS total_obligation
@@ -65,7 +66,7 @@ process_fiscal_year <- function(fy) {
 
     GROUP BY 
       county_fips, state, agency, naics_code, naics_description,
-      is_small_business, is_woman_owned, is_veteran_owned
+      is_small_business, is_woman_owned, is_veteran_owned, is_minority_owned
   ", summary_table, fy, contracts_table)
   dbExecute(con, query_summary)
 
