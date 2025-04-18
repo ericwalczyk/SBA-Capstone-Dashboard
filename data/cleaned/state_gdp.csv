@@ -1,1093 +1,1072 @@
-geo_fips,geo_name,description,year,value,state_abbr
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2017,19612102.0,NA
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2018,20193896.0,NA
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2019,20715671.0,NA
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2020,20267585.0,NA
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2021,21494798.0,NA
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2022,22034828.0,NA
-00000,United States,Real GDP (millions of chained 2017 dollars) 1/,2023,22671096.0,NA
-00000,United States,Real per capita personal income 4/,2017,51004,NA
-00000,United States,Real per capita personal income 4/,2018,52240,NA
-00000,United States,Real per capita personal income 4/,2019,53682,NA
-00000,United States,Real per capita personal income 4/,2020,56501,NA
-00000,United States,Real per capita personal income 4/,2021,59153,NA
-00000,United States,Real per capita personal income 4/,2022,57052,NA
-00000,United States,Real per capita personal income 4/,2023,57937,NA
-00000,United States,Total employment (number of jobs),2017,196394100,NA
-00000,United States,Total employment (number of jobs),2018,200292200,NA
-00000,United States,Total employment (number of jobs),2019,201622200,NA
-00000,United States,Total employment (number of jobs),2020,195262600,NA
-00000,United States,Total employment (number of jobs),2021,202706100,NA
-00000,United States,Total employment (number of jobs),2022,210414200,NA
-00000,United States,Total employment (number of jobs),2023,216314200,NA
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2017,216615.5,AL
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2018,220808.8,AL
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2019,225272.8,AL
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2020,222288.8,AL
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2021,233726.6,AL
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2022,238556.5,AL
-01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2023,245354.7,AL
-01000,Alabama,Real per capita personal income 4/,2017,44472,AL
-01000,Alabama,Real per capita personal income 4/,2018,46441,AL
-01000,Alabama,Real per capita personal income 4/,2019,47137,AL
-01000,Alabama,Real per capita personal income 4/,2020,50183,AL
-01000,Alabama,Real per capita personal income 4/,2021,52707,AL
-01000,Alabama,Real per capita personal income 4/,2022,50630,AL
-01000,Alabama,Real per capita personal income 4/,2023,50039,AL
-01000,Alabama,Total employment (number of jobs),2017,2649222,AL
-01000,Alabama,Total employment (number of jobs),2018,2692424,AL
-01000,Alabama,Total employment (number of jobs),2019,2712014,AL
-01000,Alabama,Total employment (number of jobs),2020,2670753,AL
-01000,Alabama,Total employment (number of jobs),2021,2769122,AL
-01000,Alabama,Total employment (number of jobs),2022,2854910,AL
-01000,Alabama,Total employment (number of jobs),2023,2939353,AL
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2017,53550.9,AK
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2018,52479.6,AK
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2019,52377.5,AK
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2020,50332.8,AK
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2021,51454.1,AK
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2022,50767.1,AK
-02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2023,54059.7,AK
-02000,Alaska,Real per capita personal income 4/,2017,54005,AK
-02000,Alaska,Real per capita personal income 4/,2018,55410,AK
-02000,Alaska,Real per capita personal income 4/,2019,56835,AK
-02000,Alaska,Real per capita personal income 4/,2020,58487,AK
-02000,Alaska,Real per capita personal income 4/,2021,57520,AK
-02000,Alaska,Real per capita personal income 4/,2022,58320,AK
-02000,Alaska,Real per capita personal income 4/,2023,58470,AK
-02000,Alaska,Total employment (number of jobs),2017,455550,AK
-02000,Alaska,Total employment (number of jobs),2018,454776,AK
-02000,Alaska,Total employment (number of jobs),2019,454794,AK
-02000,Alaska,Total employment (number of jobs),2020,430867,AK
-02000,Alaska,Total employment (number of jobs),2021,443037,AK
-02000,Alaska,Total employment (number of jobs),2022,453783,AK
-02000,Alaska,Total employment (number of jobs),2023,467287,AK
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2017,333099.0,AZ
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2018,346398.3,AZ
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2019,359576.7,AZ
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2020,365027.7,AZ
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2021,395035.9,AZ
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2022,410228.4,AZ
-04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2023,422399.6,AZ
-04000,Arizona,Real per capita personal income 4/,2017,44250,AZ
-04000,Arizona,Real per capita personal income 4/,2018,45656,AZ
-04000,Arizona,Real per capita personal income 4/,2019,47220,AZ
-04000,Arizona,Real per capita personal income 4/,2020,50269,AZ
-04000,Arizona,Real per capita personal income 4/,2021,54232,AZ
-04000,Arizona,Real per capita personal income 4/,2022,50856,AZ
-04000,Arizona,Real per capita personal income 4/,2023,51373,AZ
-04000,Arizona,Total employment (number of jobs),2017,3740747,AZ
-04000,Arizona,Total employment (number of jobs),2018,3854741,AZ
-04000,Arizona,Total employment (number of jobs),2019,3929587,AZ
-04000,Arizona,Total employment (number of jobs),2020,3919466,AZ
-04000,Arizona,Total employment (number of jobs),2021,4085758,AZ
-04000,Arizona,Total employment (number of jobs),2022,4241280,AZ
-04000,Arizona,Total employment (number of jobs),2023,4383684,AZ
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2017,123882.6,AR
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2018,126371.2,AR
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2019,127220.0,AR
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2020,128340.9,AR
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2021,137463.6,AR
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2022,139560.7,AR
-05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2023,142860.6,AR
-05000,Arkansas,Real per capita personal income 4/,2017,46835,AR
-05000,Arkansas,Real per capita personal income 4/,2018,48479,AR
-05000,Arkansas,Real per capita personal income 4/,2019,48247,AR
-05000,Arkansas,Real per capita personal income 4/,2020,51195,AR
-05000,Arkansas,Real per capita personal income 4/,2021,54650,AR
-05000,Arkansas,Real per capita personal income 4/,2022,54888,AR
-05000,Arkansas,Real per capita personal income 4/,2023,55330,AR
-05000,Arkansas,Total employment (number of jobs),2017,1639903,AR
-05000,Arkansas,Total employment (number of jobs),2018,1658212,AR
-05000,Arkansas,Total employment (number of jobs),2019,1663305,AR
-05000,Arkansas,Total employment (number of jobs),2020,1638864,AR
-05000,Arkansas,Total employment (number of jobs),2021,1684570,AR
-05000,Arkansas,Total employment (number of jobs),2022,1745448,AR
-05000,Arkansas,Total employment (number of jobs),2023,1788616,AR
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2017,2740550.3,CA
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2018,2850970.3,CA
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2019,2969609.0,CA
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2020,2933320.2,CA
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2021,3154188.6,CA
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2022,3184007.8,CA
-06000,California,Real GDP (millions of chained 2017 dollars) 1/,2023,3248656.6,CA
-06000,California,Real per capita personal income 4/,2017,52604,CA
-06000,California,Real per capita personal income 4/,2018,53481,CA
-06000,California,Real per capita personal income 4/,2019,55932,CA
-06000,California,Real per capita personal income 4/,2020,60008,CA
-06000,California,Real per capita personal income 4/,2021,63194,CA
-06000,California,Real per capita personal income 4/,2022,58928,CA
-06000,California,Real per capita personal income 4/,2023,59940,CA
-06000,California,Total employment (number of jobs),2017,23548874,CA
-06000,California,Total employment (number of jobs),2018,24077466,CA
-06000,California,Total employment (number of jobs),2019,24224461,CA
-06000,California,Total employment (number of jobs),2020,23152576,CA
-06000,California,Total employment (number of jobs),2021,23932286,CA
-06000,California,Total employment (number of jobs),2022,24941198,CA
-06000,California,Total employment (number of jobs),2023,25417299,CA
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2017,350209.1,CO
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2018,365204.5,CO
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2019,383725.6,CO
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2020,380188.8,CO
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2021,406451.9,CO
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2022,418818.8,CO
-08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2023,437056.0,CO
-08000,Colorado,Real per capita personal income 4/,2017,52739,CO
-08000,Colorado,Real per capita personal income 4/,2018,56587,CO
-08000,Colorado,Real per capita personal income 4/,2019,57863,CO
-08000,Colorado,Real per capita personal income 4/,2020,59744,CO
-08000,Colorado,Real per capita personal income 4/,2021,64129,CO
-08000,Colorado,Real per capita personal income 4/,2022,64644,CO
-08000,Colorado,Real per capita personal income 4/,2023,65589,CO
-08000,Colorado,Total employment (number of jobs),2017,3760708,CO
-08000,Colorado,Total employment (number of jobs),2018,3857981,CO
-08000,Colorado,Total employment (number of jobs),2019,3894321,CO
-08000,Colorado,Total employment (number of jobs),2020,3820820,CO
-08000,Colorado,Total employment (number of jobs),2021,3987571,CO
-08000,Colorado,Total employment (number of jobs),2022,4110187,CO
-08000,Colorado,Total employment (number of jobs),2023,4241790,CO
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2017,273875.1,CT
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2018,274582.8,CT
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2019,275225.4,CT
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2020,260765.2,CT
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2021,269838.7,CT
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2022,278975.9,CT
-09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2023,286628.4,CT
-09000,Connecticut,Real per capita personal income 4/,2017,64665,CT
-09000,Connecticut,Real per capita personal income 4/,2018,68093,CT
-09000,Connecticut,Real per capita personal income 4/,2019,69073,CT
-09000,Connecticut,Real per capita personal income 4/,2020,70057,CT
-09000,Connecticut,Real per capita personal income 4/,2021,73110,CT
-09000,Connecticut,Real per capita personal income 4/,2022,68981,CT
-09000,Connecticut,Real per capita personal income 4/,2023,72040,CT
-09000,Connecticut,Total employment (number of jobs),2017,2300273,CT
-09000,Connecticut,Total employment (number of jobs),2018,2314465,CT
-09000,Connecticut,Total employment (number of jobs),2019,2297925,CT
-09000,Connecticut,Total employment (number of jobs),2020,2217360,CT
-09000,Connecticut,Total employment (number of jobs),2021,2289368,CT
-09000,Connecticut,Total employment (number of jobs),2022,2356018,CT
-09000,Connecticut,Total employment (number of jobs),2023,2416621,CT
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2017,69555.6,DE
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2018,70856.4,DE
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2019,74627.8,DE
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2020,72506.8,DE
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2021,74657.1,DE
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2022,77149.2,DE
-10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2023,78014.4,DE
-10000,Delaware,Real per capita personal income 4/,2017,50850,DE
-10000,Delaware,Real per capita personal income 4/,2018,52109,DE
-10000,Delaware,Real per capita personal income 4/,2019,52674,DE
-10000,Delaware,Real per capita personal income 4/,2020,54954,DE
-10000,Delaware,Real per capita personal income 4/,2021,56272,DE
-10000,Delaware,Real per capita personal income 4/,2022,56282,DE
-10000,Delaware,Real per capita personal income 4/,2023,55936,DE
-10000,Delaware,Total employment (number of jobs),2017,584693,DE
-10000,Delaware,Total employment (number of jobs),2018,597021,DE
-10000,Delaware,Total employment (number of jobs),2019,602769,DE
-10000,Delaware,Total employment (number of jobs),2020,592138,DE
-10000,Delaware,Total employment (number of jobs),2021,620262,DE
-10000,Delaware,Total employment (number of jobs),2022,643382,DE
-10000,Delaware,Total employment (number of jobs),2023,663162,DE
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2017,134298.8,NA
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2018,138056.8,NA
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2019,138909.7,NA
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2020,137640.8,NA
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2021,143141.4,NA
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2022,144554.6,NA
-11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2023,146024.3,NA
-11000,District of Columbia,Real per capita personal income 4/,2017,72416,NA
-11000,District of Columbia,Real per capita personal income 4/,2018,72433,NA
-11000,District of Columbia,Real per capita personal income 4/,2019,74139,NA
-11000,District of Columbia,Real per capita personal income 4/,2020,78379,NA
-11000,District of Columbia,Real per capita personal income 4/,2021,80587,NA
-11000,District of Columbia,Real per capita personal income 4/,2022,77304,NA
-11000,District of Columbia,Real per capita personal income 4/,2023,80060,NA
-11000,District of Columbia,Total employment (number of jobs),2017,902843,NA
-11000,District of Columbia,Total employment (number of jobs),2018,914319,NA
-11000,District of Columbia,Total employment (number of jobs),2019,915216,NA
-11000,District of Columbia,Total employment (number of jobs),2020,866067,NA
-11000,District of Columbia,Total employment (number of jobs),2021,869725,NA
-11000,District of Columbia,Total employment (number of jobs),2022,895212,NA
-11000,District of Columbia,Total employment (number of jobs),2023,913376,NA
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2017,1014866.9,FL
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2018,1050433.8,FL
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2019,1084913.9,FL
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2020,1069758.8,FL
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2021,1170526.3,FL
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2022,1239883.6,FL
-12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2023,1292787.6,FL
-12000,Florida,Real per capita personal income 4/,2017,48133,FL
-12000,Florida,Real per capita personal income 4/,2018,49932,FL
-12000,Florida,Real per capita personal income 4/,2019,52124,FL
-12000,Florida,Real per capita personal income 4/,2020,53853,FL
-12000,Florida,Real per capita personal income 4/,2021,56443,FL
-12000,Florida,Real per capita personal income 4/,2022,54430,FL
-12000,Florida,Real per capita personal income 4/,2023,55153,FL
-12000,Florida,Total employment (number of jobs),2017,12098388,FL
-12000,Florida,Total employment (number of jobs),2018,12556216,FL
-12000,Florida,Total employment (number of jobs),2019,12760885,FL
-12000,Florida,Total employment (number of jobs),2020,12718985,FL
-12000,Florida,Total employment (number of jobs),2021,13456889,FL
-12000,Florida,Total employment (number of jobs),2022,14201476,FL
-12000,Florida,Total employment (number of jobs),2023,14756561,FL
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2017,583543.3,GA
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2018,600934.7,GA
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2019,620744.9,GA
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2020,604745.9,GA
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2021,643013.8,GA
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2022,665678.1,GA
-13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2023,678201.2,GA
-13000,Georgia,Real per capita personal income 4/,2017,47164,GA
-13000,Georgia,Real per capita personal income 4/,2018,48286,GA
-13000,Georgia,Real per capita personal income 4/,2019,49762,GA
-13000,Georgia,Real per capita personal income 4/,2020,52199,GA
-13000,Georgia,Real per capita personal income 4/,2021,53857,GA
-13000,Georgia,Real per capita personal income 4/,2022,51597,GA
-13000,Georgia,Real per capita personal income 4/,2023,51429,GA
-13000,Georgia,Total employment (number of jobs),2017,6128089,GA
-13000,Georgia,Total employment (number of jobs),2018,6287460,GA
-13000,Georgia,Total employment (number of jobs),2019,6398769,GA
-13000,Georgia,Total employment (number of jobs),2020,6326141,GA
-13000,Georgia,Total employment (number of jobs),2021,6638710,GA
-13000,Georgia,Total employment (number of jobs),2022,6931533,GA
-13000,Georgia,Total employment (number of jobs),2023,7136747,GA
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2017,87436.4,HI
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2018,88836.4,HI
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2019,88855.2,HI
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2020,79840.1,HI
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2021,84408.5,HI
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2022,86887.8,HI
-15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2023,88614.3,HI
-15000,Hawaii,Real per capita personal income 4/,2017,45830,HI
-15000,Hawaii,Real per capita personal income 4/,2018,45669,HI
-15000,Hawaii,Real per capita personal income 4/,2019,46703,HI
-15000,Hawaii,Real per capita personal income 4/,2020,48230,HI
-15000,Hawaii,Real per capita personal income 4/,2021,49904,HI
-15000,Hawaii,Real per capita personal income 4/,2022,48551,HI
-15000,Hawaii,Real per capita personal income 4/,2023,50602,HI
-15000,Hawaii,Total employment (number of jobs),2017,921135,HI
-15000,Hawaii,Total employment (number of jobs),2018,924352,HI
-15000,Hawaii,Total employment (number of jobs),2019,913949,HI
-15000,Hawaii,Total employment (number of jobs),2020,817434,HI
-15000,Hawaii,Total employment (number of jobs),2021,860684,HI
-15000,Hawaii,Total employment (number of jobs),2022,895043,HI
-15000,Hawaii,Total employment (number of jobs),2023,920860,HI
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2017,72935.1,ID
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2018,77652.1,ID
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2019,81144.3,ID
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2020,82717.4,ID
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2021,88969.6,ID
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2022,92903.7,ID
-16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2023,95897.9,ID
-16000,Idaho,Real per capita personal income 4/,2017,43698,ID
-16000,Idaho,Real per capita personal income 4/,2018,46334,ID
-16000,Idaho,Real per capita personal income 4/,2019,48045,ID
-16000,Idaho,Real per capita personal income 4/,2020,52230,ID
-16000,Idaho,Real per capita personal income 4/,2021,55615,ID
-16000,Idaho,Real per capita personal income 4/,2022,53668,ID
-16000,Idaho,Real per capita personal income 4/,2023,53944,ID
-16000,Idaho,Total employment (number of jobs),2017,1007831,ID
-16000,Idaho,Total employment (number of jobs),2018,1041387,ID
-16000,Idaho,Total employment (number of jobs),2019,1063420,ID
-16000,Idaho,Total employment (number of jobs),2020,1077509,ID
-16000,Idaho,Total employment (number of jobs),2021,1136894,ID
-16000,Idaho,Total employment (number of jobs),2022,1179656,ID
-16000,Idaho,Total employment (number of jobs),2023,1216926,ID
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2017,832826.8,IL
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2018,851517.2,IL
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2019,858018.3,IL
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2020,810200.9,IL
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2021,855888.1,IL
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2022,876536.0,IL
-17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2023,885651.3,IL
-17000,Illinois,Real per capita personal income 4/,2017,53025,IL
-17000,Illinois,Real per capita personal income 4/,2018,54882,IL
-17000,Illinois,Real per capita personal income 4/,2019,56182,IL
-17000,Illinois,Real per capita personal income 4/,2020,58814,IL
-17000,Illinois,Real per capita personal income 4/,2021,60496,IL
-17000,Illinois,Real per capita personal income 4/,2022,58388,IL
-17000,Illinois,Real per capita personal income 4/,2023,60693,IL
-17000,Illinois,Total employment (number of jobs),2017,7823072,IL
-17000,Illinois,Total employment (number of jobs),2018,7880803,IL
-17000,Illinois,Total employment (number of jobs),2019,7859167,IL
-17000,Illinois,Total employment (number of jobs),2020,7519081,IL
-17000,Illinois,Total employment (number of jobs),2021,7749922,IL
-17000,Illinois,Total employment (number of jobs),2022,7994252,IL
-17000,Illinois,Total employment (number of jobs),2023,8177655,IL
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2017,357535.8,IN
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2018,368762.9,IN
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2019,370507.2,IN
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2020,359787.3,IN
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2021,387122.0,IN
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2022,399280.8,IN
-18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2023,404290.3,IN
-18000,Indiana,Real per capita personal income 4/,2017,49155,IN
-18000,Indiana,Real per capita personal income 4/,2018,49297,IN
-18000,Indiana,Real per capita personal income 4/,2019,50331,IN
-18000,Indiana,Real per capita personal income 4/,2020,54036,IN
-18000,Indiana,Real per capita personal income 4/,2021,56891,IN
-18000,Indiana,Real per capita personal income 4/,2022,55333,IN
-18000,Indiana,Real per capita personal income 4/,2023,55174,IN
-18000,Indiana,Total employment (number of jobs),2017,3903424,IN
-18000,Indiana,Total employment (number of jobs),2018,3963724,IN
-18000,Indiana,Total employment (number of jobs),2019,3969443,IN
-18000,Indiana,Total employment (number of jobs),2020,3842872,IN
-18000,Indiana,Total employment (number of jobs),2021,3977956,IN
-18000,Indiana,Total employment (number of jobs),2022,4107840,IN
-18000,Indiana,Total employment (number of jobs),2023,4205137,IN
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2017,187125.0,IA
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2018,189245.1,IA
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2019,188471.4,IA
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2020,186328.2,IA
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2021,201147.1,IA
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2022,201580.4,IA
-19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2023,202051.4,IA
-19000,Iowa,Real per capita personal income 4/,2017,52520,IA
-19000,Iowa,Real per capita personal income 4/,2018,52149,IA
-19000,Iowa,Real per capita personal income 4/,2019,52367,IA
-19000,Iowa,Real per capita personal income 4/,2020,55657,IA
-19000,Iowa,Real per capita personal income 4/,2021,59628,IA
-19000,Iowa,Real per capita personal income 4/,2022,60081,IA
-19000,Iowa,Real per capita personal income 4/,2023,58735,IA
-19000,Iowa,Total employment (number of jobs),2017,2061826,IA
-19000,Iowa,Total employment (number of jobs),2018,2076505,IA
-19000,Iowa,Total employment (number of jobs),2019,2071286,IA
-19000,Iowa,Total employment (number of jobs),2020,2010886,IA
-19000,Iowa,Total employment (number of jobs),2021,2055845,IA
-19000,Iowa,Total employment (number of jobs),2022,2094636,IA
-19000,Iowa,Total employment (number of jobs),2023,2134298,IA
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2017,166273.6,KS
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2018,169796.9,KS
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2019,169562.3,KS
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2020,168056.8,KS
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2021,172782.4,KS
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2022,177470.1,KS
-20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2023,183795.6,KS
-20000,Kansas,Real per capita personal income 4/,2017,52843,KS
-20000,Kansas,Real per capita personal income 4/,2018,53374,KS
-20000,Kansas,Real per capita personal income 4/,2019,54420,KS
-20000,Kansas,Real per capita personal income 4/,2020,57229,KS
-20000,Kansas,Real per capita personal income 4/,2021,59476,KS
-20000,Kansas,Real per capita personal income 4/,2022,59919,KS
-20000,Kansas,Real per capita personal income 4/,2023,61032,KS
-20000,Kansas,Total employment (number of jobs),2017,1913433,KS
-20000,Kansas,Total employment (number of jobs),2018,1925926,KS
-20000,Kansas,Total employment (number of jobs),2019,1923958,KS
-20000,Kansas,Total employment (number of jobs),2020,1878516,KS
-20000,Kansas,Total employment (number of jobs),2021,1920138,KS
-20000,Kansas,Total employment (number of jobs),2022,1953150,KS
-20000,Kansas,Total employment (number of jobs),2023,1998292,KS
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2017,203564.0,KY
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2018,205940.1,KY
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2019,211783.1,KY
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2020,206049.6,KY
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2021,215133.2,KY
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2022,219755.6,KY
-21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2023,224418.0,KY
-21000,Kentucky,Real per capita personal income 4/,2017,44983,KY
-21000,Kentucky,Real per capita personal income 4/,2018,45924,KY
-21000,Kentucky,Real per capita personal income 4/,2019,46959,KY
-21000,Kentucky,Real per capita personal income 4/,2020,50615,KY
-21000,Kentucky,Real per capita personal income 4/,2021,53332,KY
-21000,Kentucky,Real per capita personal income 4/,2022,50831,KY
-21000,Kentucky,Real per capita personal income 4/,2023,50820,KY
-21000,Kentucky,Total employment (number of jobs),2017,2520120,KY
-21000,Kentucky,Total employment (number of jobs),2018,2546178,KY
-21000,Kentucky,Total employment (number of jobs),2019,2549331,KY
-21000,Kentucky,Total employment (number of jobs),2020,2470655,KY
-21000,Kentucky,Total employment (number of jobs),2021,2556381,KY
-21000,Kentucky,Total employment (number of jobs),2022,2637171,KY
-21000,Kentucky,Total employment (number of jobs),2023,2709875,KY
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2017,239830.7,LA
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2018,245220.3,LA
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2019,246674.4,LA
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2020,228951.3,LA
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2021,237839.2,LA
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2022,236854.1,LA
-22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2023,248615.5,LA
-22000,Louisiana,Real per capita personal income 4/,2017,47177,LA
-22000,Louisiana,Real per capita personal income 4/,2018,49184,LA
-22000,Louisiana,Real per capita personal income 4/,2019,49921,LA
-22000,Louisiana,Real per capita personal income 4/,2020,52708,LA
-22000,Louisiana,Real per capita personal income 4/,2021,55297,LA
-22000,Louisiana,Real per capita personal income 4/,2022,53109,LA
-22000,Louisiana,Real per capita personal income 4/,2023,55317,LA
-22000,Louisiana,Total employment (number of jobs),2017,2692542,LA
-22000,Louisiana,Total employment (number of jobs),2018,2725271,LA
-22000,Louisiana,Total employment (number of jobs),2019,2717240,LA
-22000,Louisiana,Total employment (number of jobs),2020,2592329,LA
-22000,Louisiana,Total employment (number of jobs),2021,2693999,LA
-22000,Louisiana,Total employment (number of jobs),2022,2766938,LA
-22000,Louisiana,Total employment (number of jobs),2023,2833528,LA
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2017,63000.6,ME
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2018,64806.3,ME
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2019,66758.4,ME
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2020,67410.9,ME
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2021,71142.4,ME
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2022,73036.2,ME
-23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2023,75195.4,ME
-23000,Maine,Real per capita personal income 4/,2017,47144,ME
-23000,Maine,Real per capita personal income 4/,2018,47982,ME
-23000,Maine,Real per capita personal income 4/,2019,50597,ME
-23000,Maine,Real per capita personal income 4/,2020,53155,ME
-23000,Maine,Real per capita personal income 4/,2021,55911,ME
-23000,Maine,Real per capita personal income 4/,2022,52816,ME
-23000,Maine,Real per capita personal income 4/,2023,55685,ME
-23000,Maine,Total employment (number of jobs),2017,834280,ME
-23000,Maine,Total employment (number of jobs),2018,843918,ME
-23000,Maine,Total employment (number of jobs),2019,842370,ME
-23000,Maine,Total employment (number of jobs),2020,812930,ME
-23000,Maine,Total employment (number of jobs),2021,849228,ME
-23000,Maine,Total employment (number of jobs),2022,867062,ME
-23000,Maine,Total employment (number of jobs),2023,889717,ME
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2017,399714.5,MD
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2018,402480.9,MD
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2019,402506.2,MD
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2020,388782.8,MD
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2021,406953.1,MD
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2022,416406.2,MD
-24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2023,422866.3,MD
-24000,Maryland,Real per capita personal income 4/,2017,54699,MD
-24000,Maryland,Real per capita personal income 4/,2018,55322,MD
-24000,Maryland,Real per capita personal income 4/,2019,56852,MD
-24000,Maryland,Real per capita personal income 4/,2020,58445,MD
-24000,Maryland,Real per capita personal income 4/,2021,59857,MD
-24000,Maryland,Real per capita personal income 4/,2022,58615,MD
-24000,Maryland,Real per capita personal income 4/,2023,60223,MD
-24000,Maryland,Total employment (number of jobs),2017,3696841,MD
-24000,Maryland,Total employment (number of jobs),2018,3752933,MD
-24000,Maryland,Total employment (number of jobs),2019,3744561,MD
-24000,Maryland,Total employment (number of jobs),2020,3621684,MD
-24000,Maryland,Total employment (number of jobs),2021,3750186,MD
-24000,Maryland,Total employment (number of jobs),2022,3866987,MD
-24000,Maryland,Total employment (number of jobs),2023,3977287,MD
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2017,530129.4,MA
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2018,549262.1,MA
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2019,566326.8,MA
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2020,559765.0,MA
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2021,595911.8,MA
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2022,608052.9,MA
-25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2023,615504.5,MA
-25000,Massachusetts,Real per capita personal income 4/,2017,61749,MA
-25000,Massachusetts,Real per capita personal income 4/,2018,63345,MA
-25000,Massachusetts,Real per capita personal income 4/,2019,65375,MA
-25000,Massachusetts,Real per capita personal income 4/,2020,68017,MA
-25000,Massachusetts,Real per capita personal income 4/,2021,72200,MA
-25000,Massachusetts,Real per capita personal income 4/,2022,67908,MA
-25000,Massachusetts,Real per capita personal income 4/,2023,69512,MA
-25000,Massachusetts,Total employment (number of jobs),2017,4778364,MA
-25000,Massachusetts,Total employment (number of jobs),2018,4855037,MA
-25000,Massachusetts,Total employment (number of jobs),2019,4872942,MA
-25000,Massachusetts,Total employment (number of jobs),2020,4600324,MA
-25000,Massachusetts,Total employment (number of jobs),2021,4777277,MA
-25000,Massachusetts,Total employment (number of jobs),2022,4940149,MA
-25000,Massachusetts,Total employment (number of jobs),2023,5051772,MA
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2017,505101.5,MI
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2018,516843.0,MI
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2019,521085.1,MI
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2020,501893.8,MI
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2021,530380.9,MI
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2022,543720.9,MI
-26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2023,554256.2,MI
-26000,Michigan,Real per capita personal income 4/,2017,48940,MI
-26000,Michigan,Real per capita personal income 4/,2018,48952,MI
-26000,Michigan,Real per capita personal income 4/,2019,49308,MI
-26000,Michigan,Real per capita personal income 4/,2020,53583,MI
-26000,Michigan,Real per capita personal income 4/,2021,55526,MI
-26000,Michigan,Real per capita personal income 4/,2022,53426,MI
-26000,Michigan,Real per capita personal income 4/,2023,53915,MI
-26000,Michigan,Total employment (number of jobs),2017,5631139,MI
-26000,Michigan,Total employment (number of jobs),2018,5715122,MI
-26000,Michigan,Total employment (number of jobs),2019,5713441,MI
-26000,Michigan,Total employment (number of jobs),2020,5388050,MI
-26000,Michigan,Total employment (number of jobs),2021,5602299,MI
-26000,Michigan,Total employment (number of jobs),2022,5807078,MI
-26000,Michigan,Total employment (number of jobs),2023,5950022,MI
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2017,354721.9,MN
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2018,364799.7,MN
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2019,369617.4,MN
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2020,357475.6,MN
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2021,377947.0,MN
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2022,384727.7,MN
-27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2023,390907.9,MN
-27000,Minnesota,Real per capita personal income 4/,2017,55762,MN
-27000,Minnesota,Real per capita personal income 4/,2018,55425,MN
-27000,Minnesota,Real per capita personal income 4/,2019,56756,MN
-27000,Minnesota,Real per capita personal income 4/,2020,60123,MN
-27000,Minnesota,Real per capita personal income 4/,2021,63085,MN
-27000,Minnesota,Real per capita personal income 4/,2022,61833,MN
-27000,Minnesota,Real per capita personal income 4/,2023,61227,MN
-27000,Minnesota,Total employment (number of jobs),2017,3735638,MN
-27000,Minnesota,Total employment (number of jobs),2018,3776940,MN
-27000,Minnesota,Total employment (number of jobs),2019,3782570,MN
-27000,Minnesota,Total employment (number of jobs),2020,3607176,MN
-27000,Minnesota,Total employment (number of jobs),2021,3711161,MN
-27000,Minnesota,Total employment (number of jobs),2022,3804210,MN
-27000,Minnesota,Total employment (number of jobs),2023,3897123,MN
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2017,110281.4,MS
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2018,110174.8,MS
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2019,111207.8,MS
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2020,110322.8,MS
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2021,115675.1,MS
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2022,116557.1,MS
-28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2023,119548.4,MS
-28000,Mississippi,Real per capita personal income 4/,2017,41757,MS
-28000,Mississippi,Real per capita personal income 4/,2018,42877,MS
-28000,Mississippi,Real per capita personal income 4/,2019,43788,MS
-28000,Mississippi,Real per capita personal income 4/,2020,47531,MS
-28000,Mississippi,Real per capita personal income 4/,2021,49979,MS
-28000,Mississippi,Real per capita personal income 4/,2022,46533,MS
-28000,Mississippi,Real per capita personal income 4/,2023,47239,MS
-28000,Mississippi,Total employment (number of jobs),2017,1592198,MS
-28000,Mississippi,Total employment (number of jobs),2018,1602929,MS
-28000,Mississippi,Total employment (number of jobs),2019,1606893,MS
-28000,Mississippi,Total employment (number of jobs),2020,1572607,MS
-28000,Mississippi,Total employment (number of jobs),2021,1624491,MS
-28000,Mississippi,Total employment (number of jobs),2022,1665251,MS
-28000,Mississippi,Total employment (number of jobs),2023,1703755,MS
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2017,311273.8,MO
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2018,314182.4,MO
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2019,321329.1,MO
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2020,315332.6,MO
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2021,331580.9,MO
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2022,339652.4,MO
-29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2023,348487.4,MO
-29000,Missouri,Real per capita personal income 4/,2017,48939,MO
-29000,Missouri,Real per capita personal income 4/,2018,49937,MO
-29000,Missouri,Real per capita personal income 4/,2019,50658,MO
-29000,Missouri,Real per capita personal income 4/,2020,54222,MO
-29000,Missouri,Real per capita personal income 4/,2021,56607,MO
-29000,Missouri,Real per capita personal income 4/,2022,55878,MO
-29000,Missouri,Real per capita personal income 4/,2023,56659,MO
-29000,Missouri,Total employment (number of jobs),2017,3735873,MO
-29000,Missouri,Total employment (number of jobs),2018,3777370,MO
-29000,Missouri,Total employment (number of jobs),2019,3778389,MO
-29000,Missouri,Total employment (number of jobs),2020,3690891,MO
-29000,Missouri,Total employment (number of jobs),2021,3792568,MO
-29000,Missouri,Total employment (number of jobs),2022,3880656,MO
-29000,Missouri,Total employment (number of jobs),2023,3979329,MO
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2017,48470.5,MT
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2018,49455.0,MT
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2019,50263.5,MT
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2020,49981.4,MT
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2021,53303.7,MT
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2022,55193.9,MT
-30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2023,57373.3,MT
-30000,Montana,Real per capita personal income 4/,2017,48257,MT
-30000,Montana,Real per capita personal income 4/,2018,50187,MT
-30000,Montana,Real per capita personal income 4/,2019,50993,MT
-30000,Montana,Real per capita personal income 4/,2020,55730,MT
-30000,Montana,Real per capita personal income 4/,2021,59336,MT
-30000,Montana,Real per capita personal income 4/,2022,58869,MT
-30000,Montana,Real per capita personal income 4/,2023,59807,MT
-30000,Montana,Total employment (number of jobs),2017,674409,MT
-30000,Montana,Total employment (number of jobs),2018,684043,MT
-30000,Montana,Total employment (number of jobs),2019,685589,MT
-30000,Montana,Total employment (number of jobs),2020,683384,MT
-30000,Montana,Total employment (number of jobs),2021,714924,MT
-30000,Montana,Total employment (number of jobs),2022,736656,MT
-30000,Montana,Total employment (number of jobs),2023,757299,MT
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2017,123219.9,NE
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2018,125543.4,NE
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2019,127568.9,NE
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2020,126734.9,NE
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2021,134939.9,NE
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2022,139440.9,NE
-31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2023,145019.6,NE
-31000,Nebraska,Real per capita personal income 4/,2017,55273,NE
-31000,Nebraska,Real per capita personal income 4/,2018,54975,NE
-31000,Nebraska,Real per capita personal income 4/,2019,55971,NE
-31000,Nebraska,Real per capita personal income 4/,2020,58594,NE
-31000,Nebraska,Real per capita personal income 4/,2021,63531,NE
-31000,Nebraska,Real per capita personal income 4/,2022,64333,NE
-31000,Nebraska,Real per capita personal income 4/,2023,65562,NE
-31000,Nebraska,Total employment (number of jobs),2017,1317730,NE
-31000,Nebraska,Total employment (number of jobs),2018,1330415,NE
-31000,Nebraska,Total employment (number of jobs),2019,1328396,NE
-31000,Nebraska,Total employment (number of jobs),2020,1305658,NE
-31000,Nebraska,Total employment (number of jobs),2021,1334512,NE
-31000,Nebraska,Total employment (number of jobs),2022,1358642,NE
-31000,Nebraska,Total employment (number of jobs),2023,1398244,NE
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2017,163199.1,NV
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2018,168638.5,NV
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2019,176029.7,NV
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2020,166077.0,NV
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2021,182474.1,NV
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2022,190463.3,NV
-32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2023,195405.6,NV
-32000,Nevada,Real per capita personal income 4/,2017,47169,NV
-32000,Nevada,Real per capita personal income 4/,2018,50302,NV
-32000,Nevada,Real per capita personal income 4/,2019,50857,NV
-32000,Nevada,Real per capita personal income 4/,2020,53910,NV
-32000,Nevada,Real per capita personal income 4/,2021,58599,NV
-32000,Nevada,Real per capita personal income 4/,2022,55910,NV
-32000,Nevada,Real per capita personal income 4/,2023,56723,NV
-32000,Nevada,Total employment (number of jobs),2017,1780614,NV
-32000,Nevada,Total employment (number of jobs),2018,1848890,NV
-32000,Nevada,Total employment (number of jobs),2019,1884199,NV
-32000,Nevada,Total employment (number of jobs),2020,1770765,NV
-32000,Nevada,Total employment (number of jobs),2021,1912664,NV
-32000,Nevada,Total employment (number of jobs),2022,2042787,NV
-32000,Nevada,Total employment (number of jobs),2023,2122456,NV
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2017,81179.6,NH
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2018,82269.5,NH
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2019,84438.2,NH
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2020,83152.6,NH
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2021,89949.3,NH
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2022,91416.1,NH
-33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2023,93466.7,NH
-33000,New Hampshire,Real per capita personal income 4/,2017,54856,NH
-33000,New Hampshire,Real per capita personal income 4/,2018,57229,NH
-33000,New Hampshire,Real per capita personal income 4/,2019,59502,NH
-33000,New Hampshire,Real per capita personal income 4/,2020,61479,NH
-33000,New Hampshire,Real per capita personal income 4/,2021,66057,NH
-33000,New Hampshire,Real per capita personal income 4/,2022,59838,NH
-33000,New Hampshire,Real per capita personal income 4/,2023,62236,NH
-33000,New Hampshire,Total employment (number of jobs),2017,882481,NH
-33000,New Hampshire,Total employment (number of jobs),2018,892584,NH
-33000,New Hampshire,Total employment (number of jobs),2019,890078,NH
-33000,New Hampshire,Total employment (number of jobs),2020,858485,NH
-33000,New Hampshire,Total employment (number of jobs),2021,894657,NH
-33000,New Hampshire,Total employment (number of jobs),2022,919580,NH
-33000,New Hampshire,Total employment (number of jobs),2023,945323,NH
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2017,590086.7,NJ
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2018,606892.2,NJ
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2019,618691.0,NJ
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2020,597221.4,NJ
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2021,632463.3,NJ
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2022,650235.8,NJ
-34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2023,663888.5,NJ
-34000,New Jersey,Real per capita personal income 4/,2017,56585,NJ
-34000,New Jersey,Real per capita personal income 4/,2018,56760,NJ
-34000,New Jersey,Real per capita personal income 4/,2019,58781,NJ
-34000,New Jersey,Real per capita personal income 4/,2020,60963,NJ
-34000,New Jersey,Real per capita personal income 4/,2021,64045,NJ
-34000,New Jersey,Real per capita personal income 4/,2022,61622,NJ
-34000,New Jersey,Real per capita personal income 4/,2023,62623,NJ
-34000,New Jersey,Total employment (number of jobs),2017,5448785,NJ
-34000,New Jersey,Total employment (number of jobs),2018,5550061,NJ
-34000,New Jersey,Total employment (number of jobs),2019,5571281,NJ
-34000,New Jersey,Total employment (number of jobs),2020,5319518,NJ
-34000,New Jersey,Total employment (number of jobs),2021,5585258,NJ
-34000,New Jersey,Total employment (number of jobs),2022,5874226,NJ
-34000,New Jersey,Total employment (number of jobs),2023,6036507,NJ
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2017,93210.1,NM
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2018,96077.0,NM
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2019,100342.2,NM
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2020,97622.4,NM
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2021,100917.6,NM
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2022,103301.6,NM
-35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2023,110323.7,NM
-35000,New Mexico,Real per capita personal income 4/,2017,41045,NM
-35000,New Mexico,Real per capita personal income 4/,2018,43916,NM
-35000,New Mexico,Real per capita personal income 4/,2019,44995,NM
-35000,New Mexico,Real per capita personal income 4/,2020,48522,NM
-35000,New Mexico,Real per capita personal income 4/,2021,51885,NM
-35000,New Mexico,Real per capita personal income 4/,2022,50335,NM
-35000,New Mexico,Real per capita personal income 4/,2023,50851,NM
-35000,New Mexico,Total employment (number of jobs),2017,1095489,NM
-35000,New Mexico,Total employment (number of jobs),2018,1110587,NM
-35000,New Mexico,Total employment (number of jobs),2019,1116429,NM
-35000,New Mexico,Total employment (number of jobs),2020,1068784,NM
-35000,New Mexico,Total employment (number of jobs),2021,1091164,NM
-35000,New Mexico,Total employment (number of jobs),2022,1129393,NM
-35000,New Mexico,Total employment (number of jobs),2023,1165897,NM
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2017,1624800.7,NY
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2018,1665186.8,NY
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2019,1704364.3,NY
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2020,1656784.8,NY
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2021,1736222.3,NY
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2022,1765102.1,NY
-36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2023,1791210.7,NY
-36000,New York,Real per capita personal income 4/,2017,56703,NY
-36000,New York,Real per capita personal income 4/,2018,57543,NY
-36000,New York,Real per capita personal income 4/,2019,58785,NY
-36000,New York,Real per capita personal income 4/,2020,61261,NY
-36000,New York,Real per capita personal income 4/,2021,63783,NY
-36000,New York,Real per capita personal income 4/,2022,62113,NY
-36000,New York,Real per capita personal income 4/,2023,63524,NY
-36000,New York,Total employment (number of jobs),2017,12391361,NY
-36000,New York,Total employment (number of jobs),2018,12655123,NY
-36000,New York,Total employment (number of jobs),2019,12745397,NY
-36000,New York,Total employment (number of jobs),2020,11871078,NY
-36000,New York,Total employment (number of jobs),2021,12226672,NY
-36000,New York,Total employment (number of jobs),2022,12780826,NY
-36000,New York,Total employment (number of jobs),2023,13172935,NY
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2017,546810.1,NC
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2018,556573.7,NC
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2019,567975.0,NC
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2020,564504.4,NC
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2021,600217.3,NC
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2022,619537.2,NC
-37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2023,638067.3,NC
-37000,North Carolina,Real per capita personal income 4/,2017,47617,NC
-37000,North Carolina,Real per capita personal income 4/,2018,48656,NC
-37000,North Carolina,Real per capita personal income 4/,2019,50959,NC
-37000,North Carolina,Real per capita personal income 4/,2020,54298,NC
-37000,North Carolina,Real per capita personal income 4/,2021,55908,NC
-37000,North Carolina,Real per capita personal income 4/,2022,54070,NC
-37000,North Carolina,Real per capita personal income 4/,2023,54554,NC
-37000,North Carolina,Total employment (number of jobs),2017,5919022,NC
-37000,North Carolina,Total employment (number of jobs),2018,6055657,NC
-37000,North Carolina,Total employment (number of jobs),2019,6148775,NC
-37000,North Carolina,Total employment (number of jobs),2020,6054094,NC
-37000,North Carolina,Total employment (number of jobs),2021,6317582,NC
-37000,North Carolina,Total employment (number of jobs),2022,6568490,NC
-37000,North Carolina,Total employment (number of jobs),2023,6772766,NC
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2017,56530.2,ND
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2018,58516.4,ND
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2019,59408.5,ND
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2020,55850.6,ND
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2021,56419.2,ND
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2022,55988.0,ND
-38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2023,60348.6,ND
-38000,North Dakota,Real per capita personal income 4/,2017,58576,ND
-38000,North Dakota,Real per capita personal income 4/,2018,59405,ND
-38000,North Dakota,Real per capita personal income 4/,2019,58841,ND
-38000,North Dakota,Real per capita personal income 4/,2020,63006,ND
-38000,North Dakota,Real per capita personal income 4/,2021,66709,ND
-38000,North Dakota,Real per capita personal income 4/,2022,69224,ND
-38000,North Dakota,Real per capita personal income 4/,2023,67549,ND
-38000,North Dakota,Total employment (number of jobs),2017,573077,ND
-38000,North Dakota,Total employment (number of jobs),2018,578397,ND
-38000,North Dakota,Total employment (number of jobs),2019,581324,ND
-38000,North Dakota,Total employment (number of jobs),2020,560280,ND
-38000,North Dakota,Total employment (number of jobs),2021,567468,ND
-38000,North Dakota,Total employment (number of jobs),2022,582032,ND
-38000,North Dakota,Total employment (number of jobs),2023,598198,ND
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2017,652187.5,OH
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2018,656212.0,OH
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2019,674063.9,OH
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2020,655243.3,OH
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2021,690478.9,OH
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2022,695257.9,OH
-39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2023,709816.6,OH
-39000,Ohio,Real per capita personal income 4/,2017,50277,OH
-39000,Ohio,Real per capita personal income 4/,2018,50530,OH
-39000,Ohio,Real per capita personal income 4/,2019,51252,OH
-39000,Ohio,Real per capita personal income 4/,2020,55081,OH
-39000,Ohio,Real per capita personal income 4/,2021,57180,OH
-39000,Ohio,Real per capita personal income 4/,2022,55009,OH
-39000,Ohio,Real per capita personal income 4/,2023,55626,OH
-39000,Ohio,Total employment (number of jobs),2017,6987847,OH
-39000,Ohio,Total employment (number of jobs),2018,7067380,OH
-39000,Ohio,Total employment (number of jobs),2019,7071408,OH
-39000,Ohio,Total employment (number of jobs),2020,6852799,OH
-39000,Ohio,Total employment (number of jobs),2021,7048045,OH
-39000,Ohio,Total employment (number of jobs),2022,7219914,OH
-39000,Ohio,Total employment (number of jobs),2023,7396029,OH
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2017,192538.6,OK
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2018,196030.5,OK
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2019,200072.2,OK
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2020,191560.9,OK
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2021,194132.8,OK
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2022,193940.5,OK
-40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2023,207923.3,OK
-40000,Oklahoma,Real per capita personal income 4/,2017,48368,OK
-40000,Oklahoma,Real per capita personal income 4/,2018,50412,OK
-40000,Oklahoma,Real per capita personal income 4/,2019,52200,OK
-40000,Oklahoma,Real per capita personal income 4/,2020,53478,OK
-40000,Oklahoma,Real per capita personal income 4/,2021,55745,OK
-40000,Oklahoma,Real per capita personal income 4/,2022,56357,OK
-40000,Oklahoma,Real per capita personal income 4/,2023,56954,OK
-40000,Oklahoma,Total employment (number of jobs),2017,2291944,OK
-40000,Oklahoma,Total employment (number of jobs),2018,2312261,OK
-40000,Oklahoma,Total employment (number of jobs),2019,2309379,OK
-40000,Oklahoma,Total employment (number of jobs),2020,2265288,OK
-40000,Oklahoma,Total employment (number of jobs),2021,2311442,OK
-40000,Oklahoma,Total employment (number of jobs),2022,2382391,OK
-40000,Oklahoma,Total employment (number of jobs),2023,2455127,OK
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2017,225534.5,OR
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2018,234308.3,OR
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2019,239794.8,OR
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2020,237424.2,OR
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2021,250325.8,OR
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2022,256062.7,OR
-41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2023,261951.5,OR
-41000,Oregon,Real per capita personal income 4/,2017,46979,OR
-41000,Oregon,Real per capita personal income 4/,2018,47087,OR
-41000,Oregon,Real per capita personal income 4/,2019,48657,OR
-41000,Oregon,Real per capita personal income 4/,2020,52512,OR
-41000,Oregon,Real per capita personal income 4/,2021,55584,OR
-41000,Oregon,Real per capita personal income 4/,2022,51849,OR
-41000,Oregon,Real per capita personal income 4/,2023,53799,OR
-41000,Oregon,Total employment (number of jobs),2017,2515986,OR
-41000,Oregon,Total employment (number of jobs),2018,2570069,OR
-41000,Oregon,Total employment (number of jobs),2019,2579015,OR
-41000,Oregon,Total employment (number of jobs),2020,2492991,OR
-41000,Oregon,Total employment (number of jobs),2021,2558977,OR
-41000,Oregon,Total employment (number of jobs),2022,2620141,OR
-41000,Oregon,Total employment (number of jobs),2023,2692813,OR
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2017,754318.0,PA
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2018,763855.4,PA
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2019,771852.5,PA
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2020,736381.3,PA
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2021,765508.8,PA
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2022,779360.6,PA
-42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2023,799228.8,PA
-42000,Pennsylvania,Real per capita personal income 4/,2017,52469,PA
-42000,Pennsylvania,Real per capita personal income 4/,2018,54503,PA
-42000,Pennsylvania,Real per capita personal income 4/,2019,55470,PA
-42000,Pennsylvania,Real per capita personal income 4/,2020,59101,PA
-42000,Pennsylvania,Real per capita personal income 4/,2021,61028,PA
-42000,Pennsylvania,Real per capita personal income 4/,2022,58632,PA
-42000,Pennsylvania,Real per capita personal income 4/,2023,58727,PA
-42000,Pennsylvania,Total employment (number of jobs),2017,7662469,PA
-42000,Pennsylvania,Total employment (number of jobs),2018,7763488,PA
-42000,Pennsylvania,Total employment (number of jobs),2019,7772024,PA
-42000,Pennsylvania,Total employment (number of jobs),2020,7412005,PA
-42000,Pennsylvania,Total employment (number of jobs),2021,7648692,PA
-42000,Pennsylvania,Total employment (number of jobs),2022,7900283,PA
-42000,Pennsylvania,Total employment (number of jobs),2023,8094606,PA
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2017,58771.6,RI
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2018,58740.1,RI
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2019,60157.6,RI
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2020,58231.7,RI
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2021,60803.0,RI
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2022,62279.4,RI
-44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2023,63277.0,RI
-44000,Rhode Island,Real per capita personal income 4/,2017,49320,RI
-44000,Rhode Island,Real per capita personal income 4/,2018,50153,RI
-44000,Rhode Island,Real per capita personal income 4/,2019,52103,RI
-44000,Rhode Island,Real per capita personal income 4/,2020,55797,RI
-44000,Rhode Island,Real per capita personal income 4/,2021,56628,RI
-44000,Rhode Island,Real per capita personal income 4/,2022,53188,RI
-44000,Rhode Island,Real per capita personal income 4/,2023,55329,RI
-44000,Rhode Island,Total employment (number of jobs),2017,638851,RI
-44000,Rhode Island,Total employment (number of jobs),2018,648727,RI
-44000,Rhode Island,Total employment (number of jobs),2019,650999,RI
-44000,Rhode Island,Total employment (number of jobs),2020,615667,RI
-44000,Rhode Island,Total employment (number of jobs),2021,640210,RI
-44000,Rhode Island,Total employment (number of jobs),2022,665432,RI
-44000,Rhode Island,Total employment (number of jobs),2023,681452,RI
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2017,224937.6,SC
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2018,231663.3,SC
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2019,239021.3,SC
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2020,233650.1,SC
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2021,245752.1,SC
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2022,254504.5,SC
-45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2023,262298.5,SC
-45000,South Carolina,Real per capita personal income 4/,2017,45728,SC
-45000,South Carolina,Real per capita personal income 4/,2018,46621,SC
-45000,South Carolina,Real per capita personal income 4/,2019,48814,SC
-45000,South Carolina,Real per capita personal income 4/,2020,51428,SC
-45000,South Carolina,Real per capita personal income 4/,2021,52266,SC
-45000,South Carolina,Real per capita personal income 4/,2022,50280,SC
-45000,South Carolina,Real per capita personal income 4/,2023,51100,SC
-45000,South Carolina,Total employment (number of jobs),2017,2759183,SC
-45000,South Carolina,Total employment (number of jobs),2018,2843694,SC
-45000,South Carolina,Total employment (number of jobs),2019,2882128,SC
-45000,South Carolina,Total employment (number of jobs),2020,2824762,SC
-45000,South Carolina,Total employment (number of jobs),2021,2937450,SC
-45000,South Carolina,Total employment (number of jobs),2022,3049805,SC
-45000,South Carolina,Total employment (number of jobs),2023,3149982,SC
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2017,51615.1,SD
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2018,51937.8,SD
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2019,52510.2,SD
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2020,52770.7,SD
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2021,55515.9,SD
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2022,55259.8,SD
-46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2023,57275.1,SD
-46000,South Dakota,Real per capita personal income 4/,2017,56740,SD
-46000,South Dakota,Real per capita personal income 4/,2018,55499,SD
-46000,South Dakota,Real per capita personal income 4/,2019,57343,SD
-46000,South Dakota,Real per capita personal income 4/,2020,62358,SD
-46000,South Dakota,Real per capita personal income 4/,2021,68414,SD
-46000,South Dakota,Real per capita personal income 4/,2022,68403,SD
-46000,South Dakota,Real per capita personal income 4/,2023,68315,SD
-46000,South Dakota,Total employment (number of jobs),2017,601254,SD
-46000,South Dakota,Total employment (number of jobs),2018,610179,SD
-46000,South Dakota,Total employment (number of jobs),2019,610159,SD
-46000,South Dakota,Total employment (number of jobs),2020,605992,SD
-46000,South Dakota,Total employment (number of jobs),2021,624995,SD
-46000,South Dakota,Total employment (number of jobs),2022,640975,SD
-46000,South Dakota,Total employment (number of jobs),2023,657014,SD
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2017,355417.5,TN
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2018,362363.7,TN
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2019,370197.4,TN
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2020,367863.6,TN
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2021,400243.6,TN
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2022,414470.8,TN
-47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2023,422087.7,TN
-47000,Tennessee,Real per capita personal income 4/,2017,47828,TN
-47000,Tennessee,Real per capita personal income 4/,2018,50874,TN
-47000,Tennessee,Real per capita personal income 4/,2019,51871,TN
-47000,Tennessee,Real per capita personal income 4/,2020,55019,TN
-47000,Tennessee,Real per capita personal income 4/,2021,58368,TN
-47000,Tennessee,Real per capita personal income 4/,2022,55608,TN
-47000,Tennessee,Real per capita personal income 4/,2023,55861,TN
-47000,Tennessee,Total employment (number of jobs),2017,4033011,TN
-47000,Tennessee,Total employment (number of jobs),2018,4120203,TN
-47000,Tennessee,Total employment (number of jobs),2019,4168023,TN
-47000,Tennessee,Total employment (number of jobs),2020,4119507,TN
-47000,Tennessee,Total employment (number of jobs),2021,4298499,TN
-47000,Tennessee,Total employment (number of jobs),2022,4480005,TN
-47000,Tennessee,Total employment (number of jobs),2023,4613274,TN
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2017,1667313.0,TX
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2018,1746543.3,TX
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2019,1806736.1,TX
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2020,1773657.1,TX
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2021,1879101.3,TX
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2022,1952708.6,TX
-48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2023,2097090.4,TX
-48000,Texas,Real per capita personal income 4/,2017,49944,TX
-48000,Texas,Real per capita personal income 4/,2018,51578,TX
-48000,Texas,Real per capita personal income 4/,2019,52342,TX
-48000,Texas,Real per capita personal income 4/,2020,53170,TX
-48000,Texas,Real per capita personal income 4/,2021,56263,TX
-48000,Texas,Real per capita personal income 4/,2022,55726,TX
-48000,Texas,Real per capita personal income 4/,2023,56621,TX
-48000,Texas,Total employment (number of jobs),2017,17104407,TX
-48000,Texas,Total employment (number of jobs),2018,17608884,TX
-48000,Texas,Total employment (number of jobs),2019,17899918,TX
-48000,Texas,Total employment (number of jobs),2020,17697051,TX
-48000,Texas,Total employment (number of jobs),2021,18552126,TX
-48000,Texas,Total employment (number of jobs),2022,19447935,TX
-48000,Texas,Total employment (number of jobs),2023,20172008,TX
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2017,172075.0,UT
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2018,182106.0,UT
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2019,192760.6,UT
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2020,194750.2,UT
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2021,210446.9,UT
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2022,217442.5,UT
-49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2023,225459.4,UT
-49000,Utah,Real per capita personal income 4/,2017,43710,UT
-49000,Utah,Real per capita personal income 4/,2018,46524,UT
-49000,Utah,Real per capita personal income 4/,2019,47936,UT
-49000,Utah,Real per capita personal income 4/,2020,52050,UT
-49000,Utah,Real per capita personal income 4/,2021,56578,UT
-49000,Utah,Real per capita personal income 4/,2022,55409,UT
-49000,Utah,Real per capita personal income 4/,2023,56100,UT
-49000,Utah,Total employment (number of jobs),2017,1995267,UT
-49000,Utah,Total employment (number of jobs),2018,2069738,UT
-49000,Utah,Total employment (number of jobs),2019,2102960,UT
-49000,Utah,Total employment (number of jobs),2020,2135682,UT
-49000,Utah,Total employment (number of jobs),2021,2249697,UT
-49000,Utah,Total employment (number of jobs),2022,2342012,UT
-49000,Utah,Total employment (number of jobs),2023,2416306,UT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2017,32589.2,VT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2018,32827.8,VT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2019,33339.4,VT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2020,32252.7,VT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2021,33721.9,VT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2022,34752.6,VT
-50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2023,35236.6,VT
-50000,Vermont,Real per capita personal income 4/,2017,49930,VT
-50000,Vermont,Real per capita personal income 4/,2018,50638,VT
-50000,Vermont,Real per capita personal income 4/,2019,52739,VT
-50000,Vermont,Real per capita personal income 4/,2020,54546,VT
-50000,Vermont,Real per capita personal income 4/,2021,56681,VT
-50000,Vermont,Real per capita personal income 4/,2022,54314,VT
-50000,Vermont,Real per capita personal income 4/,2023,57521,VT
-50000,Vermont,Total employment (number of jobs),2017,435861,VT
-50000,Vermont,Total employment (number of jobs),2018,437661,VT
-50000,Vermont,Total employment (number of jobs),2019,433446,VT
-50000,Vermont,Total employment (number of jobs),2020,409231,VT
-50000,Vermont,Total employment (number of jobs),2021,421138,VT
-50000,Vermont,Total employment (number of jobs),2022,430889,VT
-50000,Vermont,Total employment (number of jobs),2023,442378,VT
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2017,515167.2,VA
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2018,527767.5,VA
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2019,541028.0,VA
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2020,534532.3,VA
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2021,565470.6,VA
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2022,580475.2,VA
-51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2023,597597.1,VA
-51000,Virginia,Real per capita personal income 4/,2017,53826,VA
-51000,Virginia,Real per capita personal income 4/,2018,54030,VA
-51000,Virginia,Real per capita personal income 4/,2019,56459,VA
-51000,Virginia,Real per capita personal income 4/,2020,58253,VA
-51000,Virginia,Real per capita personal income 4/,2021,60190,VA
-51000,Virginia,Real per capita personal income 4/,2022,58889,VA
-51000,Virginia,Real per capita personal income 4/,2023,60869,VA
-51000,Virginia,Total employment (number of jobs),2017,5229126,VA
-51000,Virginia,Total employment (number of jobs),2018,5299069,VA
-51000,Virginia,Total employment (number of jobs),2019,5329257,VA
-51000,Virginia,Total employment (number of jobs),2020,5224635,VA
-51000,Virginia,Total employment (number of jobs),2021,5392104,VA
-51000,Virginia,Total employment (number of jobs),2022,5551518,VA
-51000,Virginia,Total employment (number of jobs),2023,5720000,VA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2017,527169.4,WA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2018,561785.7,WA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2019,588794.4,WA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2020,589156.8,WA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2021,630051.5,WA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2022,644075.1,WA
-53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2023,677238.0,WA
-53000,Washington,Real per capita personal income 4/,2017,52990,WA
-53000,Washington,Real per capita personal income 4/,2018,54841,WA
-53000,Washington,Real per capita personal income 4/,2019,56860,WA
-53000,Washington,Real per capita personal income 4/,2020,60091,WA
-53000,Washington,Real per capita personal income 4/,2021,62272,WA
-53000,Washington,Real per capita personal income 4/,2022,59296,WA
-53000,Washington,Real per capita personal income 4/,2023,61911,WA
-53000,Washington,Total employment (number of jobs),2017,4432271,WA
-53000,Washington,Total employment (number of jobs),2018,4537842,WA
-53000,Washington,Total employment (number of jobs),2019,4591912,WA
-53000,Washington,Total employment (number of jobs),2020,4434976,WA
-53000,Washington,Total employment (number of jobs),2021,4574714,WA
-53000,Washington,Total employment (number of jobs),2022,4764618,WA
-53000,Washington,Total employment (number of jobs),2023,4881542,WA
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2017,75172.4,WV
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2018,77406.5,WV
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2019,77162.2,WV
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2020,74553.8,WV
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2021,75765.1,WV
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2022,77188.0,WV
-54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2023,80798.2,WV
-54000,West Virginia,Real per capita personal income 4/,2017,43731,WV
-54000,West Virginia,Real per capita personal income 4/,2018,45021,WV
-54000,West Virginia,Real per capita personal income 4/,2019,46596,WV
-54000,West Virginia,Real per capita personal income 4/,2020,49233,WV
-54000,West Virginia,Real per capita personal income 4/,2021,49311,WV
-54000,West Virginia,Real per capita personal income 4/,2022,48479,WV
-54000,West Virginia,Real per capita personal income 4/,2023,48869,WV
-54000,West Virginia,Total employment (number of jobs),2017,888822,WV
-54000,West Virginia,Total employment (number of jobs),2018,898085,WV
-54000,West Virginia,Total employment (number of jobs),2019,881641,WV
-54000,West Virginia,Total employment (number of jobs),2020,840976,WV
-54000,West Virginia,Total employment (number of jobs),2021,864611,WV
-54000,West Virginia,Total employment (number of jobs),2022,885312,WV
-54000,West Virginia,Total employment (number of jobs),2023,903815,WV
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2017,321886.8,WI
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2018,328832.4,WI
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2019,333256.8,WI
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2020,322470.6,WI
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2021,334514.0,WI
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2022,339747.9,WI
-55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2023,344570.8,WI
-55000,Wisconsin,Real per capita personal income 4/,2017,51771,WI
-55000,Wisconsin,Real per capita personal income 4/,2018,52805,WI
-55000,Wisconsin,Real per capita personal income 4/,2019,53655,WI
-55000,Wisconsin,Real per capita personal income 4/,2020,57326,WI
-55000,Wisconsin,Real per capita personal income 4/,2021,59596,WI
-55000,Wisconsin,Real per capita personal income 4/,2022,57831,WI
-55000,Wisconsin,Real per capita personal income 4/,2023,57962,WI
-55000,Wisconsin,Total employment (number of jobs),2017,3678859,WI
-55000,Wisconsin,Total employment (number of jobs),2018,3721096,WI
-55000,Wisconsin,Total employment (number of jobs),2019,3717587,WI
-55000,Wisconsin,Total employment (number of jobs),2020,3580658,WI
-55000,Wisconsin,Total employment (number of jobs),2021,3682359,WI
-55000,Wisconsin,Total employment (number of jobs),2022,3775679,WI
-55000,Wisconsin,Total employment (number of jobs),2023,3855150,WI
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2017,37620.3,WY
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2018,37977.2,WY
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2019,38577.1,WY
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2020,36198.2,WY
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2021,37131.8,WY
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2022,37827.2,WY
-56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2023,40210.8,WY
-56000,Wyoming,Real per capita personal income 4/,2017,58146,WY
-56000,Wyoming,Real per capita personal income 4/,2018,62945,WY
-56000,Wyoming,Real per capita personal income 4/,2019,63606,WY
-56000,Wyoming,Real per capita personal income 4/,2020,67929,WY
-56000,Wyoming,Real per capita personal income 4/,2021,71298,WY
-56000,Wyoming,Real per capita personal income 4/,2022,71818,WY
-56000,Wyoming,Real per capita personal income 4/,2023,75015,WY
-56000,Wyoming,Total employment (number of jobs),2017,398968,WY
-56000,Wyoming,Total employment (number of jobs),2018,404591,WY
-56000,Wyoming,Total employment (number of jobs),2019,407870,WY
-56000,Wyoming,Total employment (number of jobs),2020,401353,WY
-56000,Wyoming,Total employment (number of jobs),2021,419813,WY
-56000,Wyoming,Total employment (number of jobs),2022,430153,WY
-56000,Wyoming,Total employment (number of jobs),2023,443007,WY
+geo_fips,geo_name,description,year,value,state_abbr.x,state_abbr.y
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2017,216615.5,AL,AL
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2018,220808.8,AL,AL
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2019,225272.8,AL,AL
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2020,222288.8,AL,AL
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2021,233726.6,AL,AL
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2022,238556.5,AL,AL
+01000,Alabama,Real GDP (millions of chained 2017 dollars) 1/,2023,245354.7,AL,AL
+01000,Alabama,Real per capita personal income 4/,2017,44472,AL,AL
+01000,Alabama,Real per capita personal income 4/,2018,46441,AL,AL
+01000,Alabama,Real per capita personal income 4/,2019,47137,AL,AL
+01000,Alabama,Real per capita personal income 4/,2020,50183,AL,AL
+01000,Alabama,Real per capita personal income 4/,2021,52707,AL,AL
+01000,Alabama,Real per capita personal income 4/,2022,50630,AL,AL
+01000,Alabama,Real per capita personal income 4/,2023,50039,AL,AL
+01000,Alabama,Total employment (number of jobs),2017,2649222,AL,AL
+01000,Alabama,Total employment (number of jobs),2018,2692424,AL,AL
+01000,Alabama,Total employment (number of jobs),2019,2712014,AL,AL
+01000,Alabama,Total employment (number of jobs),2020,2670753,AL,AL
+01000,Alabama,Total employment (number of jobs),2021,2769122,AL,AL
+01000,Alabama,Total employment (number of jobs),2022,2854910,AL,AL
+01000,Alabama,Total employment (number of jobs),2023,2939353,AL,AL
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2017,53550.9,AK,AK
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2018,52479.6,AK,AK
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2019,52377.5,AK,AK
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2020,50332.8,AK,AK
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2021,51454.1,AK,AK
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2022,50767.1,AK,AK
+02000,Alaska,Real GDP (millions of chained 2017 dollars) 1/,2023,54059.7,AK,AK
+02000,Alaska,Real per capita personal income 4/,2017,54005,AK,AK
+02000,Alaska,Real per capita personal income 4/,2018,55410,AK,AK
+02000,Alaska,Real per capita personal income 4/,2019,56835,AK,AK
+02000,Alaska,Real per capita personal income 4/,2020,58487,AK,AK
+02000,Alaska,Real per capita personal income 4/,2021,57520,AK,AK
+02000,Alaska,Real per capita personal income 4/,2022,58320,AK,AK
+02000,Alaska,Real per capita personal income 4/,2023,58470,AK,AK
+02000,Alaska,Total employment (number of jobs),2017,455550,AK,AK
+02000,Alaska,Total employment (number of jobs),2018,454776,AK,AK
+02000,Alaska,Total employment (number of jobs),2019,454794,AK,AK
+02000,Alaska,Total employment (number of jobs),2020,430867,AK,AK
+02000,Alaska,Total employment (number of jobs),2021,443037,AK,AK
+02000,Alaska,Total employment (number of jobs),2022,453783,AK,AK
+02000,Alaska,Total employment (number of jobs),2023,467287,AK,AK
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2017,333099,AZ,AZ
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2018,346398.3,AZ,AZ
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2019,359576.7,AZ,AZ
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2020,365027.7,AZ,AZ
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2021,395035.9,AZ,AZ
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2022,410228.4,AZ,AZ
+04000,Arizona,Real GDP (millions of chained 2017 dollars) 1/,2023,422399.6,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2017,44250,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2018,45656,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2019,47220,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2020,50269,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2021,54232,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2022,50856,AZ,AZ
+04000,Arizona,Real per capita personal income 4/,2023,51373,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2017,3740747,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2018,3854741,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2019,3929587,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2020,3919466,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2021,4085758,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2022,4241280,AZ,AZ
+04000,Arizona,Total employment (number of jobs),2023,4383684,AZ,AZ
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2017,123882.6,AR,AR
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2018,126371.2,AR,AR
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2019,127220,AR,AR
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2020,128340.9,AR,AR
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2021,137463.6,AR,AR
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2022,139560.7,AR,AR
+05000,Arkansas,Real GDP (millions of chained 2017 dollars) 1/,2023,142860.6,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2017,46835,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2018,48479,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2019,48247,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2020,51195,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2021,54650,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2022,54888,AR,AR
+05000,Arkansas,Real per capita personal income 4/,2023,55330,AR,AR
+05000,Arkansas,Total employment (number of jobs),2017,1639903,AR,AR
+05000,Arkansas,Total employment (number of jobs),2018,1658212,AR,AR
+05000,Arkansas,Total employment (number of jobs),2019,1663305,AR,AR
+05000,Arkansas,Total employment (number of jobs),2020,1638864,AR,AR
+05000,Arkansas,Total employment (number of jobs),2021,1684570,AR,AR
+05000,Arkansas,Total employment (number of jobs),2022,1745448,AR,AR
+05000,Arkansas,Total employment (number of jobs),2023,1788616,AR,AR
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2017,2740550.3,CA,CA
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2018,2850970.3,CA,CA
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2019,2969609,CA,CA
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2020,2933320.2,CA,CA
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2021,3154188.6,CA,CA
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2022,3184007.8,CA,CA
+06000,California,Real GDP (millions of chained 2017 dollars) 1/,2023,3248656.6,CA,CA
+06000,California,Real per capita personal income 4/,2017,52604,CA,CA
+06000,California,Real per capita personal income 4/,2018,53481,CA,CA
+06000,California,Real per capita personal income 4/,2019,55932,CA,CA
+06000,California,Real per capita personal income 4/,2020,60008,CA,CA
+06000,California,Real per capita personal income 4/,2021,63194,CA,CA
+06000,California,Real per capita personal income 4/,2022,58928,CA,CA
+06000,California,Real per capita personal income 4/,2023,59940,CA,CA
+06000,California,Total employment (number of jobs),2017,23548874,CA,CA
+06000,California,Total employment (number of jobs),2018,24077466,CA,CA
+06000,California,Total employment (number of jobs),2019,24224461,CA,CA
+06000,California,Total employment (number of jobs),2020,23152576,CA,CA
+06000,California,Total employment (number of jobs),2021,23932286,CA,CA
+06000,California,Total employment (number of jobs),2022,24941198,CA,CA
+06000,California,Total employment (number of jobs),2023,25417299,CA,CA
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2017,350209.1,CO,CO
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2018,365204.5,CO,CO
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2019,383725.6,CO,CO
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2020,380188.8,CO,CO
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2021,406451.9,CO,CO
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2022,418818.8,CO,CO
+08000,Colorado,Real GDP (millions of chained 2017 dollars) 1/,2023,437056,CO,CO
+08000,Colorado,Real per capita personal income 4/,2017,52739,CO,CO
+08000,Colorado,Real per capita personal income 4/,2018,56587,CO,CO
+08000,Colorado,Real per capita personal income 4/,2019,57863,CO,CO
+08000,Colorado,Real per capita personal income 4/,2020,59744,CO,CO
+08000,Colorado,Real per capita personal income 4/,2021,64129,CO,CO
+08000,Colorado,Real per capita personal income 4/,2022,64644,CO,CO
+08000,Colorado,Real per capita personal income 4/,2023,65589,CO,CO
+08000,Colorado,Total employment (number of jobs),2017,3760708,CO,CO
+08000,Colorado,Total employment (number of jobs),2018,3857981,CO,CO
+08000,Colorado,Total employment (number of jobs),2019,3894321,CO,CO
+08000,Colorado,Total employment (number of jobs),2020,3820820,CO,CO
+08000,Colorado,Total employment (number of jobs),2021,3987571,CO,CO
+08000,Colorado,Total employment (number of jobs),2022,4110187,CO,CO
+08000,Colorado,Total employment (number of jobs),2023,4241790,CO,CO
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2017,273875.1,CT,CT
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2018,274582.8,CT,CT
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2019,275225.4,CT,CT
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2020,260765.2,CT,CT
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2021,269838.7,CT,CT
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2022,278975.9,CT,CT
+09000,Connecticut,Real GDP (millions of chained 2017 dollars) 1/,2023,286628.4,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2017,64665,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2018,68093,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2019,69073,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2020,70057,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2021,73110,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2022,68981,CT,CT
+09000,Connecticut,Real per capita personal income 4/,2023,72040,CT,CT
+09000,Connecticut,Total employment (number of jobs),2017,2300273,CT,CT
+09000,Connecticut,Total employment (number of jobs),2018,2314465,CT,CT
+09000,Connecticut,Total employment (number of jobs),2019,2297925,CT,CT
+09000,Connecticut,Total employment (number of jobs),2020,2217360,CT,CT
+09000,Connecticut,Total employment (number of jobs),2021,2289368,CT,CT
+09000,Connecticut,Total employment (number of jobs),2022,2356018,CT,CT
+09000,Connecticut,Total employment (number of jobs),2023,2416621,CT,CT
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2017,69555.6,DE,DE
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2018,70856.4,DE,DE
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2019,74627.8,DE,DE
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2020,72506.8,DE,DE
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2021,74657.1,DE,DE
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2022,77149.2,DE,DE
+10000,Delaware,Real GDP (millions of chained 2017 dollars) 1/,2023,78014.4,DE,DE
+10000,Delaware,Real per capita personal income 4/,2017,50850,DE,DE
+10000,Delaware,Real per capita personal income 4/,2018,52109,DE,DE
+10000,Delaware,Real per capita personal income 4/,2019,52674,DE,DE
+10000,Delaware,Real per capita personal income 4/,2020,54954,DE,DE
+10000,Delaware,Real per capita personal income 4/,2021,56272,DE,DE
+10000,Delaware,Real per capita personal income 4/,2022,56282,DE,DE
+10000,Delaware,Real per capita personal income 4/,2023,55936,DE,DE
+10000,Delaware,Total employment (number of jobs),2017,584693,DE,DE
+10000,Delaware,Total employment (number of jobs),2018,597021,DE,DE
+10000,Delaware,Total employment (number of jobs),2019,602769,DE,DE
+10000,Delaware,Total employment (number of jobs),2020,592138,DE,DE
+10000,Delaware,Total employment (number of jobs),2021,620262,DE,DE
+10000,Delaware,Total employment (number of jobs),2022,643382,DE,DE
+10000,Delaware,Total employment (number of jobs),2023,663162,DE,DE
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2017,134298.8,NA,NA
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2018,138056.8,NA,NA
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2019,138909.7,NA,NA
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2020,137640.8,NA,NA
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2021,143141.4,NA,NA
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2022,144554.6,NA,NA
+11000,District of Columbia,Real GDP (millions of chained 2017 dollars) 1/,2023,146024.3,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2017,72416,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2018,72433,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2019,74139,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2020,78379,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2021,80587,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2022,77304,NA,NA
+11000,District of Columbia,Real per capita personal income 4/,2023,80060,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2017,902843,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2018,914319,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2019,915216,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2020,866067,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2021,869725,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2022,895212,NA,NA
+11000,District of Columbia,Total employment (number of jobs),2023,913376,NA,NA
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2017,1014866.9,FL,FL
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2018,1050433.8,FL,FL
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2019,1084913.9,FL,FL
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2020,1069758.8,FL,FL
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2021,1170526.3,FL,FL
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2022,1239883.6,FL,FL
+12000,Florida,Real GDP (millions of chained 2017 dollars) 1/,2023,1292787.6,FL,FL
+12000,Florida,Real per capita personal income 4/,2017,48133,FL,FL
+12000,Florida,Real per capita personal income 4/,2018,49932,FL,FL
+12000,Florida,Real per capita personal income 4/,2019,52124,FL,FL
+12000,Florida,Real per capita personal income 4/,2020,53853,FL,FL
+12000,Florida,Real per capita personal income 4/,2021,56443,FL,FL
+12000,Florida,Real per capita personal income 4/,2022,54430,FL,FL
+12000,Florida,Real per capita personal income 4/,2023,55153,FL,FL
+12000,Florida,Total employment (number of jobs),2017,12098388,FL,FL
+12000,Florida,Total employment (number of jobs),2018,12556216,FL,FL
+12000,Florida,Total employment (number of jobs),2019,12760885,FL,FL
+12000,Florida,Total employment (number of jobs),2020,12718985,FL,FL
+12000,Florida,Total employment (number of jobs),2021,13456889,FL,FL
+12000,Florida,Total employment (number of jobs),2022,14201476,FL,FL
+12000,Florida,Total employment (number of jobs),2023,14756561,FL,FL
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2017,583543.3,GA,GA
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2018,600934.7,GA,GA
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2019,620744.9,GA,GA
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2020,604745.9,GA,GA
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2021,643013.8,GA,GA
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2022,665678.1,GA,GA
+13000,Georgia,Real GDP (millions of chained 2017 dollars) 1/,2023,678201.2,GA,GA
+13000,Georgia,Real per capita personal income 4/,2017,47164,GA,GA
+13000,Georgia,Real per capita personal income 4/,2018,48286,GA,GA
+13000,Georgia,Real per capita personal income 4/,2019,49762,GA,GA
+13000,Georgia,Real per capita personal income 4/,2020,52199,GA,GA
+13000,Georgia,Real per capita personal income 4/,2021,53857,GA,GA
+13000,Georgia,Real per capita personal income 4/,2022,51597,GA,GA
+13000,Georgia,Real per capita personal income 4/,2023,51429,GA,GA
+13000,Georgia,Total employment (number of jobs),2017,6128089,GA,GA
+13000,Georgia,Total employment (number of jobs),2018,6287460,GA,GA
+13000,Georgia,Total employment (number of jobs),2019,6398769,GA,GA
+13000,Georgia,Total employment (number of jobs),2020,6326141,GA,GA
+13000,Georgia,Total employment (number of jobs),2021,6638710,GA,GA
+13000,Georgia,Total employment (number of jobs),2022,6931533,GA,GA
+13000,Georgia,Total employment (number of jobs),2023,7136747,GA,GA
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2017,87436.4,HI,HI
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2018,88836.4,HI,HI
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2019,88855.2,HI,HI
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2020,79840.1,HI,HI
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2021,84408.5,HI,HI
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2022,86887.8,HI,HI
+15000,Hawaii,Real GDP (millions of chained 2017 dollars) 1/,2023,88614.3,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2017,45830,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2018,45669,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2019,46703,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2020,48230,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2021,49904,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2022,48551,HI,HI
+15000,Hawaii,Real per capita personal income 4/,2023,50602,HI,HI
+15000,Hawaii,Total employment (number of jobs),2017,921135,HI,HI
+15000,Hawaii,Total employment (number of jobs),2018,924352,HI,HI
+15000,Hawaii,Total employment (number of jobs),2019,913949,HI,HI
+15000,Hawaii,Total employment (number of jobs),2020,817434,HI,HI
+15000,Hawaii,Total employment (number of jobs),2021,860684,HI,HI
+15000,Hawaii,Total employment (number of jobs),2022,895043,HI,HI
+15000,Hawaii,Total employment (number of jobs),2023,920860,HI,HI
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2017,72935.1,ID,ID
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2018,77652.1,ID,ID
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2019,81144.3,ID,ID
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2020,82717.4,ID,ID
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2021,88969.6,ID,ID
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2022,92903.7,ID,ID
+16000,Idaho,Real GDP (millions of chained 2017 dollars) 1/,2023,95897.9,ID,ID
+16000,Idaho,Real per capita personal income 4/,2017,43698,ID,ID
+16000,Idaho,Real per capita personal income 4/,2018,46334,ID,ID
+16000,Idaho,Real per capita personal income 4/,2019,48045,ID,ID
+16000,Idaho,Real per capita personal income 4/,2020,52230,ID,ID
+16000,Idaho,Real per capita personal income 4/,2021,55615,ID,ID
+16000,Idaho,Real per capita personal income 4/,2022,53668,ID,ID
+16000,Idaho,Real per capita personal income 4/,2023,53944,ID,ID
+16000,Idaho,Total employment (number of jobs),2017,1007831,ID,ID
+16000,Idaho,Total employment (number of jobs),2018,1041387,ID,ID
+16000,Idaho,Total employment (number of jobs),2019,1063420,ID,ID
+16000,Idaho,Total employment (number of jobs),2020,1077509,ID,ID
+16000,Idaho,Total employment (number of jobs),2021,1136894,ID,ID
+16000,Idaho,Total employment (number of jobs),2022,1179656,ID,ID
+16000,Idaho,Total employment (number of jobs),2023,1216926,ID,ID
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2017,832826.8,IL,IL
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2018,851517.2,IL,IL
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2019,858018.3,IL,IL
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2020,810200.9,IL,IL
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2021,855888.1,IL,IL
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2022,876536,IL,IL
+17000,Illinois,Real GDP (millions of chained 2017 dollars) 1/,2023,885651.3,IL,IL
+17000,Illinois,Real per capita personal income 4/,2017,53025,IL,IL
+17000,Illinois,Real per capita personal income 4/,2018,54882,IL,IL
+17000,Illinois,Real per capita personal income 4/,2019,56182,IL,IL
+17000,Illinois,Real per capita personal income 4/,2020,58814,IL,IL
+17000,Illinois,Real per capita personal income 4/,2021,60496,IL,IL
+17000,Illinois,Real per capita personal income 4/,2022,58388,IL,IL
+17000,Illinois,Real per capita personal income 4/,2023,60693,IL,IL
+17000,Illinois,Total employment (number of jobs),2017,7823072,IL,IL
+17000,Illinois,Total employment (number of jobs),2018,7880803,IL,IL
+17000,Illinois,Total employment (number of jobs),2019,7859167,IL,IL
+17000,Illinois,Total employment (number of jobs),2020,7519081,IL,IL
+17000,Illinois,Total employment (number of jobs),2021,7749922,IL,IL
+17000,Illinois,Total employment (number of jobs),2022,7994252,IL,IL
+17000,Illinois,Total employment (number of jobs),2023,8177655,IL,IL
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2017,357535.8,IN,IN
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2018,368762.9,IN,IN
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2019,370507.2,IN,IN
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2020,359787.3,IN,IN
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2021,387122,IN,IN
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2022,399280.8,IN,IN
+18000,Indiana,Real GDP (millions of chained 2017 dollars) 1/,2023,404290.3,IN,IN
+18000,Indiana,Real per capita personal income 4/,2017,49155,IN,IN
+18000,Indiana,Real per capita personal income 4/,2018,49297,IN,IN
+18000,Indiana,Real per capita personal income 4/,2019,50331,IN,IN
+18000,Indiana,Real per capita personal income 4/,2020,54036,IN,IN
+18000,Indiana,Real per capita personal income 4/,2021,56891,IN,IN
+18000,Indiana,Real per capita personal income 4/,2022,55333,IN,IN
+18000,Indiana,Real per capita personal income 4/,2023,55174,IN,IN
+18000,Indiana,Total employment (number of jobs),2017,3903424,IN,IN
+18000,Indiana,Total employment (number of jobs),2018,3963724,IN,IN
+18000,Indiana,Total employment (number of jobs),2019,3969443,IN,IN
+18000,Indiana,Total employment (number of jobs),2020,3842872,IN,IN
+18000,Indiana,Total employment (number of jobs),2021,3977956,IN,IN
+18000,Indiana,Total employment (number of jobs),2022,4107840,IN,IN
+18000,Indiana,Total employment (number of jobs),2023,4205137,IN,IN
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2017,187125,IA,IA
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2018,189245.1,IA,IA
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2019,188471.4,IA,IA
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2020,186328.2,IA,IA
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2021,201147.1,IA,IA
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2022,201580.4,IA,IA
+19000,Iowa,Real GDP (millions of chained 2017 dollars) 1/,2023,202051.4,IA,IA
+19000,Iowa,Real per capita personal income 4/,2017,52520,IA,IA
+19000,Iowa,Real per capita personal income 4/,2018,52149,IA,IA
+19000,Iowa,Real per capita personal income 4/,2019,52367,IA,IA
+19000,Iowa,Real per capita personal income 4/,2020,55657,IA,IA
+19000,Iowa,Real per capita personal income 4/,2021,59628,IA,IA
+19000,Iowa,Real per capita personal income 4/,2022,60081,IA,IA
+19000,Iowa,Real per capita personal income 4/,2023,58735,IA,IA
+19000,Iowa,Total employment (number of jobs),2017,2061826,IA,IA
+19000,Iowa,Total employment (number of jobs),2018,2076505,IA,IA
+19000,Iowa,Total employment (number of jobs),2019,2071286,IA,IA
+19000,Iowa,Total employment (number of jobs),2020,2010886,IA,IA
+19000,Iowa,Total employment (number of jobs),2021,2055845,IA,IA
+19000,Iowa,Total employment (number of jobs),2022,2094636,IA,IA
+19000,Iowa,Total employment (number of jobs),2023,2134298,IA,IA
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2017,166273.6,KS,KS
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2018,169796.9,KS,KS
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2019,169562.3,KS,KS
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2020,168056.8,KS,KS
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2021,172782.4,KS,KS
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2022,177470.1,KS,KS
+20000,Kansas,Real GDP (millions of chained 2017 dollars) 1/,2023,183795.6,KS,KS
+20000,Kansas,Real per capita personal income 4/,2017,52843,KS,KS
+20000,Kansas,Real per capita personal income 4/,2018,53374,KS,KS
+20000,Kansas,Real per capita personal income 4/,2019,54420,KS,KS
+20000,Kansas,Real per capita personal income 4/,2020,57229,KS,KS
+20000,Kansas,Real per capita personal income 4/,2021,59476,KS,KS
+20000,Kansas,Real per capita personal income 4/,2022,59919,KS,KS
+20000,Kansas,Real per capita personal income 4/,2023,61032,KS,KS
+20000,Kansas,Total employment (number of jobs),2017,1913433,KS,KS
+20000,Kansas,Total employment (number of jobs),2018,1925926,KS,KS
+20000,Kansas,Total employment (number of jobs),2019,1923958,KS,KS
+20000,Kansas,Total employment (number of jobs),2020,1878516,KS,KS
+20000,Kansas,Total employment (number of jobs),2021,1920138,KS,KS
+20000,Kansas,Total employment (number of jobs),2022,1953150,KS,KS
+20000,Kansas,Total employment (number of jobs),2023,1998292,KS,KS
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2017,203564,KY,KY
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2018,205940.1,KY,KY
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2019,211783.1,KY,KY
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2020,206049.6,KY,KY
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2021,215133.2,KY,KY
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2022,219755.6,KY,KY
+21000,Kentucky,Real GDP (millions of chained 2017 dollars) 1/,2023,224418,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2017,44983,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2018,45924,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2019,46959,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2020,50615,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2021,53332,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2022,50831,KY,KY
+21000,Kentucky,Real per capita personal income 4/,2023,50820,KY,KY
+21000,Kentucky,Total employment (number of jobs),2017,2520120,KY,KY
+21000,Kentucky,Total employment (number of jobs),2018,2546178,KY,KY
+21000,Kentucky,Total employment (number of jobs),2019,2549331,KY,KY
+21000,Kentucky,Total employment (number of jobs),2020,2470655,KY,KY
+21000,Kentucky,Total employment (number of jobs),2021,2556381,KY,KY
+21000,Kentucky,Total employment (number of jobs),2022,2637171,KY,KY
+21000,Kentucky,Total employment (number of jobs),2023,2709875,KY,KY
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2017,239830.7,LA,LA
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2018,245220.3,LA,LA
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2019,246674.4,LA,LA
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2020,228951.3,LA,LA
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2021,237839.2,LA,LA
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2022,236854.1,LA,LA
+22000,Louisiana,Real GDP (millions of chained 2017 dollars) 1/,2023,248615.5,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2017,47177,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2018,49184,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2019,49921,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2020,52708,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2021,55297,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2022,53109,LA,LA
+22000,Louisiana,Real per capita personal income 4/,2023,55317,LA,LA
+22000,Louisiana,Total employment (number of jobs),2017,2692542,LA,LA
+22000,Louisiana,Total employment (number of jobs),2018,2725271,LA,LA
+22000,Louisiana,Total employment (number of jobs),2019,2717240,LA,LA
+22000,Louisiana,Total employment (number of jobs),2020,2592329,LA,LA
+22000,Louisiana,Total employment (number of jobs),2021,2693999,LA,LA
+22000,Louisiana,Total employment (number of jobs),2022,2766938,LA,LA
+22000,Louisiana,Total employment (number of jobs),2023,2833528,LA,LA
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2017,63000.6,ME,ME
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2018,64806.3,ME,ME
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2019,66758.4,ME,ME
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2020,67410.9,ME,ME
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2021,71142.4,ME,ME
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2022,73036.2,ME,ME
+23000,Maine,Real GDP (millions of chained 2017 dollars) 1/,2023,75195.4,ME,ME
+23000,Maine,Real per capita personal income 4/,2017,47144,ME,ME
+23000,Maine,Real per capita personal income 4/,2018,47982,ME,ME
+23000,Maine,Real per capita personal income 4/,2019,50597,ME,ME
+23000,Maine,Real per capita personal income 4/,2020,53155,ME,ME
+23000,Maine,Real per capita personal income 4/,2021,55911,ME,ME
+23000,Maine,Real per capita personal income 4/,2022,52816,ME,ME
+23000,Maine,Real per capita personal income 4/,2023,55685,ME,ME
+23000,Maine,Total employment (number of jobs),2017,834280,ME,ME
+23000,Maine,Total employment (number of jobs),2018,843918,ME,ME
+23000,Maine,Total employment (number of jobs),2019,842370,ME,ME
+23000,Maine,Total employment (number of jobs),2020,812930,ME,ME
+23000,Maine,Total employment (number of jobs),2021,849228,ME,ME
+23000,Maine,Total employment (number of jobs),2022,867062,ME,ME
+23000,Maine,Total employment (number of jobs),2023,889717,ME,ME
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2017,399714.5,MD,MD
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2018,402480.9,MD,MD
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2019,402506.2,MD,MD
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2020,388782.8,MD,MD
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2021,406953.1,MD,MD
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2022,416406.2,MD,MD
+24000,Maryland,Real GDP (millions of chained 2017 dollars) 1/,2023,422866.3,MD,MD
+24000,Maryland,Real per capita personal income 4/,2017,54699,MD,MD
+24000,Maryland,Real per capita personal income 4/,2018,55322,MD,MD
+24000,Maryland,Real per capita personal income 4/,2019,56852,MD,MD
+24000,Maryland,Real per capita personal income 4/,2020,58445,MD,MD
+24000,Maryland,Real per capita personal income 4/,2021,59857,MD,MD
+24000,Maryland,Real per capita personal income 4/,2022,58615,MD,MD
+24000,Maryland,Real per capita personal income 4/,2023,60223,MD,MD
+24000,Maryland,Total employment (number of jobs),2017,3696841,MD,MD
+24000,Maryland,Total employment (number of jobs),2018,3752933,MD,MD
+24000,Maryland,Total employment (number of jobs),2019,3744561,MD,MD
+24000,Maryland,Total employment (number of jobs),2020,3621684,MD,MD
+24000,Maryland,Total employment (number of jobs),2021,3750186,MD,MD
+24000,Maryland,Total employment (number of jobs),2022,3866987,MD,MD
+24000,Maryland,Total employment (number of jobs),2023,3977287,MD,MD
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2017,530129.4,MA,MA
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2018,549262.1,MA,MA
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2019,566326.8,MA,MA
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2020,559765,MA,MA
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2021,595911.8,MA,MA
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2022,608052.9,MA,MA
+25000,Massachusetts,Real GDP (millions of chained 2017 dollars) 1/,2023,615504.5,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2017,61749,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2018,63345,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2019,65375,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2020,68017,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2021,72200,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2022,67908,MA,MA
+25000,Massachusetts,Real per capita personal income 4/,2023,69512,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2017,4778364,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2018,4855037,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2019,4872942,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2020,4600324,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2021,4777277,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2022,4940149,MA,MA
+25000,Massachusetts,Total employment (number of jobs),2023,5051772,MA,MA
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2017,505101.5,MI,MI
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2018,516843,MI,MI
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2019,521085.1,MI,MI
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2020,501893.8,MI,MI
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2021,530380.9,MI,MI
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2022,543720.9,MI,MI
+26000,Michigan,Real GDP (millions of chained 2017 dollars) 1/,2023,554256.2,MI,MI
+26000,Michigan,Real per capita personal income 4/,2017,48940,MI,MI
+26000,Michigan,Real per capita personal income 4/,2018,48952,MI,MI
+26000,Michigan,Real per capita personal income 4/,2019,49308,MI,MI
+26000,Michigan,Real per capita personal income 4/,2020,53583,MI,MI
+26000,Michigan,Real per capita personal income 4/,2021,55526,MI,MI
+26000,Michigan,Real per capita personal income 4/,2022,53426,MI,MI
+26000,Michigan,Real per capita personal income 4/,2023,53915,MI,MI
+26000,Michigan,Total employment (number of jobs),2017,5631139,MI,MI
+26000,Michigan,Total employment (number of jobs),2018,5715122,MI,MI
+26000,Michigan,Total employment (number of jobs),2019,5713441,MI,MI
+26000,Michigan,Total employment (number of jobs),2020,5388050,MI,MI
+26000,Michigan,Total employment (number of jobs),2021,5602299,MI,MI
+26000,Michigan,Total employment (number of jobs),2022,5807078,MI,MI
+26000,Michigan,Total employment (number of jobs),2023,5950022,MI,MI
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2017,354721.9,MN,MN
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2018,364799.7,MN,MN
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2019,369617.4,MN,MN
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2020,357475.6,MN,MN
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2021,377947,MN,MN
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2022,384727.7,MN,MN
+27000,Minnesota,Real GDP (millions of chained 2017 dollars) 1/,2023,390907.9,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2017,55762,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2018,55425,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2019,56756,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2020,60123,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2021,63085,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2022,61833,MN,MN
+27000,Minnesota,Real per capita personal income 4/,2023,61227,MN,MN
+27000,Minnesota,Total employment (number of jobs),2017,3735638,MN,MN
+27000,Minnesota,Total employment (number of jobs),2018,3776940,MN,MN
+27000,Minnesota,Total employment (number of jobs),2019,3782570,MN,MN
+27000,Minnesota,Total employment (number of jobs),2020,3607176,MN,MN
+27000,Minnesota,Total employment (number of jobs),2021,3711161,MN,MN
+27000,Minnesota,Total employment (number of jobs),2022,3804210,MN,MN
+27000,Minnesota,Total employment (number of jobs),2023,3897123,MN,MN
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2017,110281.4,MS,MS
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2018,110174.8,MS,MS
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2019,111207.8,MS,MS
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2020,110322.8,MS,MS
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2021,115675.1,MS,MS
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2022,116557.1,MS,MS
+28000,Mississippi,Real GDP (millions of chained 2017 dollars) 1/,2023,119548.4,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2017,41757,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2018,42877,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2019,43788,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2020,47531,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2021,49979,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2022,46533,MS,MS
+28000,Mississippi,Real per capita personal income 4/,2023,47239,MS,MS
+28000,Mississippi,Total employment (number of jobs),2017,1592198,MS,MS
+28000,Mississippi,Total employment (number of jobs),2018,1602929,MS,MS
+28000,Mississippi,Total employment (number of jobs),2019,1606893,MS,MS
+28000,Mississippi,Total employment (number of jobs),2020,1572607,MS,MS
+28000,Mississippi,Total employment (number of jobs),2021,1624491,MS,MS
+28000,Mississippi,Total employment (number of jobs),2022,1665251,MS,MS
+28000,Mississippi,Total employment (number of jobs),2023,1703755,MS,MS
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2017,311273.8,MO,MO
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2018,314182.4,MO,MO
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2019,321329.1,MO,MO
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2020,315332.6,MO,MO
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2021,331580.9,MO,MO
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2022,339652.4,MO,MO
+29000,Missouri,Real GDP (millions of chained 2017 dollars) 1/,2023,348487.4,MO,MO
+29000,Missouri,Real per capita personal income 4/,2017,48939,MO,MO
+29000,Missouri,Real per capita personal income 4/,2018,49937,MO,MO
+29000,Missouri,Real per capita personal income 4/,2019,50658,MO,MO
+29000,Missouri,Real per capita personal income 4/,2020,54222,MO,MO
+29000,Missouri,Real per capita personal income 4/,2021,56607,MO,MO
+29000,Missouri,Real per capita personal income 4/,2022,55878,MO,MO
+29000,Missouri,Real per capita personal income 4/,2023,56659,MO,MO
+29000,Missouri,Total employment (number of jobs),2017,3735873,MO,MO
+29000,Missouri,Total employment (number of jobs),2018,3777370,MO,MO
+29000,Missouri,Total employment (number of jobs),2019,3778389,MO,MO
+29000,Missouri,Total employment (number of jobs),2020,3690891,MO,MO
+29000,Missouri,Total employment (number of jobs),2021,3792568,MO,MO
+29000,Missouri,Total employment (number of jobs),2022,3880656,MO,MO
+29000,Missouri,Total employment (number of jobs),2023,3979329,MO,MO
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2017,48470.5,MT,MT
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2018,49455,MT,MT
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2019,50263.5,MT,MT
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2020,49981.4,MT,MT
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2021,53303.7,MT,MT
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2022,55193.9,MT,MT
+30000,Montana,Real GDP (millions of chained 2017 dollars) 1/,2023,57373.3,MT,MT
+30000,Montana,Real per capita personal income 4/,2017,48257,MT,MT
+30000,Montana,Real per capita personal income 4/,2018,50187,MT,MT
+30000,Montana,Real per capita personal income 4/,2019,50993,MT,MT
+30000,Montana,Real per capita personal income 4/,2020,55730,MT,MT
+30000,Montana,Real per capita personal income 4/,2021,59336,MT,MT
+30000,Montana,Real per capita personal income 4/,2022,58869,MT,MT
+30000,Montana,Real per capita personal income 4/,2023,59807,MT,MT
+30000,Montana,Total employment (number of jobs),2017,674409,MT,MT
+30000,Montana,Total employment (number of jobs),2018,684043,MT,MT
+30000,Montana,Total employment (number of jobs),2019,685589,MT,MT
+30000,Montana,Total employment (number of jobs),2020,683384,MT,MT
+30000,Montana,Total employment (number of jobs),2021,714924,MT,MT
+30000,Montana,Total employment (number of jobs),2022,736656,MT,MT
+30000,Montana,Total employment (number of jobs),2023,757299,MT,MT
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2017,123219.9,NE,NE
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2018,125543.4,NE,NE
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2019,127568.9,NE,NE
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2020,126734.9,NE,NE
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2021,134939.9,NE,NE
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2022,139440.9,NE,NE
+31000,Nebraska,Real GDP (millions of chained 2017 dollars) 1/,2023,145019.6,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2017,55273,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2018,54975,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2019,55971,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2020,58594,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2021,63531,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2022,64333,NE,NE
+31000,Nebraska,Real per capita personal income 4/,2023,65562,NE,NE
+31000,Nebraska,Total employment (number of jobs),2017,1317730,NE,NE
+31000,Nebraska,Total employment (number of jobs),2018,1330415,NE,NE
+31000,Nebraska,Total employment (number of jobs),2019,1328396,NE,NE
+31000,Nebraska,Total employment (number of jobs),2020,1305658,NE,NE
+31000,Nebraska,Total employment (number of jobs),2021,1334512,NE,NE
+31000,Nebraska,Total employment (number of jobs),2022,1358642,NE,NE
+31000,Nebraska,Total employment (number of jobs),2023,1398244,NE,NE
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2017,163199.1,NV,NV
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2018,168638.5,NV,NV
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2019,176029.7,NV,NV
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2020,166077,NV,NV
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2021,182474.1,NV,NV
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2022,190463.3,NV,NV
+32000,Nevada,Real GDP (millions of chained 2017 dollars) 1/,2023,195405.6,NV,NV
+32000,Nevada,Real per capita personal income 4/,2017,47169,NV,NV
+32000,Nevada,Real per capita personal income 4/,2018,50302,NV,NV
+32000,Nevada,Real per capita personal income 4/,2019,50857,NV,NV
+32000,Nevada,Real per capita personal income 4/,2020,53910,NV,NV
+32000,Nevada,Real per capita personal income 4/,2021,58599,NV,NV
+32000,Nevada,Real per capita personal income 4/,2022,55910,NV,NV
+32000,Nevada,Real per capita personal income 4/,2023,56723,NV,NV
+32000,Nevada,Total employment (number of jobs),2017,1780614,NV,NV
+32000,Nevada,Total employment (number of jobs),2018,1848890,NV,NV
+32000,Nevada,Total employment (number of jobs),2019,1884199,NV,NV
+32000,Nevada,Total employment (number of jobs),2020,1770765,NV,NV
+32000,Nevada,Total employment (number of jobs),2021,1912664,NV,NV
+32000,Nevada,Total employment (number of jobs),2022,2042787,NV,NV
+32000,Nevada,Total employment (number of jobs),2023,2122456,NV,NV
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2017,81179.6,NH,NH
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2018,82269.5,NH,NH
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2019,84438.2,NH,NH
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2020,83152.6,NH,NH
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2021,89949.3,NH,NH
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2022,91416.1,NH,NH
+33000,New Hampshire,Real GDP (millions of chained 2017 dollars) 1/,2023,93466.7,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2017,54856,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2018,57229,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2019,59502,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2020,61479,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2021,66057,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2022,59838,NH,NH
+33000,New Hampshire,Real per capita personal income 4/,2023,62236,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2017,882481,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2018,892584,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2019,890078,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2020,858485,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2021,894657,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2022,919580,NH,NH
+33000,New Hampshire,Total employment (number of jobs),2023,945323,NH,NH
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2017,590086.7,NJ,NJ
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2018,606892.2,NJ,NJ
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2019,618691,NJ,NJ
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2020,597221.4,NJ,NJ
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2021,632463.3,NJ,NJ
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2022,650235.8,NJ,NJ
+34000,New Jersey,Real GDP (millions of chained 2017 dollars) 1/,2023,663888.5,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2017,56585,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2018,56760,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2019,58781,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2020,60963,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2021,64045,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2022,61622,NJ,NJ
+34000,New Jersey,Real per capita personal income 4/,2023,62623,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2017,5448785,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2018,5550061,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2019,5571281,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2020,5319518,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2021,5585258,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2022,5874226,NJ,NJ
+34000,New Jersey,Total employment (number of jobs),2023,6036507,NJ,NJ
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2017,93210.1,NM,NM
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2018,96077,NM,NM
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2019,100342.2,NM,NM
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2020,97622.4,NM,NM
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2021,100917.6,NM,NM
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2022,103301.6,NM,NM
+35000,New Mexico,Real GDP (millions of chained 2017 dollars) 1/,2023,110323.7,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2017,41045,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2018,43916,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2019,44995,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2020,48522,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2021,51885,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2022,50335,NM,NM
+35000,New Mexico,Real per capita personal income 4/,2023,50851,NM,NM
+35000,New Mexico,Total employment (number of jobs),2017,1095489,NM,NM
+35000,New Mexico,Total employment (number of jobs),2018,1110587,NM,NM
+35000,New Mexico,Total employment (number of jobs),2019,1116429,NM,NM
+35000,New Mexico,Total employment (number of jobs),2020,1068784,NM,NM
+35000,New Mexico,Total employment (number of jobs),2021,1091164,NM,NM
+35000,New Mexico,Total employment (number of jobs),2022,1129393,NM,NM
+35000,New Mexico,Total employment (number of jobs),2023,1165897,NM,NM
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2017,1624800.7,NY,NY
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2018,1665186.8,NY,NY
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2019,1704364.3,NY,NY
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2020,1656784.8,NY,NY
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2021,1736222.3,NY,NY
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2022,1765102.1,NY,NY
+36000,New York,Real GDP (millions of chained 2017 dollars) 1/,2023,1791210.7,NY,NY
+36000,New York,Real per capita personal income 4/,2017,56703,NY,NY
+36000,New York,Real per capita personal income 4/,2018,57543,NY,NY
+36000,New York,Real per capita personal income 4/,2019,58785,NY,NY
+36000,New York,Real per capita personal income 4/,2020,61261,NY,NY
+36000,New York,Real per capita personal income 4/,2021,63783,NY,NY
+36000,New York,Real per capita personal income 4/,2022,62113,NY,NY
+36000,New York,Real per capita personal income 4/,2023,63524,NY,NY
+36000,New York,Total employment (number of jobs),2017,12391361,NY,NY
+36000,New York,Total employment (number of jobs),2018,12655123,NY,NY
+36000,New York,Total employment (number of jobs),2019,12745397,NY,NY
+36000,New York,Total employment (number of jobs),2020,11871078,NY,NY
+36000,New York,Total employment (number of jobs),2021,12226672,NY,NY
+36000,New York,Total employment (number of jobs),2022,12780826,NY,NY
+36000,New York,Total employment (number of jobs),2023,13172935,NY,NY
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2017,546810.1,NC,NC
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2018,556573.7,NC,NC
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2019,567975,NC,NC
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2020,564504.4,NC,NC
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2021,600217.3,NC,NC
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2022,619537.2,NC,NC
+37000,North Carolina,Real GDP (millions of chained 2017 dollars) 1/,2023,638067.3,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2017,47617,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2018,48656,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2019,50959,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2020,54298,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2021,55908,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2022,54070,NC,NC
+37000,North Carolina,Real per capita personal income 4/,2023,54554,NC,NC
+37000,North Carolina,Total employment (number of jobs),2017,5919022,NC,NC
+37000,North Carolina,Total employment (number of jobs),2018,6055657,NC,NC
+37000,North Carolina,Total employment (number of jobs),2019,6148775,NC,NC
+37000,North Carolina,Total employment (number of jobs),2020,6054094,NC,NC
+37000,North Carolina,Total employment (number of jobs),2021,6317582,NC,NC
+37000,North Carolina,Total employment (number of jobs),2022,6568490,NC,NC
+37000,North Carolina,Total employment (number of jobs),2023,6772766,NC,NC
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2017,56530.2,ND,ND
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2018,58516.4,ND,ND
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2019,59408.5,ND,ND
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2020,55850.6,ND,ND
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2021,56419.2,ND,ND
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2022,55988,ND,ND
+38000,North Dakota,Real GDP (millions of chained 2017 dollars) 1/,2023,60348.6,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2017,58576,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2018,59405,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2019,58841,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2020,63006,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2021,66709,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2022,69224,ND,ND
+38000,North Dakota,Real per capita personal income 4/,2023,67549,ND,ND
+38000,North Dakota,Total employment (number of jobs),2017,573077,ND,ND
+38000,North Dakota,Total employment (number of jobs),2018,578397,ND,ND
+38000,North Dakota,Total employment (number of jobs),2019,581324,ND,ND
+38000,North Dakota,Total employment (number of jobs),2020,560280,ND,ND
+38000,North Dakota,Total employment (number of jobs),2021,567468,ND,ND
+38000,North Dakota,Total employment (number of jobs),2022,582032,ND,ND
+38000,North Dakota,Total employment (number of jobs),2023,598198,ND,ND
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2017,652187.5,OH,OH
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2018,656212,OH,OH
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2019,674063.9,OH,OH
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2020,655243.3,OH,OH
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2021,690478.9,OH,OH
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2022,695257.9,OH,OH
+39000,Ohio,Real GDP (millions of chained 2017 dollars) 1/,2023,709816.6,OH,OH
+39000,Ohio,Real per capita personal income 4/,2017,50277,OH,OH
+39000,Ohio,Real per capita personal income 4/,2018,50530,OH,OH
+39000,Ohio,Real per capita personal income 4/,2019,51252,OH,OH
+39000,Ohio,Real per capita personal income 4/,2020,55081,OH,OH
+39000,Ohio,Real per capita personal income 4/,2021,57180,OH,OH
+39000,Ohio,Real per capita personal income 4/,2022,55009,OH,OH
+39000,Ohio,Real per capita personal income 4/,2023,55626,OH,OH
+39000,Ohio,Total employment (number of jobs),2017,6987847,OH,OH
+39000,Ohio,Total employment (number of jobs),2018,7067380,OH,OH
+39000,Ohio,Total employment (number of jobs),2019,7071408,OH,OH
+39000,Ohio,Total employment (number of jobs),2020,6852799,OH,OH
+39000,Ohio,Total employment (number of jobs),2021,7048045,OH,OH
+39000,Ohio,Total employment (number of jobs),2022,7219914,OH,OH
+39000,Ohio,Total employment (number of jobs),2023,7396029,OH,OH
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2017,192538.6,OK,OK
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2018,196030.5,OK,OK
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2019,200072.2,OK,OK
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2020,191560.9,OK,OK
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2021,194132.8,OK,OK
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2022,193940.5,OK,OK
+40000,Oklahoma,Real GDP (millions of chained 2017 dollars) 1/,2023,207923.3,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2017,48368,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2018,50412,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2019,52200,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2020,53478,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2021,55745,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2022,56357,OK,OK
+40000,Oklahoma,Real per capita personal income 4/,2023,56954,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2017,2291944,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2018,2312261,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2019,2309379,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2020,2265288,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2021,2311442,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2022,2382391,OK,OK
+40000,Oklahoma,Total employment (number of jobs),2023,2455127,OK,OK
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2017,225534.5,OR,OR
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2018,234308.3,OR,OR
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2019,239794.8,OR,OR
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2020,237424.2,OR,OR
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2021,250325.8,OR,OR
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2022,256062.7,OR,OR
+41000,Oregon,Real GDP (millions of chained 2017 dollars) 1/,2023,261951.5,OR,OR
+41000,Oregon,Real per capita personal income 4/,2017,46979,OR,OR
+41000,Oregon,Real per capita personal income 4/,2018,47087,OR,OR
+41000,Oregon,Real per capita personal income 4/,2019,48657,OR,OR
+41000,Oregon,Real per capita personal income 4/,2020,52512,OR,OR
+41000,Oregon,Real per capita personal income 4/,2021,55584,OR,OR
+41000,Oregon,Real per capita personal income 4/,2022,51849,OR,OR
+41000,Oregon,Real per capita personal income 4/,2023,53799,OR,OR
+41000,Oregon,Total employment (number of jobs),2017,2515986,OR,OR
+41000,Oregon,Total employment (number of jobs),2018,2570069,OR,OR
+41000,Oregon,Total employment (number of jobs),2019,2579015,OR,OR
+41000,Oregon,Total employment (number of jobs),2020,2492991,OR,OR
+41000,Oregon,Total employment (number of jobs),2021,2558977,OR,OR
+41000,Oregon,Total employment (number of jobs),2022,2620141,OR,OR
+41000,Oregon,Total employment (number of jobs),2023,2692813,OR,OR
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2017,754318,PA,PA
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2018,763855.4,PA,PA
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2019,771852.5,PA,PA
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2020,736381.3,PA,PA
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2021,765508.8,PA,PA
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2022,779360.6,PA,PA
+42000,Pennsylvania,Real GDP (millions of chained 2017 dollars) 1/,2023,799228.8,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2017,52469,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2018,54503,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2019,55470,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2020,59101,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2021,61028,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2022,58632,PA,PA
+42000,Pennsylvania,Real per capita personal income 4/,2023,58727,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2017,7662469,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2018,7763488,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2019,7772024,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2020,7412005,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2021,7648692,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2022,7900283,PA,PA
+42000,Pennsylvania,Total employment (number of jobs),2023,8094606,PA,PA
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2017,58771.6,RI,RI
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2018,58740.1,RI,RI
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2019,60157.6,RI,RI
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2020,58231.7,RI,RI
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2021,60803,RI,RI
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2022,62279.4,RI,RI
+44000,Rhode Island,Real GDP (millions of chained 2017 dollars) 1/,2023,63277,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2017,49320,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2018,50153,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2019,52103,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2020,55797,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2021,56628,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2022,53188,RI,RI
+44000,Rhode Island,Real per capita personal income 4/,2023,55329,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2017,638851,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2018,648727,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2019,650999,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2020,615667,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2021,640210,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2022,665432,RI,RI
+44000,Rhode Island,Total employment (number of jobs),2023,681452,RI,RI
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2017,224937.6,SC,SC
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2018,231663.3,SC,SC
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2019,239021.3,SC,SC
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2020,233650.1,SC,SC
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2021,245752.1,SC,SC
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2022,254504.5,SC,SC
+45000,South Carolina,Real GDP (millions of chained 2017 dollars) 1/,2023,262298.5,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2017,45728,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2018,46621,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2019,48814,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2020,51428,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2021,52266,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2022,50280,SC,SC
+45000,South Carolina,Real per capita personal income 4/,2023,51100,SC,SC
+45000,South Carolina,Total employment (number of jobs),2017,2759183,SC,SC
+45000,South Carolina,Total employment (number of jobs),2018,2843694,SC,SC
+45000,South Carolina,Total employment (number of jobs),2019,2882128,SC,SC
+45000,South Carolina,Total employment (number of jobs),2020,2824762,SC,SC
+45000,South Carolina,Total employment (number of jobs),2021,2937450,SC,SC
+45000,South Carolina,Total employment (number of jobs),2022,3049805,SC,SC
+45000,South Carolina,Total employment (number of jobs),2023,3149982,SC,SC
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2017,51615.1,SD,SD
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2018,51937.8,SD,SD
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2019,52510.2,SD,SD
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2020,52770.7,SD,SD
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2021,55515.9,SD,SD
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2022,55259.8,SD,SD
+46000,South Dakota,Real GDP (millions of chained 2017 dollars) 1/,2023,57275.1,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2017,56740,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2018,55499,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2019,57343,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2020,62358,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2021,68414,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2022,68403,SD,SD
+46000,South Dakota,Real per capita personal income 4/,2023,68315,SD,SD
+46000,South Dakota,Total employment (number of jobs),2017,601254,SD,SD
+46000,South Dakota,Total employment (number of jobs),2018,610179,SD,SD
+46000,South Dakota,Total employment (number of jobs),2019,610159,SD,SD
+46000,South Dakota,Total employment (number of jobs),2020,605992,SD,SD
+46000,South Dakota,Total employment (number of jobs),2021,624995,SD,SD
+46000,South Dakota,Total employment (number of jobs),2022,640975,SD,SD
+46000,South Dakota,Total employment (number of jobs),2023,657014,SD,SD
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2017,355417.5,TN,TN
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2018,362363.7,TN,TN
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2019,370197.4,TN,TN
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2020,367863.6,TN,TN
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2021,400243.6,TN,TN
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2022,414470.8,TN,TN
+47000,Tennessee,Real GDP (millions of chained 2017 dollars) 1/,2023,422087.7,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2017,47828,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2018,50874,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2019,51871,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2020,55019,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2021,58368,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2022,55608,TN,TN
+47000,Tennessee,Real per capita personal income 4/,2023,55861,TN,TN
+47000,Tennessee,Total employment (number of jobs),2017,4033011,TN,TN
+47000,Tennessee,Total employment (number of jobs),2018,4120203,TN,TN
+47000,Tennessee,Total employment (number of jobs),2019,4168023,TN,TN
+47000,Tennessee,Total employment (number of jobs),2020,4119507,TN,TN
+47000,Tennessee,Total employment (number of jobs),2021,4298499,TN,TN
+47000,Tennessee,Total employment (number of jobs),2022,4480005,TN,TN
+47000,Tennessee,Total employment (number of jobs),2023,4613274,TN,TN
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2017,1667313,TX,TX
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2018,1746543.3,TX,TX
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2019,1806736.1,TX,TX
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2020,1773657.1,TX,TX
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2021,1879101.3,TX,TX
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2022,1952708.6,TX,TX
+48000,Texas,Real GDP (millions of chained 2017 dollars) 1/,2023,2097090.4,TX,TX
+48000,Texas,Real per capita personal income 4/,2017,49944,TX,TX
+48000,Texas,Real per capita personal income 4/,2018,51578,TX,TX
+48000,Texas,Real per capita personal income 4/,2019,52342,TX,TX
+48000,Texas,Real per capita personal income 4/,2020,53170,TX,TX
+48000,Texas,Real per capita personal income 4/,2021,56263,TX,TX
+48000,Texas,Real per capita personal income 4/,2022,55726,TX,TX
+48000,Texas,Real per capita personal income 4/,2023,56621,TX,TX
+48000,Texas,Total employment (number of jobs),2017,17104407,TX,TX
+48000,Texas,Total employment (number of jobs),2018,17608884,TX,TX
+48000,Texas,Total employment (number of jobs),2019,17899918,TX,TX
+48000,Texas,Total employment (number of jobs),2020,17697051,TX,TX
+48000,Texas,Total employment (number of jobs),2021,18552126,TX,TX
+48000,Texas,Total employment (number of jobs),2022,19447935,TX,TX
+48000,Texas,Total employment (number of jobs),2023,20172008,TX,TX
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2017,172075,UT,UT
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2018,182106,UT,UT
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2019,192760.6,UT,UT
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2020,194750.2,UT,UT
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2021,210446.9,UT,UT
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2022,217442.5,UT,UT
+49000,Utah,Real GDP (millions of chained 2017 dollars) 1/,2023,225459.4,UT,UT
+49000,Utah,Real per capita personal income 4/,2017,43710,UT,UT
+49000,Utah,Real per capita personal income 4/,2018,46524,UT,UT
+49000,Utah,Real per capita personal income 4/,2019,47936,UT,UT
+49000,Utah,Real per capita personal income 4/,2020,52050,UT,UT
+49000,Utah,Real per capita personal income 4/,2021,56578,UT,UT
+49000,Utah,Real per capita personal income 4/,2022,55409,UT,UT
+49000,Utah,Real per capita personal income 4/,2023,56100,UT,UT
+49000,Utah,Total employment (number of jobs),2017,1995267,UT,UT
+49000,Utah,Total employment (number of jobs),2018,2069738,UT,UT
+49000,Utah,Total employment (number of jobs),2019,2102960,UT,UT
+49000,Utah,Total employment (number of jobs),2020,2135682,UT,UT
+49000,Utah,Total employment (number of jobs),2021,2249697,UT,UT
+49000,Utah,Total employment (number of jobs),2022,2342012,UT,UT
+49000,Utah,Total employment (number of jobs),2023,2416306,UT,UT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2017,32589.2,VT,VT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2018,32827.8,VT,VT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2019,33339.4,VT,VT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2020,32252.7,VT,VT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2021,33721.9,VT,VT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2022,34752.6,VT,VT
+50000,Vermont,Real GDP (millions of chained 2017 dollars) 1/,2023,35236.6,VT,VT
+50000,Vermont,Real per capita personal income 4/,2017,49930,VT,VT
+50000,Vermont,Real per capita personal income 4/,2018,50638,VT,VT
+50000,Vermont,Real per capita personal income 4/,2019,52739,VT,VT
+50000,Vermont,Real per capita personal income 4/,2020,54546,VT,VT
+50000,Vermont,Real per capita personal income 4/,2021,56681,VT,VT
+50000,Vermont,Real per capita personal income 4/,2022,54314,VT,VT
+50000,Vermont,Real per capita personal income 4/,2023,57521,VT,VT
+50000,Vermont,Total employment (number of jobs),2017,435861,VT,VT
+50000,Vermont,Total employment (number of jobs),2018,437661,VT,VT
+50000,Vermont,Total employment (number of jobs),2019,433446,VT,VT
+50000,Vermont,Total employment (number of jobs),2020,409231,VT,VT
+50000,Vermont,Total employment (number of jobs),2021,421138,VT,VT
+50000,Vermont,Total employment (number of jobs),2022,430889,VT,VT
+50000,Vermont,Total employment (number of jobs),2023,442378,VT,VT
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2017,515167.2,VA,VA
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2018,527767.5,VA,VA
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2019,541028,VA,VA
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2020,534532.3,VA,VA
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2021,565470.6,VA,VA
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2022,580475.2,VA,VA
+51000,Virginia,Real GDP (millions of chained 2017 dollars) 1/,2023,597597.1,VA,VA
+51000,Virginia,Real per capita personal income 4/,2017,53826,VA,VA
+51000,Virginia,Real per capita personal income 4/,2018,54030,VA,VA
+51000,Virginia,Real per capita personal income 4/,2019,56459,VA,VA
+51000,Virginia,Real per capita personal income 4/,2020,58253,VA,VA
+51000,Virginia,Real per capita personal income 4/,2021,60190,VA,VA
+51000,Virginia,Real per capita personal income 4/,2022,58889,VA,VA
+51000,Virginia,Real per capita personal income 4/,2023,60869,VA,VA
+51000,Virginia,Total employment (number of jobs),2017,5229126,VA,VA
+51000,Virginia,Total employment (number of jobs),2018,5299069,VA,VA
+51000,Virginia,Total employment (number of jobs),2019,5329257,VA,VA
+51000,Virginia,Total employment (number of jobs),2020,5224635,VA,VA
+51000,Virginia,Total employment (number of jobs),2021,5392104,VA,VA
+51000,Virginia,Total employment (number of jobs),2022,5551518,VA,VA
+51000,Virginia,Total employment (number of jobs),2023,5720000,VA,VA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2017,527169.4,WA,WA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2018,561785.7,WA,WA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2019,588794.4,WA,WA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2020,589156.8,WA,WA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2021,630051.5,WA,WA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2022,644075.1,WA,WA
+53000,Washington,Real GDP (millions of chained 2017 dollars) 1/,2023,677238,WA,WA
+53000,Washington,Real per capita personal income 4/,2017,52990,WA,WA
+53000,Washington,Real per capita personal income 4/,2018,54841,WA,WA
+53000,Washington,Real per capita personal income 4/,2019,56860,WA,WA
+53000,Washington,Real per capita personal income 4/,2020,60091,WA,WA
+53000,Washington,Real per capita personal income 4/,2021,62272,WA,WA
+53000,Washington,Real per capita personal income 4/,2022,59296,WA,WA
+53000,Washington,Real per capita personal income 4/,2023,61911,WA,WA
+53000,Washington,Total employment (number of jobs),2017,4432271,WA,WA
+53000,Washington,Total employment (number of jobs),2018,4537842,WA,WA
+53000,Washington,Total employment (number of jobs),2019,4591912,WA,WA
+53000,Washington,Total employment (number of jobs),2020,4434976,WA,WA
+53000,Washington,Total employment (number of jobs),2021,4574714,WA,WA
+53000,Washington,Total employment (number of jobs),2022,4764618,WA,WA
+53000,Washington,Total employment (number of jobs),2023,4881542,WA,WA
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2017,75172.4,WV,WV
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2018,77406.5,WV,WV
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2019,77162.2,WV,WV
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2020,74553.8,WV,WV
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2021,75765.1,WV,WV
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2022,77188,WV,WV
+54000,West Virginia,Real GDP (millions of chained 2017 dollars) 1/,2023,80798.2,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2017,43731,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2018,45021,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2019,46596,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2020,49233,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2021,49311,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2022,48479,WV,WV
+54000,West Virginia,Real per capita personal income 4/,2023,48869,WV,WV
+54000,West Virginia,Total employment (number of jobs),2017,888822,WV,WV
+54000,West Virginia,Total employment (number of jobs),2018,898085,WV,WV
+54000,West Virginia,Total employment (number of jobs),2019,881641,WV,WV
+54000,West Virginia,Total employment (number of jobs),2020,840976,WV,WV
+54000,West Virginia,Total employment (number of jobs),2021,864611,WV,WV
+54000,West Virginia,Total employment (number of jobs),2022,885312,WV,WV
+54000,West Virginia,Total employment (number of jobs),2023,903815,WV,WV
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2017,321886.8,WI,WI
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2018,328832.4,WI,WI
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2019,333256.8,WI,WI
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2020,322470.6,WI,WI
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2021,334514,WI,WI
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2022,339747.9,WI,WI
+55000,Wisconsin,Real GDP (millions of chained 2017 dollars) 1/,2023,344570.8,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2017,51771,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2018,52805,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2019,53655,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2020,57326,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2021,59596,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2022,57831,WI,WI
+55000,Wisconsin,Real per capita personal income 4/,2023,57962,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2017,3678859,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2018,3721096,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2019,3717587,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2020,3580658,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2021,3682359,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2022,3775679,WI,WI
+55000,Wisconsin,Total employment (number of jobs),2023,3855150,WI,WI
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2017,37620.3,WY,WY
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2018,37977.2,WY,WY
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2019,38577.1,WY,WY
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2020,36198.2,WY,WY
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2021,37131.8,WY,WY
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2022,37827.2,WY,WY
+56000,Wyoming,Real GDP (millions of chained 2017 dollars) 1/,2023,40210.8,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2017,58146,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2018,62945,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2019,63606,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2020,67929,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2021,71298,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2022,71818,WY,WY
+56000,Wyoming,Real per capita personal income 4/,2023,75015,WY,WY
+56000,Wyoming,Total employment (number of jobs),2017,398968,WY,WY
+56000,Wyoming,Total employment (number of jobs),2018,404591,WY,WY
+56000,Wyoming,Total employment (number of jobs),2019,407870,WY,WY
+56000,Wyoming,Total employment (number of jobs),2020,401353,WY,WY
+56000,Wyoming,Total employment (number of jobs),2021,419813,WY,WY
+56000,Wyoming,Total employment (number of jobs),2022,430153,WY,WY
+56000,Wyoming,Total employment (number of jobs),2023,443007,WY,WY
