@@ -1,30 +1,41 @@
 fedcon <- read_csv("data/cleaned/all_fedcon.csv")
 
-fedcon <- fedcon %>%
-  mutate(county_fips = sprintf("%05d", as.integer(county_fips)))
-
-## adding in a parent agency column to clean up the huge number of agencies
-fedcon <- fedcon %>%
-  mutate(parent_agency = case_when(
-    str_detect(agency, "Defense") ~ "Department of Defense",
-    str_detect(agency, "Energy") ~ "Department of Energy",
-    str_detect(agency, "Veterans Affairs") ~ "Department of Veterans Affairs",
-    str_detect(agency, "Treasury|IRS|Mint") ~ "Department of the Treasury",
-    str_detect(agency, "Agriculture") ~ "Department of Agriculture",
-    str_detect(agency, "Commerce") ~ "Department of Commerce",
-    str_detect(agency, "State") ~ "Department of State",
-    str_detect(agency, "Interior") ~ "Department of the Interior",
-    str_detect(agency, "Transportation") ~ "Department of Transportation",
-    str_detect(agency, "Education") ~ "Department of Education",
-    str_detect(agency, "Justice|FBI") ~ "Department of Justice",
-    str_detect(agency, "Labor") ~ "Department of Labor",
-    str_detect(agency, "Health|HHS|NIH|CDC") ~ "Department of Health and Human Services",
-    TRUE ~ "Independent Agencies"
-  ))
-write_csv(fedcon, "data/cleaned/fedcon_preprocessed.csv")
+cgdp <- read_csv("data/cleaned/county_gdp.csv")
+sgdp <- read_csv("data/cleaned/state_gdp.csv")
 
 str(fedcon$county_fips)
 str(fedcon$parent_agency)
+str(fedcon$naics_group)
+
+
+fedcon <- fedcon %>%
+  mutate(
+    sector = str_extract(naics_code, "^\\d{2}"),  # extract leading 2 digits
+    sector = as.character(sector)  # ensure it's a character for matching
+  )
+
+
+add_naics_group <- function(sector) {
+  case_when(
+    sector %in% c("11", "21") ~ "Agriculture & Mining",
+    sector %in% c("22") ~ "Utilities & Energy",
+    sector %in% c("23") ~ "Construction",
+    sector %in% c("31", "32", "33") ~ "Manufacturing",
+    sector %in% c("42", "44", "45") ~ "Wholesale & Retail Trade",
+    sector %in% c("48", "49") ~ "Transportation & Warehousing",
+    sector %in% c("51") ~ "Information & Technology",
+    sector %in% c("54") ~ "Professional, Scientific & Technical Services",
+    sector %in% c("56", "61", "92") ~ "Public Admin & Support Services",
+    sector %in% c("62") ~ "Healthcare & Social Assistance",
+    TRUE ~ "Other"
+  )
+}
+
+fedcon <- fedcon %>%
+  mutate(naics_group = add_naics_group(sector))
+
+write_csv(fedcon, "data/cleaned/all_fedcon.csv")
+
 
 ## Adding county and state GDP files. I want to add them such that when I join
 ## them to the dashboard, when you open the app the state abbreviation, 
@@ -119,6 +130,10 @@ sgdp_long <- sgdp_filtered %>%
 ## clean column names
 sgdp_long <- sgdp_long %>%
   clean_names()
+
+
+
+
 counties_sf <- sf::st_read("data/cleaned/cb_2020_us_county_500k/cb_2020_us_county_500k.shp") %>%
   st_transform(crs = 4326) %>%
   mutate(GEOID = as.character(GEOID))
@@ -147,12 +162,32 @@ states_sf <- st_read("data/cleaned/cb_2020_us_state_500k/cb_2020_us_state_500k.s
 smcon <- fedcon %>%
   filter(total_obligation <= 250000) %>%
   select(county_fips, state, total_obligation, parent_agency,
-         naics_group, is_woman_owned, is_veteran_owned, everything())
+         naics_group, is_minority_owned, is_woman_owned, is_veteran_owned, everything())
 
 map_data <- counties_sf %>%
   left_join(smcon, by = c("GEOID" = "county_fips"))
 
 
+############################## FOR DEMO #################################
+fedcon <- read_csv("data/cleaned/all_fedcon.csv")
+cgdp <- read_csv("data/cleaned/county_gdp.csv")
+sgdp <- read_csv("data/cleaned/state_gdp.csv")
+
+counties_sf <- sf::st_read("data/cleaned/cb_2020_us_county_500k/cb_2020_us_county_500k.shp") %>%
+  st_transform(crs = 4326) %>%
+  mutate(GEOID = as.character(GEOID))
+
+states_sf <- st_read("data/cleaned/cb_2020_us_state_500k/cb_2020_us_state_500k.shp") %>%
+  st_transform(4326) %>%
+  mutate(state = as.character(STUSPS))  # this avoids needing STUSPS directly
+
+smcon <- fedcon %>%
+  filter(total_obligation <= 250000) %>%
+  select(county_fips, state, total_obligation, parent_agency,
+         naics_group, is_minority_owned, is_woman_owned, is_veteran_owned, everything())
+
+map_data <- counties_sf %>%
+  left_join(smcon, by = c("GEOID" = "county_fips"))
 
 
 ############################## Define UI #################################
@@ -197,7 +232,10 @@ server <- function(input, output, session) {
         str_detect(agency, "Health|HHS|NIH|CDC") ~ "Department of Health and Human Services",
         TRUE ~ "Independent Agencies"
       )
-    )
+    ) %>%
+    select(county_fips, state, total_obligation, parent_agency,
+           naics_group, is_minority_owned, is_woman_owned, is_veteran_owned, everything())
+    
   
   observe({
     updateSelectInput(session, "parent_agency",
@@ -217,6 +255,8 @@ server <- function(input, output, session) {
       filter(parent_agency == input$parent_agency)
     if (input$naics_group != "All") df <- df %>%
       filter(naics_group == input$naics_group)
+    if (input$is_minority_owned != "All") df <- df %>%
+      filter(is_minority_owned == as.logical(input$is_minority_owned))
     if (input$is_woman_owned != "All") df <- df %>%
       filter(is_woman_owned == as.logical(input$is_woman_owned))
     if (input$is_veteran_owned != "All") df <- df %>%

@@ -1,5 +1,6 @@
 fedcon <- read_csv("data/cleaned/all_fedcon.csv")
-
+fedcon <- fedcon %>% 
+  filter(county_fips != "00000")
 
 
 ## adding in a parent agency column to clean up the huge number of agencies
@@ -92,7 +93,10 @@ add_naics_group <- function(sector) {
 cgdp_long <- cgdp_long %>%
   mutate(naics_group = add_naics_group(sector))
 
+cgdp <- cgdp %>% 
+  filter(geo_fips != "00000")
 
+write_csv(cgdp, "data/cleaned/county_gdp.csv")
 
 ####################### State GDP ###########################
 
@@ -119,6 +123,8 @@ sgdp_long <- sgdp_filtered %>%
 ## clean column names
 sgdp <- sgdp %>%
   clean_names()
+
+
 counties_sf <- sf::st_read("data/cleaned/cb_2020_us_county_500k/cb_2020_us_county_500k.shp") %>%
   st_transform(crs = 4326) %>%
   mutate(GEOID = as.character(GEOID))
@@ -153,6 +159,8 @@ smcon <- fedcon %>%
   select(county_fips, state, total_obligation, parent_agency,
          naics_group, is_minority_owned, is_woman_owned, is_veteran_owned, everything())
 
+write_csv(smcon, "data/cleaned/small_contracts.csv")
+
 # State‑level total obligation
 state_oblig <- smcon %>%
   group_by(state) %>%
@@ -179,6 +187,7 @@ ui <- fluidPage(
       sliderInput("fiscal_year", "Year", min = 2023, max = 2023, value = 2023, step = 1),
       selectInput("parent_agency", "Agency", choices = c("All")),
       selectInput("naics_group", "NAICS Group", choices = c("All")),
+      selectInput("is_minority_owned", "Minority Owned", choices = c("All", "TRUE", "FALSE")),
       selectInput("is_woman_owned", "Woman Owned", choices = c("All", "TRUE", "FALSE")),
       selectInput("is_veteran_owned", "Veteran Owned", choices = c("All", "TRUE", "FALSE"))
     ),
@@ -233,12 +242,12 @@ server <- function(input, output, session) {
       filter(parent_agency == input$parent_agency)
     if (input$naics_group != "All") df <- df %>% 
       filter(naics_group == input$naics_group)
+    if (input$is_minority_owned != "All") df <- df %>%
+      filter(is_minority_owned == as.logical(input$is_minority_owned))
     if (input$is_woman_owned != "All") df <- df %>% 
       filter(is_woman_owned == as.logical(input$is_woman_owned))
     if (input$is_veteran_owned != "All") df <- df %>% 
       filter(is_veteran_owned == as.logical(input$is_veteran_owned))
-    if (input$is_minority_owned != "All") df <- df %>% 
-      filter(is_minority_owned == as.logical(input$is_minority_owned))
     df
   })
   
