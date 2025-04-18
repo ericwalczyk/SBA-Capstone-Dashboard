@@ -4,3 +4,4 @@ data/cleaned/cbp_2017_2022.csv filter=lfs diff=lfs merge=lfs -text
 data/cleaned/all_fed_contracts.csv filter=lfs diff=lfs merge=lfs -text
 all_fedcon.csv filter=lfs diff=lfs merge=lfs -text
 data/cleaned/fedcon_preprocessed.csv filter=lfs diff=lfs merge=lfs -text
+data/cleaned/small_contracts.csv filter=lfs diff=lfs merge=lfs -text
