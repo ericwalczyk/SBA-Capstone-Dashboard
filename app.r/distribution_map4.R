@@ -1,7 +1,6 @@
 fedcon <- read_csv("data/cleaned/all_fedcon.csv")
 
-fedcon <- fedcon %>%
-  mutate(county_fips = sprintf("%05d", as.integer(county_fips)))
+
 
 ## adding in a parent agency column to clean up the huge number of agencies
 fedcon <- fedcon %>%
@@ -21,10 +20,11 @@ fedcon <- fedcon %>%
     str_detect(agency, "Health|HHS|NIH|CDC") ~ "Department of Health and Human Services",
     TRUE ~ "Independent Agencies"
   ))
-write_csv(fedcon, "data/cleaned/fedcon_preprocessed.csv")
+
 
 str(fedcon$county_fips)
 str(fedcon$parent_agency)
+str(fedcon$naics_group)
 
 ## Adding county and state GDP files. I want to add them such that when I join
 ## them to the dashboard, when you open the app the state abbreviation, 
@@ -41,7 +41,7 @@ str(fedcon$parent_agency)
 
 ####################### County GDP ############################
 
-cgdp <- read_csv("data/raw/county_gdp/CAGDP2__ALL_AREAS_2001_2023.csv")
+cgdp <- read_csv("data/cleaned/county_gdp.csv")
 
 cgdp_clean <- cgdp %>%
   select(
@@ -96,7 +96,7 @@ cgdp_long <- cgdp_long %>%
 
 ####################### State GDP ###########################
 
-sgdp <- read_csv("data/raw/state_gdp/SASUMMARY__ALL_AREAS_1998_2023.csv")
+sgdp <- read_csv("data/cleaned/state_gdp.csv")
 
 sgdp_filtered <- sgdp %>%
   filter(
@@ -117,7 +117,7 @@ sgdp_long <- sgdp_filtered %>%
   )
 
 ## clean column names
-sgdp_long <- sgdp_long %>%
+sgdp <- sgdp %>%
   clean_names()
 counties_sf <- sf::st_read("data/cleaned/cb_2020_us_county_500k/cb_2020_us_county_500k.shp") %>%
   st_transform(crs = 4326) %>%
@@ -129,11 +129,15 @@ state_lookup <- tibble(
   state_abbr = state.abb
 )
 
-sgdp_final <- sgdp_long %>%
+sgdp <- sgdp %>%
   mutate(geo_name = str_trim(geo_name)) %>%  # ensure spacing matches
   left_join(state_lookup, by = "geo_name")
 
+sgdp <- sgdp %>%
+  filter(geo_fips != "00000")
 
+
+write_csv(sgdp, "data/cleaned/state_gdp.csv")
 
 ## adding in a state level map. The idea is that the map will display with 
 ## state level obligations by default. You can then filter by agency, NAICS,
@@ -147,7 +151,15 @@ states_sf <- st_read("data/cleaned/cb_2020_us_state_500k/cb_2020_us_state_500k.s
 smcon <- fedcon %>%
   filter(total_obligation <= 250000) %>%
   select(county_fips, state, total_obligation, parent_agency,
-         naics_group, is_woman_owned, is_veteran_owned, everything())
+         naics_group, is_minority_owned, is_woman_owned, is_veteran_owned, everything())
+
+# State‑level total obligation
+state_oblig <- smcon %>%
+  group_by(state) %>%
+  summarize(total_obligation = sum(total_obligation, na.rm = TRUE), .groups = "drop")
+
+# County‑level, just keep the existing county‐by‐county smcon
+# (if you need to sum multiple awards per county, do the same as above)
 
 map_data <- counties_sf %>%
   left_join(smcon, by = c("GEOID" = "county_fips"))
@@ -217,10 +229,16 @@ server <- function(input, output, session) {
   smcon_filtered <- reactive({
     req(input$fiscal_year)
     df <- smcon %>% filter(fiscal_year == input$fiscal_year)
-    if (input$parent_agency != "All") df <- df %>% filter(parent_agency == input$parent_agency)
-    if (input$naics_group != "All") df <- df %>% filter(naics_group == input$naics_group)
-    if (input$is_woman_owned != "All") df <- df %>% filter(is_woman_owned == as.logical(input$is_woman_owned))
-    if (input$is_veteran_owned != "All") df <- df %>% filter(is_veteran_owned == as.logical(input$is_veteran_owned))
+    if (input$parent_agency != "All") df <- df %>% 
+      filter(parent_agency == input$parent_agency)
+    if (input$naics_group != "All") df <- df %>% 
+      filter(naics_group == input$naics_group)
+    if (input$is_woman_owned != "All") df <- df %>% 
+      filter(is_woman_owned == as.logical(input$is_woman_owned))
+    if (input$is_veteran_owned != "All") df <- df %>% 
+      filter(is_veteran_owned == as.logical(input$is_veteran_owned))
+    if (input$is_minority_owned != "All") df <- df %>% 
+      filter(is_minority_owned == as.logical(input$is_minority_owned))
     df
   })
   
