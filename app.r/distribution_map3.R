@@ -1,5 +1,11 @@
-fedcon <- read_csv("data/cleaned/all_fedcon.csv")
+###############################################################################
+################################ DO NOT USE ###################################
+###################### FOR DOCUMENTATION PURPOSES ONLY ########################
+################################ EW 4/18/25 ###################################
+###############################################################################
 
+
+fedcon <- read_csv("data/cleaned/all_fedcon.csv")
 cgdp <- read_csv("data/cleaned/county_gdp.csv")
 sgdp <- read_csv("data/cleaned/state_gdp.csv")
 
