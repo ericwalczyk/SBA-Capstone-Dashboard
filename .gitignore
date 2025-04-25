@@ -1,0 +1,24 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+.Rapp.history
+.Rcheck/
+
+# Quarto
+*.html
+*.pdf
+
+# Shiny logs or local files
+*.log
+.DS_Store
+
+# Data and output safety
+data/raw/*
+!data/raw/**
+!data/raw/*.csv
+!data/raw/*.xlsx
+output/*
+._*
+fedcon.duckdb
