@@ -22,3 +22,4 @@ data/raw/*
 output/*
 ._*
 fedcon.duckdb
+/deploy
