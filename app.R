@@ -68,7 +68,7 @@ ui <- dashboardPage(
           z-index: 9999 !important;
         }
       "))
-    ),   # <--- THIS COMMA is what you were missing before
+    ),  
     
     fluidRow(
       valueBoxOutput("totalOblig") %>% withSpinner(color = "#007bff"),
