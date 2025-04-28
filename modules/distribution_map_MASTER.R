@@ -18,7 +18,14 @@ smcon <- fedcon %>%
 map_data <- counties_sf %>%
   left_join(smcon, by = c("GEOID" = "county_fips"))
 
+cbp <- read_csv("data/cleaned/cbp_2017_2022.csv")
 
+write_rds(read_csv("data/cleaned/all_fedcon.csv"),"deploy/allfedcon.rds") 
+write_rds(read_csv("data/cleaned/county_gdp.csv"),"deploy/county_gdp.rds")
+write_rds(read_csv("data/cleaned/state_gdp.csv"),"deploy/state_gdp.rds")
+write_rds(read_csv("data/cleaned/bfs_county_apps_annual.csv"), "deploy/business_apps.rds")
+write_rds(read_csv("data/cleaned/laus_unemployment_by_county.csv"), "deploy/unemployment.rds")
+write_rds(read_csv("data/cleaned/cbp_2017_2022.csv"), "/deploy/county_biz_patterns.rds")
 ############################## Define UI #################################
 
 
