@@ -23,6 +23,9 @@ fedcon <- readRDS("data/smallcon.rds")
 state_gdp <- readRDS("data/state_gdp.rds")
 county_gdp <- readRDS("data/county_gdp.rds")
 sbcs <- readRDS("data/sbcs.rds")
+cbp <- readRDS("data/cbp_summary_clean.rds")
+cbp_full <- readRDS("data/cbp_2017_2022.rds")
+bizform <- readRDS("data/business_apps.rds")
 acs_summary <- readRDS("data/acs_summary.rds")
 state_sf <- readRDS("data/state_sf.rds")
 county_sf <- readRDS("data/county_sf.rds") %>%
@@ -39,11 +42,59 @@ state_obligation_summary <- fedcon %>%
 state_summary_joined <- state_obligation_summary %>%
   left_join(state_gdp, by = c("state" = "state_abbr.x", "fiscal_year" = "year")) %>%
   mutate(pct_gdp = total_obligation / (value * 1e6))
+# Summarize CBP data at county-year level
+
+cbp_clean_with_sector_naics <- cbp_full %>%
+  filter(str_detect(naics, "^[0-9]{2}[-]{4}")) %>%
+  mutate(naics_2digit = str_sub(naics, 1, 2))
 
 county_obligation_summary <- fedcon %>%
   group_by(county_fips, fiscal_year) %>%
   summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop")
 
+# Merge CBP and obligations
+county_merged <- county_obligation_summary %>%
+  left_join(cbp, by = c("county_fips", "fiscal_year" = "year"))
+
+## NAICS lookup table 
+naics_lookup <- cbp_full %>%
+  select(naics, naics_description) %>%
+  distinct() %>%
+  filter(!is.na(naics), !is.na(naics_description)) %>%
+  arrange(naics)
+
+naics_group_lookup <- tribble(
+  ~naics_2digit, ~naics_group,
+  "11", "Agriculture & Mining",
+  "21", "Agriculture & Mining",
+  "22", "Utilities & Energy",
+  "23", "Construction",
+  "31", "Manufacturing",
+  "32", "Manufacturing",
+  "33", "Manufacturing",
+  "42", "Wholesale & Retail Trade",
+  "44", "Wholesale & Retail Trade",
+  "45", "Wholesale & Retail Trade",
+  "48", "Transportation & Warehousing",
+  "49", "Transportation & Warehousing",
+  "51", "Information & Technology",
+  "52", "Information & Technology",
+  "53", "Information & Technology",
+  "54", "Professional, Scientific & Technical Services",
+  "55", "Professional, Scientific & Technical Services",
+  "56", "Professional, Scientific & Technical Services",
+  "61", "Other",
+  "62", "Healthcare & Social Assistance",
+  "71", "Other",
+  "72", "Other",
+  "81", "Other",
+  "92", "Public Admin & Support Services"
+)
+
+cbp_clean_with_sector_naics <- cbp_full %>%
+  filter(str_detect(naics, "^[0-9]{2}[-]{4}")) %>%
+  mutate(naics_2digit = str_sub(naics, 1, 2)) %>%
+  left_join(naics_group_lookup, by = "naics_2digit")
 
 # --- 3) UI ---
 ui <- dashboardPage(
@@ -88,6 +139,30 @@ ui <- dashboardPage(
         id = "trends_tabs",
         title = "Data Explorer",
         width = 12,
+        
+        tabPanel("Economic Impact Comparison",
+                 fluidRow(
+                   valueBoxOutput("econ_valuebox") %>% withSpinner(color = "#007bff")
+                 ),
+                 fluidRow(
+                   column(4,
+                          selectInput("econ_agency", "Select Agency to Compare:",
+                                      choices = sort(unique(fedcon$parent_agency)), selected = "Department of Defense"),
+                          selectInput("econ_outcome", "Select Outcome:",
+                                      choices = c("Employment" = "total_emp",
+                                                  "Establishments" = "total_est",
+                                                  "Annual Payroll" = "total_ap"),
+                                      selected = "total_emp")
+                   ),
+                   column(8,
+                          plotlyOutput("econ_compare_plot") %>% withSpinner(color = "#007bff"),
+                          br(),
+                          div(style = "background-color:#f9f9f9; border:1px solid #ddd; padding:15px; border-radius:8px; font-size:15px; line-height:1.5;",
+                              textOutput("econ_t_test")
+                          )
+                   )
+                 )
+        ),
         
         tabPanel("Distribution Explorer",
                  fluidRow(
@@ -140,18 +215,33 @@ server <- function(input, output, session) {
   drilldown_mode <- reactiveVal("states")
   clicked_state <- reactiveVal(NULL)
   
+  econ_compare_data <- reactive({
+    agency_df <- fedcon %>%
+      filter(fiscal_year == 2022, agency == input$econ_agency) %>%
+      distinct(county_fips) %>%
+      mutate(received_contract = TRUE)
+    
+    cbp %>%
+      filter(year == 2022) %>%
+      left_join(agency_df, by = "county_fips") %>%
+      mutate(received_contract = ifelse(is.na(received_contract), FALSE, received_contract))
+  })
   
   legend_title <- reactive({
     if (input$trends_tabs == "Distribution Explorer") {
       "% GDP Obligations"
-    } else if (input$econ_variable == "Median Income") {
-      "Median Household Income ($)"
-    } else if (input$econ_variable == "Poverty Rate") {
-      "Poverty Rate (%)"
-    } else if (input$econ_variable == "Small Biz Contracts") {
-      "Small Business Contracts ($)"
+    } else if (!is.null(input$econ_variable)) {
+      if (input$econ_variable == "Median Income") {
+        "Median Household Income ($)"
+      } else if (input$econ_variable == "Poverty Rate") {
+        "Poverty Rate (%)"
+      } else if (input$econ_variable == "Small Biz Contracts") {
+        "Small Business Contracts ($)"
+      } else {
+        ""
+      }
     } else {
-      ""  # fallback
+      NULL
     }
   })
   
@@ -234,8 +324,93 @@ server <- function(input, output, session) {
       ) %>%
       filter(STATEFP == clicked_state())
   })
+
+  
   
   # --- Outputs ---
+  output$econ_valuebox <- renderValueBox({
+    req(input$econ_outcome, input$econ_agency)
+    df <- econ_compare_data()
+    
+    # run t-test
+    t <- t.test(df[[input$econ_outcome]] ~ df$received_contract)
+    
+    # estimate difference
+    treated <- t$estimate[[2]]
+    untreated <- t$estimate[[1]]
+    diff <- treated - untreated
+    
+    # label
+    label_map <- c(
+      total_emp = "Jobs",
+      total_est = "Businesses",
+      total_ap  = "in Payroll ($)"
+    )
+    label <- label_map[[input$econ_outcome]]
+    
+    valueBox(
+      value = paste0("+", scales::comma(round(diff))),
+      subtitle = paste("Avg. Gain in", label, "\nfrom", input$econ_agency, "Contracts"),
+      icon = icon("chart-line"),
+      color = if (diff > 0) "green" else "red"
+    )
+  })
+  
+  ## 4a1) economic impact
+  output$econ_compare_plot <- renderPlotly({
+    # Label lookup
+    label_map <- c(
+      total_emp = "Employment",
+      total_est = "Establishments",
+      total_ap  = "Annual Payroll"
+    )
+    label <- label_map[[input$econ_outcome]]
+    if (is.null(label)) label <- input$econ_outcome  # fallback to raw input if missing
+    
+    # Build the plot
+    plot <- econ_compare_data() %>%
+      mutate(contract_group = ifelse(received_contract, "Received Contract", "No Contract")) %>%
+      ggplot(aes(x = contract_group, y = .data[[input$econ_outcome]])) +
+      geom_boxplot(fill = "#2C3E50") +
+      labs(
+        title = paste("Economic Impact of", input$econ_agency, "Contracts (2022)"),
+        x = "", y = label
+      ) +
+      scale_y_continuous(labels = scales::comma) +
+      theme_minimal(base_size = 14)
+    
+    plotly::ggplotly(plot)
+  })
+
+  
+
+  # Economic impact text summary
+  output$econ_t_test <- renderText({
+    df <- econ_compare_data()
+    t <- t.test(df[[input$econ_outcome]] ~ df$received_contract)
+    
+    # Lookup readable label
+    label_map <- c(
+      total_emp = "jobs",
+      total_est = "businesses",
+      total_ap  = "in payroll ($)"
+    )
+    label <- label_map[[input$econ_outcome]]
+    if (is.null(label)) label <- input$econ_outcome  # fallback
+    
+    treated_mean <- t$estimate[[2]]
+    untreated_mean <- t$estimate[[1]]
+    diff <- treated_mean - untreated_mean
+    
+    paste0(
+      "In 2022, counties that received contracts from ", input$econ_agency,
+      " had an average of ", scales::comma(round(treated_mean)), " ", label,
+      ", compared to ", scales::comma(round(untreated_mean)), " in counties that did not.\n\n",
+      "This difference of ", scales::comma(round(diff)), " is statistically significant (p < ",
+      formatC(t$p.value, format = "e", digits = 2), ")."
+    )
+  })
+  
   
   # --- 4a) Map ---
   output$map <- renderLeaflet({ leaflet() %>% addProviderTiles("CartoDB.Positron") %>% setView(lng = -98.5, lat = 39.8, zoom = 4) })
