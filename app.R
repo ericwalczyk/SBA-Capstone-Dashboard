@@ -58,9 +58,9 @@ county_merged <- county_obligation_summary %>%
 
 ## NAICS lookup table 
 naics_lookup <- cbp_full %>%
-  select(naics, naics_description) %>%
+  select(naics) %>%
   distinct() %>%
-  filter(!is.na(naics), !is.na(naics_description)) %>%
+  filter(!is.na(naics)) %>%
   arrange(naics)
 
 naics_group_lookup <- tribble(
@@ -103,12 +103,26 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Filters", tabName = "filters", icon = icon("sliders-h")),
-      selectInput("year", "Select Year", choices = sort(unique(fedcon$fiscal_year)), selected = 2023),
-      pickerInput("agency", "Select Agencies:", choices = sort(unique(fedcon$parent_agency)), multiple = TRUE, options = list(`actions-box` = TRUE), selected = unique(fedcon$parent_agency)),
-      pickerInput("naics_group", "Select NAICS Groups:", choices = sort(unique(fedcon$naics_group)), multiple = TRUE, options = list(`actions-box` = TRUE), selected = unique(fedcon$naics_group)),
-      selectInput("minority", "Minority Owned", choices = c("All", "Yes", "No")),
-      selectInput("woman", "Woman Owned", choices = c("All", "Yes", "No")),
-      selectInput("veteran", "Veteran Owned", choices = c("All", "Yes", "No"))
+      selectInput(
+        "year", "Select Year", 
+        choices = sort(unique(fedcon$fiscal_year)), 
+        selected = 2023),
+      pickerInput("agency", "Select Agencies:", 
+                  choices = sort(unique(fedcon$parent_agency)), 
+                  multiple = TRUE, 
+                  options = list(`actions-box` = TRUE, title = "All"), 
+                  selected = unique(fedcon$parent_agency)),
+      pickerInput("naics_group", "Select NAICS Groups:", 
+                  choices = sort(unique(fedcon$naics_group)), 
+                  multiple = TRUE, 
+                  options = list(`actions-box` = TRUE, title = "All"), 
+                  selected = unique(fedcon$naics_group)),
+      selectInput("minority", "Minority Owned", 
+                  choices = c("All", "Yes", "No")),
+      selectInput("woman", "Woman Owned", 
+                  choices = c("All", "Yes", "No")),
+      selectInput("veteran", "Veteran Owned", 
+                  choices = c("All", "Yes", "No"))
     )
   ),
   
@@ -122,14 +136,19 @@ ui <- dashboardPage(
     ),  
     
     fluidRow(
-      valueBoxOutput("totalOblig") %>% withSpinner(color = "#007bff"),
-      valueBoxOutput("gdp") %>% withSpinner(color = "#007bff"),
-      valueBoxOutput("pctGDP") %>% withSpinner(color = "#007bff")
+      valueBoxOutput("totalOblig") %>% 
+        withSpinner(color = "#007bff"),
+      valueBoxOutput("gdp") %>% 
+        withSpinner(color = "#007bff"),
+      valueBoxOutput("pctGDP") %>% 
+        withSpinner(color = "#007bff")
     ),
     
     fluidRow(
-      box(title = "Federal Contract Obligations Map", width = 12,
-          leafletOutput("map") %>% withSpinner(color = "#007bff"),
+      box(title = "Federal Contract Obligations Map", 
+          width = 12,
+          leafletOutput("map") %>% 
+            withSpinner(color = "#007bff"),
           actionButton("reset_view", "Reset to National View")
       )
     ),
@@ -142,20 +161,28 @@ ui <- dashboardPage(
         
         tabPanel("Economic Impact Comparison",
                  fluidRow(
-                   valueBoxOutput("econ_valuebox") %>% withSpinner(color = "#007bff")
+                   valueBoxOutput("econ_valuebox") %>% 
+                     withSpinner(color = "#007bff")
                  ),
                  fluidRow(
                    column(4,
                           selectInput("econ_agency", "Select Agency to Compare:",
-                                      choices = sort(unique(fedcon$parent_agency)), selected = "Department of Defense"),
+                                      choices = sort(unique(fedcon$parent_agency)), 
+                                      selected = "Department of Defense"),
                           selectInput("econ_outcome", "Select Outcome:",
                                       choices = c("Employment" = "total_emp",
                                                   "Establishments" = "total_est",
                                                   "Annual Payroll" = "total_ap"),
-                                      selected = "total_emp")
+                                      selected = "total_emp"),
+                          checkboxInput("econ_year_toggle", "Limit to selected year", value = FALSE),
+                          checkboxInput("econ_reg_toggle", "Use adjusted regression estimate", value = FALSE),
+                          checkboxInput("econ_use_median", "Use median instead of mean", value = TRUE)
                    ),
                    column(8,
-                          plotlyOutput("econ_compare_plot") %>% withSpinner(color = "#007bff"),
+                          plotlyOutput("econ_compare_plot") %>%
+                            withSpinner(color = "#007bff"),
+                          div(style = "font-size: 13px; color: #666; margin-top: 5px;",
+                              textOutput("econ_plot_note")),
                           br(),
                           div(style = "background-color:#f9f9f9; border:1px solid #ddd; padding:15px; border-radius:8px; font-size:15px; line-height:1.5;",
                               textOutput("econ_t_test")
@@ -167,7 +194,8 @@ ui <- dashboardPage(
         tabPanel("Distribution Explorer",
                  fluidRow(
                    column(6,
-                          selectInput("dist_type", "Explore By:", choices = c("Agency", "NAICS Group")),
+                          selectInput("dist_type", "Explore By:", 
+                                      choices = c("Agency", "NAICS Group")),
                           uiOutput("dist_choice"))
                  ),
                  fluidRow(
@@ -176,34 +204,49 @@ ui <- dashboardPage(
         ),
         
         tabPanel("Obligations Over Time",
-                 plotOutput("trendPlot") %>% withSpinner(color = "#007bff")
+                 plotOutput("trendPlot") %>% 
+                   withSpinner(color = "#007bff")
         ),
         
         tabPanel("Breakdown by Industry",
-                 plotOutput("barPlot") %>% withSpinner(color = "#007bff")
+                 plotOutput("barPlot") %>%
+                   withSpinner(color = "#007bff")
         ),
         
         tabPanel("Top NAICS Groups Over Time",
-                 plotOutput("naicsTrendPlot") %>% withSpinner(color = "#007bff")
+                 plotOutput("naicsTrendPlot") %>% 
+                   withSpinner(color = "#007bff")
         ),
         
         tabPanel("Top Agencies Over Time",
-                 plotOutput("agencyTrendPlot") %>% withSpinner(color = "#007bff")
+                 plotOutput("agencyTrendPlot") %>% 
+                   withSpinner(color = "#007bff")
         ),
         
         tabPanel("Small Business Credit Survey",
                  fluidRow(
                    column(4,
-                          selectInput("survey_year", "Select Survey Year:", choices = NULL),
-                          selectInput("survey_state", "Select State (optional):", choices = NULL)
+                          selectInput("survey_year", "Select Survey Year:", 
+                                      choices = NULL),
+                          selectInput("survey_state", "Select State (optional):", 
+                                      choices = NULL)
                    )
                  ),
                  fluidRow(
-                   box(title = "Revenue Changes", width = 6, plotOutput("revenuePlot") %>% withSpinner(color = "#007bff")),
-                   box(title = "Employment Changes", width = 6, plotOutput("employmentPlot") %>% withSpinner(color = "#007bff"))
+                   box(title = "Revenue Changes", 
+                       width = 6, 
+                       plotOutput("revenuePlot") %>% 
+                         withSpinner(color = "#007bff")),
+                   box(title = "Employment Changes", 
+                       width = 6, 
+                       plotOutput("employmentPlot") %>% 
+                         withSpinner(color = "#007bff"))
                  ),
                  fluidRow(
-                   box(title = "Financing Access", width = 12, plotOutput("financingPlot") %>% withSpinner(color = "#007bff"))
+                   box(title = "Financing Access", 
+                       width = 12, 
+                       plotOutput("financingPlot") %>% 
+                         withSpinner(color = "#007bff"))
                  )
         )
       )
@@ -217,14 +260,53 @@ server <- function(input, output, session) {
   
   econ_compare_data <- reactive({
     agency_df <- fedcon %>%
-      filter(fiscal_year == 2022, agency == input$econ_agency) %>%
-      distinct(county_fips) %>%
+      filter(agency == input$econ_agency)
+    
+    if (input$econ_year_toggle) {
+      agency_df <- agency_df %>% filter(fiscal_year == input$year)
+    }
+    
+    if (!is.null(clicked_state())) {
+      selected_state_abbr <- state_sf %>%
+        filter(STATEFP == clicked_state()) %>%
+        pull(STUSPS)
+      agency_df <- agency_df %>% filter(state == selected_state_abbr)
+    }
+    
+    agency_df <- agency_df %>%
+      distinct(county_fips, fiscal_year) %>%
       mutate(received_contract = TRUE)
     
-    cbp %>%
-      filter(year == 2022) %>%
-      left_join(agency_df, by = "county_fips") %>%
+    cbp_filtered <- cbp
+    if (input$econ_year_toggle) {
+      cbp_filtered <- cbp_filtered %>% filter(year == input$year)
+    }
+    
+    if (!is.null(clicked_state())) {
+      county_fips_list <- fedcon %>%
+        filter(state == selected_state_abbr) %>%
+        distinct(county_fips) %>%
+        pull(county_fips)
+      cbp_filtered <- cbp_filtered %>% filter(county_fips %in% county_fips_list)
+    }
+    
+    df <- cbp_filtered %>%
+      left_join(agency_df, by = c("county_fips", "year" = "fiscal_year")) %>%
       mutate(received_contract = ifelse(is.na(received_contract), FALSE, received_contract))
+    
+    df <- df %>%
+      left_join(acs_summary %>% 
+                  select(geo_fips, year, population = total_population),
+                by = c("county_fips" = "geo_fips", "year"))
+    
+    df <- df %>%
+      mutate(state_fips = substr(county_fips, 1, 2)) %>%
+      left_join(state_sf %>% 
+                  select(STATEFP, STUSPS), 
+                by = c("state_fips" = "STATEFP")) %>%
+      rename(state_abbr = STUSPS)
+    
+    return(df)
   })
   
   legend_title <- reactive({
@@ -287,7 +369,8 @@ server <- function(input, output, session) {
     
     if (!is.null(clicked_state())) {
       df <- df %>% 
-        filter(state == (state_sf %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)))
+        filter(state == (state_sf %>% filter(STATEFP == clicked_state()) %>% 
+                           pull(STUSPS)))
     }
     
     df
@@ -295,8 +378,10 @@ server <- function(input, output, session) {
   
   filtered_survey <- reactive({
     req(input$survey_year)
-    df <- sbcs %>% filter(year == input$survey_year)
-    if (input$survey_state != "All") df <- df %>% filter(state == input$survey_state)
+    df <- sbcs %>% 
+      filter(year == input$survey_year)
+    if (input$survey_state != "All") df <- df %>% 
+      filter(state == input$survey_state)
     df
   })
   
@@ -324,104 +409,50 @@ server <- function(input, output, session) {
       ) %>%
       filter(STATEFP == clicked_state())
   })
-
   
+  ## reactive for economic model tab
+  econ_model <- reactive({
+    req(input$econ_outcome)
+    df <- econ_compare_data() %>%
+      filter(!is.na(received_contract), 
+             !is.na(total_est), 
+             !is.na(total_ap),
+             !is.na(population), 
+             !is.na(state_abbr), 
+             !is.na(year))
+    
+    model_formula <- if (is.null(clicked_state())) {
+      as.formula(
+        paste0(input$econ_outcome,
+               " ~ received_contract + log(population + 1) + total_est + total_ap + factor(state_abbr) + factor(year)")
+      )
+    } else {
+      as.formula(
+        paste0(input$econ_outcome,
+               " ~ received_contract + log(population + 1) + total_est + total_ap + factor(year)")
+      )
+    }
+    
+    lm(model_formula, data = df)
+  })
   
   # --- Outputs ---
-  output$econ_valuebox <- renderValueBox({
-    req(input$econ_outcome, input$econ_agency)
-    df <- econ_compare_data()
-    
-    # run t-test
-    t <- t.test(df[[input$econ_outcome]] ~ df$received_contract)
-    
-    # estimate difference
-    treated <- t$estimate[[2]]
-    untreated <- t$estimate[[1]]
-    diff <- treated - untreated
-    
-    # label
-    label_map <- c(
-      total_emp = "Jobs",
-      total_est = "Businesses",
-      total_ap  = "in Payroll ($)"
-    )
-    label <- label_map[[input$econ_outcome]]
-    
-    valueBox(
-      value = paste0("+", scales::comma(round(diff))),
-      subtitle = paste("Avg. Gain in", label, "\nfrom", input$econ_agency, "Contracts"),
-      icon = icon("chart-line"),
-      color = if (diff > 0) "green" else "red"
-    )
-  })
-  
-  ## 4a1) economic impact
-  output$econ_compare_plot <- renderPlotly({
-    # Label lookup
-    label_map <- c(
-      total_emp = "Employment",
-      total_est = "Establishments",
-      total_ap  = "Annual Payroll"
-    )
-    label <- label_map[[input$econ_outcome]]
-    if (is.null(label)) label <- input$econ_outcome  # fallback to raw input if missing
-    
-    # Build the plot
-    plot <- econ_compare_data() %>%
-      mutate(contract_group = ifelse(received_contract, "Received Contract", "No Contract")) %>%
-      ggplot(aes(x = contract_group, y = .data[[input$econ_outcome]])) +
-      geom_boxplot(fill = "#2C3E50") +
-      labs(
-        title = paste("Economic Impact of", input$econ_agency, "Contracts (2022)"),
-        x = "", y = label
-      ) +
-      scale_y_continuous(labels = scales::comma) +
-      theme_minimal(base_size = 14)
-    
-    plotly::ggplotly(plot)
-  })
-
-  
-
-  # Economic impact text summary
-  output$econ_t_test <- renderText({
-    df <- econ_compare_data()
-    t <- t.test(df[[input$econ_outcome]] ~ df$received_contract)
-    
-    # Lookup readable label
-    label_map <- c(
-      total_emp = "jobs",
-      total_est = "businesses",
-      total_ap  = "in payroll ($)"
-    )
-    label <- label_map[[input$econ_outcome]]
-    if (is.null(label)) label <- input$econ_outcome  # fallback
-    
-    treated_mean <- t$estimate[[2]]
-    untreated_mean <- t$estimate[[1]]
-    diff <- treated_mean - untreated_mean
-    
-    paste0(
-      "In 2022, counties that received contracts from ", input$econ_agency,
-      " had an average of ", scales::comma(round(treated_mean)), " ", label,
-      ", compared to ", scales::comma(round(untreated_mean)), " in counties that did not.\n\n",
-      "This difference of ", scales::comma(round(diff)), " is statistically significant (p < ",
-      formatC(t$p.value, format = "e", digits = 2), ")."
-    )
-  })
-  
   
   # --- 4a) Map ---
-  output$map <- renderLeaflet({ leaflet() %>% addProviderTiles("CartoDB.Positron") %>% setView(lng = -98.5, lat = 39.8, zoom = 4) })
+  output$map <- renderLeaflet({ leaflet() %>% 
+      addProviderTiles("CartoDB.Positron") %>% 
+      setView(lng = -98.5, lat = 39.8, zoom = 4) })
   
   observe({
     if (drilldown_mode() == "states") {
       df <- state_summary()
-      pal <- colorQuantile("plasma", domain = df$pct_gdp, n = 5, na.color = "#cccccc")
+      pal <- colorQuantile("plasma", 
+                           domain = df$pct_gdp, 
+                           n = 5, na.color = "#cccccc")
       
       leafletProxy("map", session) %>%
         clearShapes() %>%
+        clearControls() %>%
         addPolygons(
           data = df,
           fillColor = ~pal(pct_gdp),
@@ -430,25 +461,32 @@ server <- function(input, output, session) {
           opacity = 1,
           fillOpacity = 0.7,
           label = ~paste0(NAME, 
-                          "<br>Total Obligations: ", scales::dollar(total_obligation),
-                          "<br>GDP: ", scales::dollar(gdp_dollars),
-                          "<br>Obligations as % of GDP: ", scales::percent(pct_gdp, accuracy = 0.1)),
+                          "<br>Total Obligations: ", 
+                          scales::dollar(total_obligation),
+                          "<br>GDP: ", 
+                          scales::dollar(gdp_dollars),
+                          "<br>Obligations as % of GDP: ", 
+                          scales::percent(pct_gdp, accuracy = 0.1)),
           layerId = ~STATEFP
         ) %>%
         addLegend(
           pal = pal,
           values = df$pct_gdp,
-          title = legend_title(),    # <<-- DYNAMIC now!!
+          title = legend_title(),    
           position = "bottomright",
           labFormat = labelFormat(suffix = "%", transform = function(x) x * 100)
         )
       
     } else if (drilldown_mode() == "counties") {
       df <- county_summary_data()
-      pal <- colorQuantile("plasma", domain = df$pct_gdp, n = 5, na.color = "#cccccc")
+      pal <- colorQuantile("plasma", 
+                           domain = df$pct_gdp, 
+                           n = 5, 
+                           na.color = "#cccccc")
       
       leafletProxy("map", session) %>%
         clearShapes() %>%
+        clearControls() %>%
         addPolygons(
           data = df,
           fillColor = ~pal(pct_gdp),
@@ -457,9 +495,12 @@ server <- function(input, output, session) {
           opacity = 1,
           fillOpacity = 0.7,
           label = ~paste0(NAME, 
-                          "<br>Total: ", scales::dollar(total),
-                          "<br>GDP: ", scales::dollar(gdp_dollars),
-                          "<br>% GDP: ", scales::percent(pct_gdp, accuracy = 0.1)),
+                          "<br>Total: ", 
+                          scales::dollar(total),
+                          "<br>GDP: ", 
+                          scales::dollar(gdp_dollars),
+                          "<br>% GDP: ", 
+                          scales::percent(pct_gdp, accuracy = 0.1)),
           layerId = ~GEOID
         ) %>%
         addLegend(
@@ -562,12 +603,227 @@ server <- function(input, output, session) {
     )
   })
   
+  # --- economic impact comparison --- 
+  # --- 4b) Economic Impact Value Box ---
+  output$econ_valuebox <- renderValueBox({
+    req(input$econ_outcome, input$econ_agency)
+    df <- econ_compare_data()
+    
+    label_map <- c(
+      total_emp = "Jobs",
+      total_est = "Businesses",
+      total_ap  = "in Payroll ($)"
+    )
+    label <- label_map[[input$econ_outcome]] %||% input$econ_outcome
+    
+    if (input$econ_reg_toggle) {
+      model <- econ_model()
+      estimate <- coef(model)["received_contractTRUE"]
+      diff <- estimate
+      r_squared <- summary(model)$r.squared
+    } else {
+      if (input$econ_use_median) {
+        stats <- df %>%
+          group_by(received_contract) %>%
+          summarise(val = median(.data[[input$econ_outcome]], na.rm = TRUE), .groups = "drop")
+      } else {
+        stats <- df %>%
+          group_by(received_contract) %>%
+          summarise(val = mean(.data[[input$econ_outcome]], na.rm = TRUE), .groups = "drop")
+      }
+      treated <- stats %>% filter(received_contract == TRUE) %>% pull(val)
+      untreated <- stats %>% filter(received_contract == FALSE) %>% pull(val)
+      diff <- treated - untreated
+      r_squared <- NA
+    }
+    
+    location_suffix <- if (!is.null(clicked_state())) {
+      state_name <- state_sf %>% filter(STATEFP == clicked_state()) %>% pull(NAME)
+      paste0(" in ", state_name)
+    } else {
+      " (National)"
+    }
+    
+    subtitle_text <- if (input$econ_reg_toggle) {
+      if (is.null(clicked_state())) {
+        paste0(
+          "Adjusted effect on ", label, " from ", input$econ_agency, " Contracts (National)",
+          "<br><small>R² = ", round(r_squared, 3),
+          " <i class='fas fa-info-circle' title='Linear model controlling for population, establishments, payroll, state, and year.'></i></small>"
+        )
+      } else {
+        paste0(
+          "Adjusted effect on ", label, " from ", input$econ_agency, " Contracts in ", state_name,
+          "<br><small>R² = ", round(r_squared, 3),
+          " <i class='fas fa-info-circle' title='Linear model controlling for population, establishments, payroll, and year (state fixed effects omitted due to within-state focus).'></i></small>"
+        )
+      }
+    } else {
+      method <- if (input$econ_use_median) "Median" else "Mean"
+      paste0(method, " difference in ", label, " from ", input$econ_agency, " Contracts", location_suffix)
+    }
+    
+    valueBox(
+      value = paste0(ifelse(diff >= 0, "+", ""), scales::comma(round(diff))),
+      subtitle = HTML(subtitle_text),
+      icon = icon("chart-line"),
+      color = if (diff > 0) "green" else "red"
+    )
+  })
+  
+  # text description output
+  output$econ_plot_note <- renderText({
+    method <- if (input$econ_reg_toggle) {
+      "Adjusted linear regression controlling for population, payroll, establishments, region, and year."
+    } else {
+      "Descriptive comparison using group medians."
+    }
+    
+    year_text <- if (input$econ_year_toggle) {
+      paste("Showing data for year", input$year)
+    } else {
+      "Showing data across all available years"
+    }
+    
+    paste(method, year_text)
+  })
+  
+  # --- 4c) Economic Impact Plot ---
+  output$econ_compare_plot <- renderPlotly({
+    req(input$econ_outcome, input$econ_agency)
+    df <- econ_compare_data()
+    
+    # Label lookup
+    label_map <- c(
+      total_emp = "Employment",
+      total_est = "Establishments",
+      total_ap  = "Annual Payroll"
+    )
+    label <- label_map[[input$econ_outcome]] %||% input$econ_outcome
+    
+    df <- df %>%
+      mutate(contract_group = ifelse(received_contract, "Received Contract", "No Contract"))
+    
+    # Determine summary stat
+    summary_stat <- if (input$econ_use_median) median else mean
+    stat_name <- if (input$econ_use_median) "Median" else "Mean"
+    
+    # Prepare summary point data
+    stat_df <- df %>%
+      group_by(contract_group) %>%
+      summarise(stat_val = summary_stat(.data[[input$econ_outcome]], na.rm = TRUE), .groups = "drop")
+    
+    # Build violin plot
+    p <- ggplot(df, aes(x = contract_group, y = .data[[input$econ_outcome]])) +
+      geom_violin(fill = "#2C3E50", alpha = 0.8, scale = "width", trim = TRUE) +
+      geom_point(data = stat_df, aes(x = contract_group, y = stat_val),
+                 color = "red", size = 3, shape = 18) +
+      labs(
+        title = paste0(stat_name, " ", label, " by Contract Group"),
+        subtitle = paste("for", input$econ_agency,
+                         if (!is.null(clicked_state())) {
+                           state_name <- state_sf %>%
+                             filter(STATEFP == clicked_state()) %>%
+                             pull(NAME)
+                           paste("in", state_name)
+                         } else {
+                           "(National)"
+                         }),
+        x = NULL,
+        y = label
+      ) +
+      theme_minimal(base_size = 14) +
+      scale_y_continuous(labels = scales::comma)
+    
+    ggplotly(p)
+  })
+  
+  # plot note for year toggle
+  output$econ_plot_note <- renderText({
+    if (input$econ_year_toggle) {
+      paste("Showing data for year", input$year)
+    } else {
+      "Showing data across all available years"
+    }
+  })
+  
+  # --- 4c) Economic Impact Summary Text ---
+  output$econ_t_test <- renderText({
+    df <- econ_compare_data()
+    label_map <- c(
+      total_emp = "jobs",
+      total_est = "businesses",
+      total_ap  = "payroll dollars"
+    )
+    label <- label_map[[input$econ_outcome]] %||% input$econ_outcome
+    
+    if (input$econ_reg_toggle) {
+      model <- econ_model()
+      summary_model <- summary(model)
+      coef_data <- summary_model$coefficients["received_contractTRUE", ]
+      estimate <- coef_data["Estimate"]
+      std_error <- coef_data["Std. Error"]
+      p_val <- coef_data["Pr(>|t|)"]
+      
+      ci_lower <- estimate - 1.96 * std_error
+      ci_upper <- estimate + 1.96 * std_error
+      
+      location <- if (!is.null(clicked_state())) {
+        state_name <- state_sf %>% filter(STATEFP == clicked_state()) %>% pull(NAME)
+        paste("in", state_name)
+      } else {
+        "nationally"
+      }
+      
+      effect_note <- if (!is.null(clicked_state())) {
+        "This model controls for population, establishments, payroll, and year (state fixed effects omitted due to single-state scope)."
+      } else {
+        "This model controls for population, establishments, payroll, state, and year."
+      }
+      
+      paste0(
+        "After adjusting for business counts and payroll, receiving a contract from ", input$econ_agency,
+        " is associated with an estimated change of ", scales::comma(round(estimate)), " ", label, " ", location, ". ",
+        "The 95% confidence interval ranges from ", scales::comma(round(ci_lower)), " to ", scales::comma(round(ci_upper)), ". ",
+        "This estimate is statistically significant (p < ", formatC(p_val, format = "e", digits = 2), "). ", effect_note
+      )
+    } else {
+      t <- t.test(df[[input$econ_outcome]] ~ df$received_contract)
+      treated_mean <- round(t$estimate[[2]])
+      untreated_mean <- round(t$estimate[[1]])
+      diff <- treated_mean - untreated_mean
+      
+      intro <- if (!is.null(clicked_state())) {
+        state_name <- state_sf %>% filter(STATEFP == clicked_state()) %>% pull(NAME)
+        paste0("In ", state_name, ", ")
+      } else {
+        "Nationally, "
+      }
+      
+      paste0(
+        intro,
+        "counties that received contracts from ", input$econ_agency,
+        " had an average of ", scales::comma(treated_mean), " ", label,
+        ", compared to ", scales::comma(untreated_mean), " in counties that did not. ",
+        "This difference of ", scales::comma(diff), " is statistically significant (p < ",
+        formatC(t$p.value, format = "e", digits = 2), ")."
+      )
+    }
+  })
+  
+  
   # --- 4c) Distribution Explorer ---
   output$dist_choice <- renderUI({
     if (input$dist_type == "Agency") {
-      pickerInput("dist_choice_value", "Select Agency:", choices = sort(unique(fedcon$parent_agency)), multiple = FALSE, options = list(`live-search` = TRUE))
+      pickerInput("dist_choice_value", "Select Agency:", 
+                  choices = sort(unique(fedcon$parent_agency)), 
+                  multiple = FALSE, 
+                  options = list(`live-search` = TRUE))
     } else {
-      pickerInput("dist_choice_value", "Select NAICS Group:", choices = sort(unique(fedcon$naics_group)), multiple = FALSE, options = list(`live-search` = TRUE))
+      pickerInput("dist_choice_value", "Select NAICS Group:", 
+                  choices = sort(unique(fedcon$naics_group)), 
+                  multiple = FALSE, 
+                  options = list(`live-search` = TRUE))
     }
   })
   
@@ -589,7 +845,7 @@ server <- function(input, output, session) {
   
   # --- Obligations Over Time ---
   output$trendPlot <- renderPlot({
-    df <- fedcon_data()
+    df <- fedcon
     
     if (!is.null(input$agency)) df <- df %>% filter(parent_agency %in% input$agency)
     if (!is.null(input$naics_group)) df <- df %>% filter(naics_group %in% input$naics_group)
@@ -722,7 +978,7 @@ server <- function(input, output, session) {
   
   # --- Top NAICS Groups Over Time ---
   output$naicsTrendPlot <- renderPlot({
-    df <- fedcon_data()
+    df <- fedcon
     
     if (!is.null(input$agency)) df <- df %>% filter(parent_agency %in% input$agency)
     if (!is.null(input$naics_group)) df <- df %>% filter(naics_group %in% input$naics_group)
@@ -758,7 +1014,7 @@ server <- function(input, output, session) {
   
   # --- Top Agencies Over Time ---
   output$agencyTrendPlot <- renderPlot({
-    df <- fedcon_data()
+    df <- fedcon
     
     if (!is.null(input$agency)) df <- df %>% filter(parent_agency %in% input$agency)
     if (!is.null(input$naics_group)) df <- df %>% filter(naics_group %in% input$naics_group)
@@ -844,6 +1100,5 @@ server <- function(input, output, session) {
   ## Close Server
 }
 
-## Launch App
 shinyApp(ui = ui, server = server)
 
