@@ -8,6 +8,7 @@ library(plotly)
 library(sf)
 library(shinyWidgets)
 library(shinycssloaders)
+library(scales)
 
 ## For tidytable compatibility
 library(dplyr)
@@ -98,7 +99,6 @@ cbp_clean_with_sector_naics <- cbp_full %>%
 
 
 ## processing data for shayna's app
-
 # 1. Create state abbreviation lookup table
 state_abbr_lookup <- tibble::tibble(
   state_full = state.name,
@@ -121,6 +121,29 @@ pop_long <- acs_summary %>%
   mutate(year = as.integer(year)) %>%
   group_by(state, year) %>%
   summarise(population = sum(population, na.rm = TRUE), .groups = "drop")
+
+## processing data for Emma's app
+# --- Correlation Explorer Data Merge ---
+county_gdp <- county_gdp %>%
+  filter(geo_fips != "00000", description == "All industry total") %>%
+  mutate(fiscal_year = as.integer(year))
+
+bfs_long <- bizform %>%
+  select(-matches("^200[0-6]$|^201[0-6]$")) %>%  # Remove years before 2017
+  pivot_longer(cols = matches("^201[7-9]$|^202[0-3]$"),
+               names_to = "fiscal_year",
+               values_to = "business_apps") %>%
+  mutate(fiscal_year = as.integer(fiscal_year),
+         county_fips = as.character(`County Code`)) %>%
+  select(county_fips, fiscal_year, business_apps, County)
+
+cor_explorer_data <- fedcon %>%
+  group_by(county_fips, fiscal_year, state) %>%
+  summarise(total_obligation = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+  mutate(dataset = "Small contracts (≤ $250k)") %>%  # update if you add other types later
+  left_join(county_gdp, by = c("county_fips" = "geo_fips", "fiscal_year")) %>%
+  left_join(bfs_long, by = c("county_fips", "fiscal_year")) %>%
+  filter(!state %in% c("AS", "GU", "PR", "MP", "VI"))
 
 # --- 3) UI ---
 ui <- dashboardPage(
@@ -305,6 +328,41 @@ ui <- dashboardPage(
                             condition = "input.apps_view == 'Line Chart'",
                             plotlyOutput("apps_line_plot", height = "600px") %>%
                               withSpinner(color = "#007bff")
+                          )
+                        )
+                 )
+        ),
+        tabPanel("Correlation Explorer",
+                 fluidRow(
+                   column(3,
+                          selectInput("corr_contract_type", "Contract Type:",
+                                      choices = "Small contracts (≤ $250k)", selected = "Small contracts (≤ $250k)"),
+                          selectInput("corr_selected_year", "Fiscal Year:",
+                                      choices = sort(unique(cor_explorer_data$fiscal_year)),
+                                      selected = max(cor_explorer_data$fiscal_year)),
+                          selectInput("corr_selected_state", "Select State:",
+                                      choices = c("All states", sort(unique(cor_explorer_data$state))),
+                                      selected = "All states"),
+                          selectInput("corr_y_var", "Y-axis Variable:",
+                                      choices = c("County GDP (Millions)" = "gdp_millions",
+                                                  "New Business Applications" = "business_apps"),
+                                      selected = "gdp_millions"),
+                          selectInput("corr_display_mode", "Display Mode:",
+                                      choices = c("Raw values", "Percentiles"),
+                                      selected = "Raw values")
+                   ),
+                   column(9,
+                          plotlyOutput("corPlot"),
+                          br(),
+                          conditionalPanel(
+                            condition = "input.corr_display_mode == 'Percentiles' && input.corr_y_var == 'gdp_millions'",
+                            p("Counties above the line were underrepresented in federal contracting relative to their economic size."),
+                            p("Counties beneath the line were overrepresented in federal contracting relative to their economic size.")
+                          ),
+                          conditionalPanel(
+                            condition = "input.corr_display_mode == 'Percentiles' && input.corr_y_var == 'business_apps'",
+                            p("Counties above the line were underrepresented in federal contracting relative to their number of new business applications."),
+                            p("Counties beneath the line were overrepresented in federal contracting relative to their number of new business applications.")
                           )
                    )
                  )
@@ -1269,49 +1327,53 @@ server <- function(input, output, session) {
     year <- input$apps_year
     metric <- input$apps_metric
     
-    df_apps <- apps_long %>% filter(year == year)
-    df_pop <- pop_long %>% filter(year == year)
+    df_apps <- apps_long %>% filter(year %in% c(year, year - 1))
+    df_pop  <- pop_long %>% filter(year %in% c(year, year - 1))
     
     df <- df_apps %>%
-      group_by(state, year) %>%
-      summarise(applications = sum(applications, na.rm = TRUE), .groups = "drop") %>%
-      left_join(
-        df_pop %>%
-          group_by(state, year) %>%
-          summarise(population = sum(population, na.rm = TRUE), .groups = "drop"),
-        by = c("state", "year")
-      )
+      left_join(df_pop, by = c("state", "year"))
     
-    df <- df %>% mutate(
-      value = case_when(
-        metric == "Applications" ~ applications,
-        metric == "Population" ~ population,
-        metric == "Applications per Capita" ~ applications / population
-      )
-    )
-    
-    if (metric == "Growth Rate") {
-      # Need 2 years of apps data only
-      df_growth <- apps_long %>%
-        filter(year %in% c(year, year - 1)) %>%
-        group_by(state, year) %>%
-        summarise(applications = sum(applications, na.rm = TRUE), .groups = "drop") %>%
+    if (metric == "Applications") {
+      df_viz <- df %>%
+        filter(year == year) %>%
+        group_by(state) %>%
+        summarise(value = sum(applications, na.rm = TRUE), .groups = "drop")
+      
+    } else if (metric == "Population") {
+      df_viz <- df %>%
+        filter(year == year) %>%
+        group_by(state) %>%
+        summarise(value = sum(population, na.rm = TRUE), .groups = "drop")
+      
+    } else if (metric == "Applications per Capita") {
+      df_viz <- df %>%
+        filter(year == year) %>%
+        group_by(state) %>%
+        summarise(value = sum(applications, na.rm = TRUE) / sum(population, na.rm = TRUE), .groups = "drop")
+      
+    } else if (metric == "Growth Rate") {
+      df_wide <- df %>%
+        select(state, year, applications) %>%
         pivot_wider(names_from = year, values_from = applications)
       
-      df <- df_growth %>%
-        mutate(value = (`{year}` - `{year - 1}`) / `{year - 1}`) %>%
-        select(state, value)
+      col_curr <- as.character(year)
+      col_prev <- as.character(year - 1)
+      
+      df_viz <- df_wide %>%
+        filter(!is.na(.data[[col_curr]]), !is.na(.data[[col_prev]]), .data[[col_prev]] > 0) %>%
+        mutate(value = (.data[[col_curr]] - .data[[col_prev]]) / .data[[col_prev]]) %>%
+        select(state, value) %>%
+        filter(abs(value) <= 1)  # Optional: remove outliers > 100%
     }
     
-    # Apply rank filter
     if (input$apps_rank == "Top 10") {
-      df <- df %>% slice_max(value, n = 10)
+      df_viz <- df_viz %>% slice_max(value, n = 10)
     } else if (input$apps_rank == "Bottom 10") {
-      df <- df %>% slice_min(value, n = 10)
+      df_viz <- df_viz %>% slice_min(value, n = 10)
     }
     
     plot_ly(
-      data = df,
+      data = df_viz,
       x = ~reorder(state, value),
       y = ~value,
       type = "bar",
@@ -1328,7 +1390,7 @@ server <- function(input, output, session) {
         xaxis = list(title = "State", tickangle = -45),
         yaxis = list(
           title = metric,
-          tickformat = ifelse(metric %in% c("Applications per Capita", "Growth Rate"), ".0%", "")
+          tickformat = ifelse(metric %in% c("Applications per Capita", "Growth Rate"), ".1%", "")
         )
       )
   })
@@ -1341,7 +1403,7 @@ server <- function(input, output, session) {
     state_abbr <- input$apps_state
     
     df_apps <- apps_long %>% filter(!is.na(applications))
-    df_pop <- pop_long %>% filter(!is.na(population))
+    df_pop  <- pop_long %>% filter(!is.na(population))
     
     df_combined <- df_apps %>%
       group_by(state, year) %>%
@@ -1387,19 +1449,91 @@ server <- function(input, output, session) {
     df_plot <- bind_rows(state_line, national_line) %>%
       filter(!is.na(value))
     
+    # Filter out extreme growth values for clarity
+    if (metric == "Growth Rate") {
+      df_plot <- df_plot %>% filter(abs(value) <= 1)
+    }
+    
     plot_ly(df_plot, x = ~year, y = ~value, color = ~scope, type = 'scatter', mode = 'lines+markers') %>%
       layout(
         title = paste(metric, "in", state_abbr, "vs U.S. Average"),
         yaxis = list(
           title = metric,
-          tickformat = ifelse(metric %in% c("Applications per Capita", "Growth Rate"), ".0%", "")
+          tickformat = if (metric %in% c("Applications per Capita", "Growth Rate")) ".1%" else "",
+          dtick = if (metric == "Growth Rate") 0.05 else NULL  # 5% tick spacing only for Growth
         ),
         xaxis = list(title = "Year"),
         legend = list(title = list(text = ""), orientation = "h", x = 0.3, y = -0.2)
       )
   })
   
-  
+
+  ## correlation trend
+  output$corPlot <- renderPlotly({
+    df <- cor_explorer_data %>%
+      filter(fiscal_year == input$corr_selected_year,
+             dataset == input$corr_contract_type,
+             !is.na(total_obligation),
+             !is.na(.data[[input$corr_y_var]]))
+    
+    if (input$corr_selected_state != "All states") {
+      df <- df %>% filter(state == input$corr_selected_state)
+    }
+    
+    if (nrow(df) == 0) {
+      return(plotly_empty() %>% layout(title = "No data available for this selection"))
+    }
+    
+    # Percentiles
+    if (input$corr_selected_state == "All states") {
+      x_ecdf <- ecdf(df$total_obligation)
+      y_ecdf <- ecdf(df[[input$corr_y_var]])
+    } else {
+      x_ecdf <- ecdf(df$total_obligation)
+      y_ecdf <- ecdf(df[[input$corr_y_var]])
+    }
+    
+    df$obligation_percentile <- x_ecdf(df$total_obligation)
+    df$y_percentile <- y_ecdf(df[[input$corr_y_var]])
+    
+    if (input$corr_display_mode == "Raw values") {
+      x <- df$total_obligation
+      y <- df[[input$corr_y_var]]
+      hover <- paste0("Obligation: $", comma(df$total_obligation), "<br>",
+                      ifelse(input$corr_y_var == "gdp_millions", "GDP: $", "Business Apps: "),
+                      comma(df[[input$corr_y_var]]))
+      x_label <- "Total Obligations ($)"
+      y_label <- ifelse(input$corr_y_var == "gdp_millions", "County GDP (Millions)", "Business Applications")
+      x_format <- comma
+      y_format <- comma
+    } else {
+      x <- df$obligation_percentile
+      y <- df$y_percentile
+      hover <- paste0("Obligation %ile: ", percent(df$obligation_percentile), "<br>",
+                      ifelse(input$corr_y_var == "gdp_millions", "GDP %ile: ", "Apps %ile: "),
+                      percent(df$y_percentile))
+      context <- ifelse(input$corr_selected_state == "All states", "National", "State")
+      x_label <- paste("Obligation Percentile (", context, ")")
+      y_label <- paste(input$corr_y_var, "Percentile (", context, ")")
+      x_format <- percent
+      y_format <- percent
+    }
+    
+    p <- ggplot(df, aes(x = x, y = y, text = hover)) +
+      geom_point(color = "#2C3E50", alpha = 0.6) +
+      scale_x_continuous(labels = x_format) +
+      scale_y_continuous(labels = y_format) +
+      labs(title = paste("Correlation View |", input$corr_selected_year),
+           x = x_label, y = y_label) +
+      theme_minimal()
+    
+    if (input$corr_display_mode == "Percentiles") {
+      p <- p + geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "gray")
+    }
+    
+    ggplotly(p, tooltip = "text")
+  })
+    
   ## Close Server
 }
 
