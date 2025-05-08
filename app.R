@@ -140,7 +140,7 @@ bfs_long <- bizform %>%
 cor_explorer_data <- fedcon %>%
   group_by(county_fips, fiscal_year, state) %>%
   summarise(total_obligation = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-  mutate(dataset = "Small contracts (≤ $250k)") %>%  # update if you add other types later
+  mutate(dataset = "Small contracts (≤ $250k)") %>% 
   left_join(county_gdp, by = c("county_fips" = "geo_fips", "fiscal_year")) %>%
   left_join(bfs_long, by = c("county_fips", "fiscal_year")) %>%
   filter(!state %in% c("AS", "GU", "PR", "MP", "VI"))
@@ -1484,47 +1484,59 @@ server <- function(input, output, session) {
       return(plotly_empty() %>% layout(title = "No data available for this selection"))
     }
     
-    # Percentiles
-    if (input$corr_selected_state == "All states") {
-      x_ecdf <- ecdf(df$total_obligation)
-      y_ecdf <- ecdf(df[[input$corr_y_var]])
+    # Compute percentiles
+    df$obligation_percentile <- ecdf(df$total_obligation)(df$total_obligation)
+    df$y_percentile <- ecdf(df[[input$corr_y_var]])(df[[input$corr_y_var]])
+    
+    # Labels for axes and tooltips
+    y_label <- if (input$corr_y_var == "gdp_millions") {
+      "County GDP (Millions)"
     } else {
-      x_ecdf <- ecdf(df$total_obligation)
-      y_ecdf <- ecdf(df[[input$corr_y_var]])
+      "Business Applications"
     }
     
-    df$obligation_percentile <- x_ecdf(df$total_obligation)
-    df$y_percentile <- y_ecdf(df[[input$corr_y_var]])
+    context <- ifelse(input$corr_selected_state == "All states", "National", "State")
     
     if (input$corr_display_mode == "Raw values") {
-      x <- df$total_obligation
-      y <- df[[input$corr_y_var]]
-      hover <- paste0("Obligation: $", comma(df$total_obligation), "<br>",
-                      ifelse(input$corr_y_var == "gdp_millions", "GDP: $", "Business Apps: "),
-                      comma(df[[input$corr_y_var]]))
+      df$x_plot <- df$total_obligation
+      df$y_plot <- df[[input$corr_y_var]]
+      
+      hover <- paste0(
+        "<b>County:</b> ", df$County, "<br>",
+        "Obligations: $", comma(df$total_obligation), "<br>",
+        y_label, ": ", comma(df[[input$corr_y_var]])
+      )
+      
       x_label <- "Total Obligations ($)"
-      y_label <- ifelse(input$corr_y_var == "gdp_millions", "County GDP (Millions)", "Business Applications")
+      y_label_final <- y_label
       x_format <- comma
       y_format <- comma
+      
     } else {
-      x <- df$obligation_percentile
-      y <- df$y_percentile
-      hover <- paste0("Obligation %ile: ", percent(df$obligation_percentile), "<br>",
-                      ifelse(input$corr_y_var == "gdp_millions", "GDP %ile: ", "Apps %ile: "),
-                      percent(df$y_percentile))
-      context <- ifelse(input$corr_selected_state == "All states", "National", "State")
+      df$x_plot <- df$obligation_percentile
+      df$y_plot <- df$y_percentile
+      
+      hover <- paste0(
+        "<b>County:</b> ", df$County, "<br>",
+        "Obligation %ile: ", percent(df$obligation_percentile), "<br>",
+        y_label, " %ile: ", percent(df$y_percentile)
+      )
+      
       x_label <- paste("Obligation Percentile (", context, ")")
-      y_label <- paste(input$corr_y_var, "Percentile (", context, ")")
+      y_label_final <- paste0(y_label, " Percentile (", context, ")")
       x_format <- percent
       y_format <- percent
     }
     
-    p <- ggplot(df, aes(x = x, y = y, text = hover)) +
+    p <- ggplot(df, aes(x = x_plot, y = y_plot, text = hover)) +
       geom_point(color = "#2C3E50", alpha = 0.6) +
       scale_x_continuous(labels = x_format) +
       scale_y_continuous(labels = y_format) +
-      labs(title = paste("Correlation View |", input$corr_selected_year),
-           x = x_label, y = y_label) +
+      labs(
+        title = paste("Correlation View |", input$corr_selected_year),
+        x = x_label,
+        y = y_label_final
+      ) +
       theme_minimal()
     
     if (input$corr_display_mode == "Percentiles") {
