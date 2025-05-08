@@ -357,6 +357,11 @@ server <- function(input, output, session) {
     df
   }
   
+  get_selected_state <- function() {
+    if (is.null(clicked_state())) return(NULL)
+    state_sf %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)
+  }
+  
   # --- Filtered data ---
   filtered_data <- reactive({
     df <- fedcon %>% filter(fiscal_year == input$year)
@@ -386,28 +391,39 @@ server <- function(input, output, session) {
   })
   
   state_summary <- reactive({
-    state_sf %>%
-      left_join(
-        state_summary_joined %>% filter(fiscal_year == input$year),
-        by = c("STUSPS" = "state")
-      ) %>%
+    filtered <- filtered_data()  # includes all your filters
+    
+    df <- filtered %>%
+      group_by(state) %>%
+      summarise(total_obligation = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+      left_join(state_gdp %>% filter(year == input$year), by = c("state" = "state_abbr.x")) %>%
       mutate(
-        gdp_dollars = value * 1e6
+        gdp_dollars = value * 1e6,
+        pct_gdp = total_obligation / gdp_dollars
       )
+    
+    state_sf %>%
+      left_join(df, by = c("STUSPS" = "state"))
   })
   
   county_summary_data <- reactive({
     req(clicked_state(), input$year)
-    county_sf %>%
-      left_join(county_obligation_summary %>% filter(fiscal_year == input$year),
-                by = c("GEOID" = "county_fips")) %>%
-      left_join(county_gdp %>% filter(year == input$year),
-                by = c("GEOID" = "geo_fips")) %>%
+    state_abbr <- state_sf %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)
+    
+    filtered <- filtered_data() %>% filter(state == state_abbr)
+    
+    df <- filtered %>%
+      group_by(county_fips) %>%
+      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+      left_join(county_gdp %>% filter(year == input$year), by = c("county_fips" = "geo_fips")) %>%
       mutate(
         gdp_dollars = gdp_millions * 1e6,
         pct_gdp = total / gdp_dollars
-      ) %>%
-      filter(STATEFP == clicked_state())
+      )
+    
+    county_sf %>%
+      filter(STATEFP == clicked_state()) %>%
+      left_join(df, by = c("GEOID" = "county_fips"))
   })
   
   ## reactive for economic model tab
@@ -535,68 +551,109 @@ server <- function(input, output, session) {
   
   # --- 4b) Value Boxes ---
   output$totalOblig <- renderValueBox({
-    total <- sum(filtered_data_summary()$total_obligation, na.rm = TRUE)
+    data <- filtered_data()
+    
+    if (drilldown_mode() == "counties" && !is.null(clicked_state())) {
+      selected_state <- state_sf %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)
+      data <- data %>% filter(state == selected_state)
+    }
+    
+    total <- sum(data$total_obligation, na.rm = TRUE)
     
     valueBox(
       value = scales::dollar(total),
-      subtitle = if (is.null(clicked_state())) "Total Obligations" else "State Obligations",
+      subtitle = if (drilldown_mode() == "counties") "State Obligations" else "Total Obligations",
       icon = icon("file-invoice-dollar"),
       color = "blue"
     )
   })
   
   output$gdp <- renderValueBox({
-    if (is.null(clicked_state())) {
-      # National GDP
-      gdp_value <- state_gdp_clean %>%
-        filter(year == input$year) %>%
-        summarise(total_gdp = sum(gdp, na.rm = TRUE)) %>%
-        pull(total_gdp)
-    } else {
-      # State GDP
+    data <- filtered_data()
+    subtitle <- "Total GDP"
+    gdp_value <- NA_real_
+    
+    if (drilldown_mode() == "counties" && !is.null(clicked_state())) {
       selected_state <- state_sf %>%
         filter(STATEFP == clicked_state()) %>%
         pull(STUSPS)
       
-      gdp_value <- state_gdp_clean %>%
-        filter(year == input$year, state_abbr == selected_state) %>%
+      if (length(selected_state) == 1 && any(data$state == selected_state)) {
+        gdp_raw <- state_gdp_clean %>%
+          filter(year == input$year, state_abbr == selected_state) %>%
+          summarise(gdp = sum(gdp, na.rm = TRUE)) %>%
+          pull(gdp)
+        if (length(gdp_raw) == 1 && !is.na(gdp_raw)) {
+          gdp_value <- gdp_raw * 1e6
+          subtitle <- paste(selected_state, "GDP")
+        }
+      }
+    } else {
+      selected_states <- unique(data$state)
+      
+      gdp_raw <- state_gdp_clean %>%
+        filter(year == input$year, state_abbr %in% selected_states) %>%
+        summarise(gdp = sum(gdp, na.rm = TRUE)) %>%
         pull(gdp)
+      if (length(gdp_raw) == 1 && !is.na(gdp_raw)) {
+        gdp_value <- gdp_raw * 1e6
+      }
     }
     
-    gdp_value <- ifelse(!is.na(gdp_value), gdp_value * 1e6, NA_real_)
-    
     valueBox(
-      value = if (!is.na(gdp_value)) scales::dollar(gdp_value) else "No Data",
-      subtitle = if (is.null(clicked_state())) "Total GDP" else paste(selected_state, "GDP"),
+      value = if (length(gdp_value) == 1 && !is.na(gdp_value) && gdp_value > 0) {
+        scales::dollar(gdp_value)
+      } else {
+        "No Data"
+      },
+      subtitle = subtitle,
       icon = icon("landmark"),
       color = "green"
     )
   })
   
   output$pctGDP <- renderValueBox({
-    total_oblig <- sum(filtered_data_summary()$total_obligation, na.rm = TRUE)
+    data <- filtered_data()
+    total_oblig <- NA_real_
+    gdp_value <- NA_real_
     
-    if (is.null(clicked_state())) {
-      gdp_value <- state_gdp_clean %>%
-        filter(year == input$year) %>%
-        summarise(total_gdp = sum(gdp, na.rm = TRUE)) %>%
-        pull(total_gdp)
-    } else {
+    if (drilldown_mode() == "counties" && !is.null(clicked_state())) {
       selected_state <- state_sf %>%
         filter(STATEFP == clicked_state()) %>%
         pull(STUSPS)
       
-      gdp_value <- state_gdp_clean %>%
-        filter(year == input$year, state_abbr == selected_state) %>%
+      if (length(selected_state) == 1 && any(data$state == selected_state)) {
+        data <- data %>% filter(state == selected_state)
+        total_oblig <- sum(data$total_obligation, na.rm = TRUE)
+        
+        gdp_raw <- state_gdp_clean %>%
+          filter(year == input$year, state_abbr == selected_state) %>%
+          pull(gdp)
+        if (length(gdp_raw) == 1 && !is.na(gdp_raw)) {
+          gdp_value <- gdp_raw * 1e6
+        }
+      }
+    } else {
+      total_oblig <- sum(data$total_obligation, na.rm = TRUE)
+      selected_states <- unique(data$state)
+      
+      gdp_raw <- state_gdp_clean %>%
+        filter(year == input$year, state_abbr %in% selected_states) %>%
+        summarise(gdp = sum(gdp, na.rm = TRUE)) %>%
         pull(gdp)
+      if (length(gdp_raw) == 1 && !is.na(gdp_raw)) {
+        gdp_value <- gdp_raw * 1e6
+      }
     }
-    
-    gdp_value <- ifelse(!is.na(gdp_value), gdp_value * 1e6, NA_real_)
     
     pct <- if (!is.na(gdp_value) && gdp_value > 0) total_oblig / gdp_value else NA_real_
     
     valueBox(
-      value = if (!is.na(pct)) scales::percent(pct, accuracy = 0.01) else "No Data",
+      value = if (!is.na(pct)) {
+        if (pct < 0.0001) "< 0.01%" else scales::percent(pct, accuracy = 0.01)
+      } else {
+        "No Data"
+      },
       subtitle = "Obligations as % GDP",
       icon = icon("percentage"),
       color = "orange"
@@ -829,18 +886,57 @@ server <- function(input, output, session) {
   
   output$distPlot <- renderPlot({
     req(input$dist_choice_value)
-    df <- fedcon
-    df <- if (input$dist_type == "Agency") df %>% filter(parent_agency == input$dist_choice_value) else df %>% filter(naics_group == input$dist_choice_value)
     
-    df %>%
-      group_by(state) %>%
-      summarise(total = sum(total_obligation, na.rm = TRUE)) %>%
-      slice_max(total, n = 10) %>%
-      ggplot(aes(x = reorder(state, total), y = total)) +
-      geom_col(fill = "#1F77B4") +
-      coord_flip() +
-      scale_y_continuous(labels = scales::dollar) +
-      theme_minimal()
+    df <- fedcon %>%
+      filter(fiscal_year == input$year)
+    
+    # Apply filter for Agency or NAICS
+    if (input$dist_type == "Agency") {
+      df <- df %>% filter(parent_agency == input$dist_choice_value)
+    } else {
+      df <- df %>% filter(naics_group == input$dist_choice_value)
+    }
+    
+    # If a state is clicked, show counties
+    if (!is.null(clicked_state())) {
+      selected_state <- state_sf %>% 
+        filter(STATEFP == clicked_state()) %>% 
+        pull(STUSPS)
+      
+      df <- df %>% filter(state == selected_state)
+      
+      # Summarize and join with county names
+      df_county <- df %>%
+        group_by(county_fips) %>%
+        summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+        left_join(county_sf %>% st_drop_geometry() %>%
+                    mutate(county_name = paste0(NAME, ", ", STATEFP)),
+                  by = c("county_fips" = "GEOID"))
+      
+      df_county %>%
+        slice_max(total, n = 10) %>%
+        ggplot(aes(x = reorder(county_name, total), y = total)) +
+        geom_col(fill = "#1F77B4") +
+        coord_flip() +
+        scale_y_continuous(labels = scales::dollar) +
+        labs(title = paste("Top Counties in", selected_state),
+             x = NULL, y = "Total Obligations ($)") +
+        theme_minimal()
+      
+    } else {
+      # Default view: show top states
+      df %>%
+        group_by(state) %>%
+        summarise(total = sum(total_obligation, na.rm = TRUE)) %>%
+        slice_max(total, n = 10) %>%
+        ggplot(aes(x = reorder(state, total), y = total)) +
+        geom_col(fill = "#1F77B4") +
+        coord_flip() +
+        scale_y_continuous(labels = scales::dollar) +
+        labs(title = "Top States by Obligations",
+             x = NULL, y = "Total Obligations ($)") +
+        theme_minimal()
+    }
   })
   
   # --- Obligations Over Time ---
@@ -853,20 +949,22 @@ server <- function(input, output, session) {
     if (input$woman != "All") df <- df %>% filter(is_woman_owned == (input$woman == "Yes"))
     if (input$veteran != "All") df <- df %>% filter(is_veteran_owned == (input$veteran == "Yes"))
     
+    selected_state <- get_selected_state()
+    
     df_national <- df %>%
       group_by(fiscal_year) %>%
       summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
       mutate(scope = "National")
     
-    df_state <- df
-    if (!is.null(clicked_state())) {
-      df_state <- df_state %>%
-        filter(state == (state_data() %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)))
+    df_state <- if (!is.null(selected_state)) {
+      df %>%
+        filter(state == selected_state) %>%
+        group_by(fiscal_year) %>%
+        summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+        mutate(scope = "Selected State")
+    } else {
+      NULL
     }
-    df_state <- df_state %>%
-      group_by(fiscal_year) %>%
-      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-      mutate(scope = "Selected State")
     
     df_combined <- bind_rows(df_national, df_state)
     
@@ -876,6 +974,96 @@ server <- function(input, output, session) {
       labs(title = "Federal Obligations Over Time", x = "Year", y = "Total Obligations ($)", color = "") +
       scale_y_continuous(labels = scales::dollar) +
       scale_color_manual(values = c("National" = "gray60", "Selected State" = "#2C3E50")) +
+      theme_minimal()
+  })
+  
+  # --- Breakdown by Industry ---
+  output$barPlot <- renderPlot({
+    df <- filtered_data()
+    selected_state <- get_selected_state()
+    if (!is.null(selected_state)) {
+      df <- df %>% filter(state == selected_state)
+    }
+    
+    df %>%
+      group_by(naics_group) %>%
+      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+      slice_max(total, n = 10) %>%
+      ggplot(aes(x = reorder(naics_group, total), y = total)) +
+      geom_col(fill = "#1F77B4") +
+      coord_flip() +
+      labs(title = "Top NAICS Groups",
+           subtitle = if (!is.null(selected_state)) paste("in", selected_state) else "Nationally",
+           x = "NAICS Group", y = "Total Obligations ($)") +
+      scale_y_continuous(labels = scales::dollar) +
+      theme_minimal()
+  })
+  
+  # --- Top NAICS Groups Over Time ---
+  output$naicsTrendPlot <- renderPlot({
+    df <- fedcon %>% filter(fiscal_year == input$year)
+    selected_state <- get_selected_state()
+    if (!is.null(selected_state)) {
+      df <- df %>% filter(state == selected_state)
+    }
+    
+    df_plot <- df %>%
+      group_by(naics_group, fiscal_year) %>%
+      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+      filter(!is.na(naics_group))
+    
+    top_naics <- df_plot %>%
+      group_by(naics_group) %>%
+      summarise(total_all = sum(total)) %>%
+      arrange(desc(total_all)) %>%
+      slice_head(n = 5) %>%
+      pull(naics_group)
+    
+    df_plot %>%
+      filter(naics_group %in% top_naics) %>%
+      ggplot(aes(x = fiscal_year, y = total, color = naics_group)) +
+      geom_line(linewidth = 1.2) +
+      geom_point(size = 2) +
+      labs(
+        title = "Top NAICS Groups Over Time",
+        subtitle = if (!is.null(selected_state)) paste("in", selected_state) else "Nationally",
+        x = "Year", y = "Total Obligations ($)", color = "NAICS Group"
+      ) +
+      scale_y_continuous(labels = scales::dollar) +
+      theme_minimal()
+  })
+  
+  # --- Top Agencies Over Time ---
+  output$agencyTrendPlot <- renderPlot({
+    df <- fedcon %>% filter(fiscal_year == input$year)
+    selected_state <- get_selected_state()
+    if (!is.null(selected_state)) {
+      df <- df %>% filter(state == selected_state)
+    }
+    
+    df_plot <- df %>%
+      group_by(parent_agency, fiscal_year) %>%
+      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
+      filter(!is.na(parent_agency))
+    
+    top_agencies <- df_plot %>%
+      group_by(parent_agency) %>%
+      summarise(total_all = sum(total)) %>%
+      arrange(desc(total_all)) %>%
+      slice_head(n = 5) %>%
+      pull(parent_agency)
+    
+    df_plot %>%
+      filter(parent_agency %in% top_agencies) %>%
+      ggplot(aes(x = fiscal_year, y = total, color = parent_agency)) +
+      geom_line(linewidth = 1.2) +
+      geom_point(size = 2) +
+      labs(
+        title = "Top Agencies Over Time",
+        subtitle = if (!is.null(selected_state)) paste("in", selected_state) else "Nationally",
+        x = "Year", y = "Total Obligations ($)", color = "Agency"
+      ) +
+      scale_y_continuous(labels = scales::dollar) +
       theme_minimal()
   })
   
@@ -961,92 +1149,6 @@ server <- function(input, output, session) {
       theme_minimal()
   })
   
-  # --- Breakdown by Industry ---
-  output$barPlot <- renderPlot({
-    df <- filtered_data() %>%
-      group_by(naics_group) %>%
-      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-      slice_max(total, n = 10)
-    
-    ggplot(df, aes(x = reorder(naics_group, total), y = total)) +
-      geom_col(fill = "#1F77B4") +
-      coord_flip() +
-      labs(title = "Top NAICS Groups", x = "NAICS Group", y = "Total Obligations ($)") +
-      scale_y_continuous(labels = scales::dollar) +
-      theme_minimal()
-  })
-  
-  # --- Top NAICS Groups Over Time ---
-  output$naicsTrendPlot <- renderPlot({
-    df <- fedcon
-    
-    if (!is.null(input$agency)) df <- df %>% filter(parent_agency %in% input$agency)
-    if (!is.null(input$naics_group)) df <- df %>% filter(naics_group %in% input$naics_group)
-    if (input$minority != "All") df <- df %>% filter(is_minority_owned == (input$minority == "Yes"))
-    if (input$woman != "All") df <- df %>% filter(is_woman_owned == (input$woman == "Yes"))
-    if (input$veteran != "All") df <- df %>% filter(is_veteran_owned == (input$veteran == "Yes"))
-    
-    if (!is.null(clicked_state())) {
-      df <- df %>% filter(state == (state_data() %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)))
-    }
-    
-    df_plot <- df %>%
-      group_by(naics_group, fiscal_year) %>%
-      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-      filter(!is.na(naics_group))
-    
-    top_naics <- df_plot %>%
-      group_by(naics_group) %>%
-      summarise(total_all = sum(total)) %>%
-      arrange(desc(total_all)) %>%
-      slice_head(n = 5) %>%
-      pull(naics_group)
-    
-    df_plot <- df_plot %>% filter(naics_group %in% top_naics)
-    
-    ggplot(df_plot, aes(x = fiscal_year, y = total, color = naics_group)) +
-      geom_line(linewidth = 1.2) +
-      geom_point(size = 2) +
-      labs(title = "Top NAICS Groups Over Time", x = "Year", y = "Total Obligations ($)", color = "NAICS Group") +
-      scale_y_continuous(labels = scales::dollar) +
-      theme_minimal()
-  })
-  
-  # --- Top Agencies Over Time ---
-  output$agencyTrendPlot <- renderPlot({
-    df <- fedcon
-    
-    if (!is.null(input$agency)) df <- df %>% filter(parent_agency %in% input$agency)
-    if (!is.null(input$naics_group)) df <- df %>% filter(naics_group %in% input$naics_group)
-    if (input$minority != "All") df <- df %>% filter(is_minority_owned == (input$minority == "Yes"))
-    if (input$woman != "All") df <- df %>% filter(is_woman_owned == (input$woman == "Yes"))
-    if (input$veteran != "All") df <- df %>% filter(is_veteran_owned == (input$veteran == "Yes"))
-    
-    if (!is.null(clicked_state())) {
-      df <- df %>% filter(state == (state_data() %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)))
-    }
-    
-    df_plot <- df %>%
-      group_by(parent_agency, fiscal_year) %>%
-      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-      filter(!is.na(parent_agency))
-    
-    top_agencies <- df_plot %>%
-      group_by(parent_agency) %>%
-      summarise(total_all = sum(total)) %>%
-      arrange(desc(total_all)) %>%
-      slice_head(n = 5) %>%
-      pull(parent_agency)
-    
-    df_plot <- df_plot %>% filter(parent_agency %in% top_agencies)
-    
-    ggplot(df_plot, aes(x = fiscal_year, y = total, color = parent_agency)) +
-      geom_line(linewidth = 1.2) +
-      geom_point(size = 2) +
-      labs(title = "Top Agencies Over Time", x = "Year", y = "Total Obligations ($)", color = "Agency") +
-      scale_y_continuous(labels = scales::dollar) +
-      theme_minimal()
-  })
   
   # --- SBCS Revenue Changes ---
   output$revenuePlot <- renderPlot({
@@ -1090,6 +1192,15 @@ server <- function(input, output, session) {
       theme_minimal()
   })
   
+  
+  ## filter warning
+  output$filter_warning <- renderText({
+    if (nrow(filtered_data()) == 0) {
+      "⚠️ No results match the selected filters."
+    } else {
+      ""
+    }
+  })
   
   ## Tab memory
   observeEvent(clicked_state(), {
