@@ -1004,38 +1004,36 @@ server <- function(input, output, session) {
   # --- Obligations Over Time ---
   output$trendPlot <- renderPlot({
     df <- fedcon
-    
-    if (!is.null(input$agency)) df <- df %>% filter(parent_agency %in% input$agency)
-    if (!is.null(input$naics_group)) df <- df %>% filter(naics_group %in% input$naics_group)
-    if (input$minority != "All") df <- df %>% filter(is_minority_owned == (input$minority == "Yes"))
-    if (input$woman != "All") df <- df %>% filter(is_woman_owned == (input$woman == "Yes"))
-    if (input$veteran != "All") df <- df %>% filter(is_veteran_owned == (input$veteran == "Yes"))
+    df <- apply_all_filters(df, input)
     
     selected_state <- get_selected_state()
     
-    df_national <- df %>%
-      group_by(fiscal_year) %>%
-      summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-      mutate(scope = "National")
-    
-    df_state <- if (!is.null(selected_state)) {
-      df %>%
+    if (!is.null(selected_state)) {
+      # State-specific trend
+      df_plot <- df %>%
         filter(state == selected_state) %>%
         group_by(fiscal_year) %>%
-        summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop") %>%
-        mutate(scope = "Selected State")
+        summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop")
+      
+      title_text <- paste("Federal Obligations Over Time in", selected_state)
     } else {
-      NULL
+      # National trend
+      df_plot <- df %>%
+        group_by(fiscal_year) %>%
+        summarise(total = sum(total_obligation, na.rm = TRUE), .groups = "drop")
+      
+      title_text <- "Federal Obligations Over Time (National)"
     }
     
-    df_combined <- bind_rows(df_national, df_state)
-    
-    ggplot(df_combined, aes(x = fiscal_year, y = total, color = scope, group = scope)) +
-      geom_line(linewidth = 1.2) +
-      geom_point(size = 2) +
-      labs(title = "Federal Obligations Over Time", x = "Year", y = "Total Obligations ($)", color = "") +
-      scale_y_continuous(labels = scales::dollar) +
-      scale_color_manual(values = c("National" = "gray60", "Selected State" = "#2C3E50")) +
+    ggplot(df_plot, aes(x = fiscal_year, y = total)) +
+      geom_line(linewidth = 1.2, color = "#2C3E50") +
+      geom_point(size = 2, color = "#2C3E50") +
+      labs(
+        title = title_text,
+        x = "Fiscal Year",
+        y = "Total Obligations ($)"
+      ) +
+      scale_y_continuous(labels = scales::dollar_format()) +
       theme_minimal()
   })
   
@@ -1405,5 +1403,5 @@ server <- function(input, output, session) {
   ## Close Server
 }
 
+## Launch App
 shinyApp(ui = ui, server = server)
-
