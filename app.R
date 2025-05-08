@@ -96,6 +96,32 @@ cbp_clean_with_sector_naics <- cbp_full %>%
   mutate(naics_2digit = str_sub(naics, 1, 2)) %>%
   left_join(naics_group_lookup, by = "naics_2digit")
 
+
+## processing data for shayna's app
+
+# 1. Create state abbreviation lookup table
+state_abbr_lookup <- tibble::tibble(
+  state_full = state.name,
+  state = state.abb
+) %>%
+  bind_rows(tibble(state_full = "District of Columbia", state = "DC"),
+            tibble(state_full = "Puerto Rico", state = "PR"))
+
+# 2. Process and clean bizform (business applications)
+apps_long <- bizform %>%
+  rename(state = State) %>%
+  pivot_longer(cols = `2017`:`2023`, names_to = "year", values_to = "applications") %>%
+  mutate(year = as.integer(year))
+
+# 3. Clean population data (convert full names to 2-letter abbrevs)
+pop_long <- acs_summary %>%
+  rename(state_full = state, population = total_population) %>%
+  left_join(state_abbr_lookup, by = "state_full") %>%
+  filter(!is.na(state)) %>%
+  mutate(year = as.integer(year)) %>%
+  group_by(state, year) %>%
+  summarise(population = sum(population, na.rm = TRUE), .groups = "drop")
+
 # --- 3) UI ---
 ui <- dashboardPage(
   dashboardHeader(title = "Federal Contracts Explorer"),
@@ -248,11 +274,47 @@ ui <- dashboardPage(
                        plotOutput("financingPlot") %>% 
                          withSpinner(color = "#007bff"))
                  )
+        ),
+        tabPanel("Business Apps & Population",
+                 fluidRow(
+                   column(3,
+                          radioButtons("apps_view", "View Type:",
+                                       choices = c("Bar Chart", "Line Chart"),
+                                       inline = TRUE),
+                          selectInput("apps_metric", "Select Metric:",
+                                      choices = c("Applications", "Population", "Applications per Capita", "Growth Rate")),
+                          conditionalPanel(
+                            condition = "input.apps_view == 'Bar Chart'",
+                            sliderInput("apps_year", "Select Year:",
+                                        min = 2006, max = 2023, value = 2023, step = 1, sep = ""),
+                            selectInput("apps_rank", "Show:", choices = c("All States", "Top 10", "Bottom 10"))
+                          ),
+                          conditionalPanel(
+                            condition = "input.apps_view == 'Line Chart'",
+                            selectInput("apps_state", "Select State:",
+                                        choices = sort(unique(apps_long$state)))
+                          )
+                   ),
+                   column(9,
+                          conditionalPanel(
+                            condition = "input.apps_view == 'Bar Chart'",
+                            plotlyOutput("apps_bar_plot", height = "600px") %>%
+                              withSpinner(color = "#007bff")
+                          ),
+                          conditionalPanel(
+                            condition = "input.apps_view == 'Line Chart'",
+                            plotlyOutput("apps_line_plot", height = "600px") %>%
+                              withSpinner(color = "#007bff")
+                          )
+                   )
+                 )
         )
-      )
     )
   )
 )
+)
+  
+  
 # --- 4) Server ---
 server <- function(input, output, session) {
   drilldown_mode <- reactiveVal("states")
@@ -1001,7 +1063,7 @@ server <- function(input, output, session) {
   
   # --- Top NAICS Groups Over Time ---
   output$naicsTrendPlot <- renderPlot({
-    df <- fedcon %>% filter(fiscal_year == input$year)
+    df <- fedcon
     selected_state <- get_selected_state()
     if (!is.null(selected_state)) {
       df <- df %>% filter(state == selected_state)
@@ -1035,7 +1097,7 @@ server <- function(input, output, session) {
   
   # --- Top Agencies Over Time ---
   output$agencyTrendPlot <- renderPlot({
-    df <- fedcon %>% filter(fiscal_year == input$year)
+    df <- fedcon
     selected_state <- get_selected_state()
     if (!is.null(selected_state)) {
       df <- df %>% filter(state == selected_state)
@@ -1202,12 +1264,144 @@ server <- function(input, output, session) {
     }
   })
   
-  ## Tab memory
-  observeEvent(clicked_state(), {
-    if (!is.null(input$trends_tabs)) {
-      updateTabsetPanel(session, "trends_tabs", selected = input$trends_tabs)
+  ## Business apps bar plot
+  output$apps_bar_plot <- renderPlotly({
+    req(input$apps_metric, input$apps_year)
+    
+    year <- input$apps_year
+    metric <- input$apps_metric
+    
+    df_apps <- apps_long %>% filter(year == year)
+    df_pop <- pop_long %>% filter(year == year)
+    
+    df <- df_apps %>%
+      group_by(state, year) %>%
+      summarise(applications = sum(applications, na.rm = TRUE), .groups = "drop") %>%
+      left_join(
+        df_pop %>%
+          group_by(state, year) %>%
+          summarise(population = sum(population, na.rm = TRUE), .groups = "drop"),
+        by = c("state", "year")
+      )
+    
+    df <- df %>% mutate(
+      value = case_when(
+        metric == "Applications" ~ applications,
+        metric == "Population" ~ population,
+        metric == "Applications per Capita" ~ applications / population
+      )
+    )
+    
+    if (metric == "Growth Rate") {
+      # Need 2 years of apps data only
+      df_growth <- apps_long %>%
+        filter(year %in% c(year, year - 1)) %>%
+        group_by(state, year) %>%
+        summarise(applications = sum(applications, na.rm = TRUE), .groups = "drop") %>%
+        pivot_wider(names_from = year, values_from = applications)
+      
+      df <- df_growth %>%
+        mutate(value = (`{year}` - `{year - 1}`) / `{year - 1}`) %>%
+        select(state, value)
     }
+    
+    # Apply rank filter
+    if (input$apps_rank == "Top 10") {
+      df <- df %>% slice_max(value, n = 10)
+    } else if (input$apps_rank == "Bottom 10") {
+      df <- df %>% slice_min(value, n = 10)
+    }
+    
+    plot_ly(
+      data = df,
+      x = ~reorder(state, value),
+      y = ~value,
+      type = "bar",
+      marker = list(color = switch(
+        metric,
+        "Applications" = "royalblue",
+        "Population" = "seagreen",
+        "Applications per Capita" = "purple",
+        "Growth Rate" = "darkorange"
+      ))
+    ) %>%
+      layout(
+        title = paste(metric, "by State in", year),
+        xaxis = list(title = "State", tickangle = -45),
+        yaxis = list(
+          title = metric,
+          tickformat = ifelse(metric %in% c("Applications per Capita", "Growth Rate"), ".0%", "")
+        )
+      )
   })
+  
+  ## business apps line plot
+  output$apps_line_plot <- renderPlotly({
+    req(input$apps_state, input$apps_metric)
+    
+    metric <- input$apps_metric
+    state_abbr <- input$apps_state
+    
+    df_apps <- apps_long %>% filter(!is.na(applications))
+    df_pop <- pop_long %>% filter(!is.na(population))
+    
+    df_combined <- df_apps %>%
+      group_by(state, year) %>%
+      summarise(applications = sum(applications, na.rm = TRUE), .groups = "drop") %>%
+      left_join(
+        df_pop %>%
+          group_by(state, year) %>%
+          summarise(population = sum(population, na.rm = TRUE), .groups = "drop"),
+        by = c("state", "year")
+      )
+    
+    state_line <- df_combined %>%
+      filter(state == state_abbr) %>%
+      arrange(year) %>%
+      mutate(
+        value = case_when(
+          metric == "Applications" ~ applications,
+          metric == "Population" ~ population,
+          metric == "Applications per Capita" ~ applications / population,
+          metric == "Growth Rate" ~ (applications - lag(applications)) / lag(applications)
+        ),
+        scope = state_abbr
+      )
+    
+    national_line <- df_combined %>%
+      group_by(year) %>%
+      summarise(
+        applications = sum(applications, na.rm = TRUE),
+        population = sum(population, na.rm = TRUE),
+        .groups = "drop"
+      ) %>%
+      arrange(year) %>%
+      mutate(
+        value = case_when(
+          metric == "Applications" ~ applications,
+          metric == "Population" ~ population,
+          metric == "Applications per Capita" ~ applications / population,
+          metric == "Growth Rate" ~ (applications - lag(applications)) / lag(applications)
+        ),
+        scope = "U.S. Average"
+      )
+    
+    df_plot <- bind_rows(state_line, national_line) %>%
+      filter(!is.na(value))
+    
+    plot_ly(df_plot, x = ~year, y = ~value, color = ~scope, type = 'scatter', mode = 'lines+markers') %>%
+      layout(
+        title = paste(metric, "in", state_abbr, "vs U.S. Average"),
+        yaxis = list(
+          title = metric,
+          tickformat = ifelse(metric %in% c("Applications per Capita", "Growth Rate"), ".0%", "")
+        ),
+        xaxis = list(title = "Year"),
+        legend = list(title = list(text = ""), orientation = "h", x = 0.3, y = -0.2)
+      )
+  })
+  
+  
   ## Close Server
 }
 
