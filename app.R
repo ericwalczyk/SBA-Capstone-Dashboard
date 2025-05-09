@@ -214,8 +214,7 @@ ui <- dashboardPage(
         
         tabPanel("Economic Impact Comparison",
                  fluidRow(
-                   valueBoxOutput("econ_valuebox") %>% 
-                     withSpinner(color = "#007bff")
+                   valueBoxOutput("econ_valuebox") %>% withSpinner(color = "#007bff")
                  ),
                  fluidRow(
                    column(4,
@@ -257,51 +256,35 @@ ui <- dashboardPage(
         ),
         
         tabPanel("Obligations Over Time",
-                 plotOutput("trendPlot") %>% 
-                   withSpinner(color = "#007bff")
+                 plotOutput("trendPlot") %>% withSpinner(color = "#007bff")
         ),
         
         tabPanel("Breakdown by Industry",
-                 plotOutput("barPlot") %>%
-                   withSpinner(color = "#007bff")
+                 plotOutput("barPlot") %>% withSpinner(color = "#007bff")
         ),
         
         tabPanel("Top NAICS Groups Over Time",
-                 plotOutput("naicsTrendPlot") %>% 
-                   withSpinner(color = "#007bff")
+                 plotOutput("naicsTrendPlot") %>% withSpinner(color = "#007bff")
         ),
         
         tabPanel("Top Agencies Over Time",
-                 plotOutput("agencyTrendPlot") %>% 
-                   withSpinner(color = "#007bff")
+                 plotOutput("agencyTrendPlot") %>% withSpinner(color = "#007bff")
         ),
         
-        tabPanel("Small Business Credit Survey",
+        tabPanel("Small Business Community Survey",
                  fluidRow(
                    column(4,
-                          selectInput("survey_year", "Select Survey Year:", choices = sort(unique(sbcs$Year)), selected = max(sbcs$Year)),
-                          selectInput("survey_state", "Geographic Scope:", 
-                                      choices = unique(sbcs$Survey.Responder), 
-                                      selected = "All employer firms")
+                          selectInput("responder_type", "Select Responder Type:",
+                                      choices = unique(sbcs$`Responder Type`)),
+                          uiOutput("responder_selector"),
+                          uiOutput("question_selector")
+                   ),
+                   column(8,
+                          plotOutput("trend_plot") %>% withSpinner(color = "#007bff")
                    )
-                 ),
-                 fluidRow(
-                   box(title = "Revenue Changes", 
-                       width = 6, 
-                       plotOutput("revenuePlot") %>% 
-                         withSpinner(color = "#007bff")),
-                   box(title = "Employment Changes", 
-                       width = 6, 
-                       plotOutput("employmentPlot") %>% 
-                         withSpinner(color = "#007bff"))
-                 ),
-                 fluidRow(
-                   box(title = "Financing Access", 
-                       width = 12, 
-                       plotOutput("financingPlot") %>% 
-                         withSpinner(color = "#007bff"))
                  )
         ),
+        
         tabPanel("Business Apps & Population",
                  fluidRow(
                    column(3,
@@ -333,9 +316,10 @@ ui <- dashboardPage(
                             plotlyOutput("apps_line_plot", height = "600px") %>%
                               withSpinner(color = "#007bff")
                           )
-                        )
+                   )
                  )
         ),
+        
         tabPanel("Correlation Explorer",
                  fluidRow(
                    column(3,
@@ -371,10 +355,13 @@ ui <- dashboardPage(
                    )
                  )
         )
+      )
     )
+    
   )
+  
 )
-)
+
   
   
 # --- 4) Server ---
@@ -506,9 +493,7 @@ server <- function(input, output, session) {
   })
   
   filtered_sbcs <- reactive({
-    sbcs %>%
-      filter(Year == input$sbcs_year,
-             Survey.Responder == input$sbcs_group)
+    sbcs %>% filter(Year == input$survey_year)
   })
   
   state_summary <- reactive({
@@ -573,18 +558,61 @@ server <- function(input, output, session) {
     lm(model_formula, data = df)
   })
   
-  # Populate SBCS input choices 
-  observe({
-    updateSelectInput(session, "sbcs_year",
-                      choices = sort(unique(sbcs$Year), decreasing = TRUE),
-                      selected = max(sbcs$Year, na.rm = TRUE))
+  # Dynamic Survey Responder selector
+  output$responder_selector <- renderUI({
+    req(input$responder_type)
+    responders <- sbcs %>%
+      filter(`Responder Type` == input$responder_type) %>%
+      pull(`Survey Responder`) %>%
+      unique()
     
-    updateSelectInput(session, "sbcs_group",
-                      choices = unique(sbcs$Survey.Responder),
-                      selected = "All employer firms")
+    selectInput("survey_responder", "Choose Survey Responder:", choices = responders)
   })
   
-  # --- Outputs ---
+  # Dynamic Question selector
+  output$question_selector <- renderUI({
+    req(input$responder_type, input$survey_responder)
+    
+    questions <- sbcs %>%
+      filter(
+        `Responder Type` == input$responder_type,
+        `Survey Responder` == input$survey_responder
+      ) %>%
+      pull(`Survey question`) %>%
+      unique()
+    
+    selectInput("question", "Choose Survey Question:", choices = questions)
+  })
+  
+  # Survey trend plot
+  output$trend_plot <- renderPlot({
+    req(input$responder_type, input$survey_responder, input$question)
+    
+    df <- sbcs %>%
+      filter(
+        `Responder Type` == input$responder_type,
+        `Survey Responder` == input$survey_responder,
+        `Survey question` == input$question
+      ) %>%
+      arrange(Year)
+    
+    ggplot(df, aes(x = Year, y = as.numeric(str_remove(Percent, "%")),
+                   group = `Response option`, color = `Response option`)) +
+      geom_line(size = 1.2) +
+      geom_point(size = 2) +
+      scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+      labs(title = input$question,
+           subtitle = paste(input$survey_responder, "-", input$responder_type),
+           x = "Year", y = "Percent",
+           color = "Response") +
+      theme_minimal()
+  })
+  
+  
+  #######################  #######################  #######################
+  #######################      --- Outputs ---      #######################
+  #######################  #######################  #######################
+  
   
   # --- 4a) Map ---
   output$map <- renderLeaflet({ leaflet() %>% 
@@ -1254,44 +1282,59 @@ server <- function(input, output, session) {
       theme_minimal()
   })
   
-  
-  # Revenue Changes Plot
-  output$sbcs_revenue <- renderPlot({
-    df <- filtered_sbcs() %>%
-      filter(Survey.question == "Revenue change, prior 12 months") %>%
-      mutate(Percent = as.numeric(gsub("%", "", Percent)) / 100)
+  ## SBCS APP ##
+  # UI for Survey Responder
+  output$responder_selector <- renderUI({
+    req(input$responder_type)
+    responders <- sbcs %>%
+      filter(`Responder Type` == input$responder_type) %>%
+      pull(`Survey Responder`) %>%
+      unique()
     
-    ggplot(df, aes(x = Response.option, y = Percent)) +
-      geom_col(fill = "#1F77B4") +
-      scale_y_continuous(labels = scales::percent) +
-      labs(x = "Revenue Change", y = "% of Businesses") +
-      theme_minimal() + coord_flip()
+    selectInput("survey_responder", "Choose Survey Responder:", choices = responders)
   })
   
-  # Employment Changes Plot
-  output$sbcs_employment <- renderPlot({
-    df <- filtered_sbcs() %>%
-      filter(Survey.question == "Employment change, prior 12 months") %>%
-      mutate(Percent = as.numeric(gsub("%", "", Percent)) / 100)
+  # UI for Survey Question
+  output$question_selector <- renderUI({
+    req(input$responder_type, input$survey_responder)
     
-    ggplot(df, aes(x = Response.option, y = Percent)) +
-      geom_col(fill = "#2CA02C") +
-      scale_y_continuous(labels = scales::percent) +
-      labs(x = "Employment Change", y = "% of Businesses") +
-      theme_minimal() + coord_flip()
+    questions <- sbcs %>%
+      filter(
+        `Responder Type` == input$responder_type,
+        `Survey Responder` == input$survey_responder
+      ) %>%
+      pull(`Survey question`) %>%
+      unique()
+    
+    selectInput("question", "Choose Survey Question:", choices = questions)
   })
   
-  # Financing Access Plot
-  output$sbcs_financing <- renderPlot({
-    df <- filtered_sbcs() %>%
-      filter(Survey.question == "Best outcome on loan/LOC/merchant cash advance application(s)") %>%
-      mutate(Percent = as.numeric(gsub("%", "", Percent)) / 100)
+  # Plot Output (with debug)
+  output$trend_plot <- renderPlot({
+    req(input$responder_type, input$survey_responder, input$question)
     
-    ggplot(df, aes(x = Response.option, y = Percent)) +
-      geom_col(fill = "#FF7F0E") +
-      scale_y_continuous(labels = scales::percent) +
-      labs(x = "Financing Outcome", y = "% of Applicants") +
-      theme_minimal() + coord_flip()
+    # Filter the data based on inputs
+    df <- sbcs %>%
+      filter(
+        `Responder Type` == input$responder_type,
+        `Survey Responder` == input$survey_responder,
+        `Survey question` == input$question
+      ) %>%
+      mutate(Percent = as.numeric(str_remove(Percent, "%")))  # Convert Percent to numeric
+    
+    # Debug: Print unique response options to console
+    print(unique(df$`Response option`))
+    
+    # Plot
+    ggplot(df, aes(x = Year, y = Percent, group = `Response option`, color = `Response option`)) +
+      geom_line(size = 1.2, show.legend = TRUE) +
+      geom_point(size = 2, show.legend = TRUE) +
+      scale_color_manual(values = rep("dodgerblue2", length(unique(df$`Response option`)))) +
+      labs(title = input$question,
+           subtitle = paste(input$survey_responder, "-", input$responder_type),
+           x = "Year", y = "Percent",
+           color = "Response") +
+      theme_minimal()
   })
   
   
