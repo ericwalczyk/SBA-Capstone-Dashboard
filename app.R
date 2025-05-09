@@ -145,6 +145,10 @@ cor_explorer_data <- fedcon %>%
   left_join(bfs_long, by = c("county_fips", "fiscal_year")) %>%
   filter(!state %in% c("AS", "GU", "PR", "MP", "VI"))
 
+## data prep for Maria's SBCS app
+# Clean column names
+colnames(sbcs) <- gsub("\\.", " ", make.names(colnames(sbcs)))
+
 # --- 3) UI ---
 ui <- dashboardPage(
   dashboardHeader(title = "Federal Contracts Explorer"),
@@ -275,10 +279,10 @@ ui <- dashboardPage(
         tabPanel("Small Business Credit Survey",
                  fluidRow(
                    column(4,
-                          selectInput("survey_year", "Select Survey Year:", 
-                                      choices = NULL),
-                          selectInput("survey_state", "Select State (optional):", 
-                                      choices = NULL)
+                          selectInput("survey_year", "Select Survey Year:", choices = sort(unique(sbcs$Year)), selected = max(sbcs$Year)),
+                          selectInput("survey_state", "Geographic Scope:", 
+                                      choices = unique(sbcs$Survey.Responder), 
+                                      selected = "All employer firms")
                    )
                  ),
                  fluidRow(
@@ -501,13 +505,10 @@ server <- function(input, output, session) {
     df
   })
   
-  filtered_survey <- reactive({
-    req(input$survey_year)
-    df <- sbcs %>% 
-      filter(year == input$survey_year)
-    if (input$survey_state != "All") df <- df %>% 
-      filter(state == input$survey_state)
-    df
+  filtered_sbcs <- reactive({
+    sbcs %>%
+      filter(Year == input$sbcs_year,
+             Survey.Responder == input$sbcs_group)
   })
   
   state_summary <- reactive({
@@ -572,6 +573,17 @@ server <- function(input, output, session) {
     lm(model_formula, data = df)
   })
   
+  # Populate SBCS input choices 
+  observe({
+    updateSelectInput(session, "sbcs_year",
+                      choices = sort(unique(sbcs$Year), decreasing = TRUE),
+                      selected = max(sbcs$Year, na.rm = TRUE))
+    
+    updateSelectInput(session, "sbcs_group",
+                      choices = unique(sbcs$Survey.Responder),
+                      selected = "All employer firms")
+  })
+  
   # --- Outputs ---
   
   # --- 4a) Map ---
@@ -582,9 +594,8 @@ server <- function(input, output, session) {
   observe({
     if (drilldown_mode() == "states") {
       df <- state_summary()
-      pal <- colorQuantile("plasma", 
-                           domain = df$pct_gdp, 
-                           n = 5, na.color = "#cccccc")
+      valid_vals <- df$pct_gdp[!is.na(df$pct_gdp) & df$pct_gdp > 0]
+      pal <- colorQuantile("plasma", domain = valid_vals, n = 5, na.color = "#cccccc")
       
       leafletProxy("map", session) %>%
         clearShapes() %>%
@@ -596,29 +607,20 @@ server <- function(input, output, session) {
           weight = 1,
           opacity = 1,
           fillOpacity = 0.7,
-          label = ~paste0(NAME, 
-                          "<br>Total Obligations: ", 
-                          scales::dollar(total_obligation),
-                          "<br>GDP: ", 
-                          scales::dollar(gdp_dollars),
-                          "<br>Obligations as % of GDP: ", 
-                          scales::percent(pct_gdp, accuracy = 0.1)),
-          layerId = ~STATEFP
+          layerId = ~GEOID  # still clickable
         ) %>%
         addLegend(
           pal = pal,
-          values = df$pct_gdp,
-          title = legend_title(),    
+          values = valid_vals,
+          title = "% GDP Obligations",
           position = "bottomright",
           labFormat = labelFormat(suffix = "%", transform = function(x) x * 100)
         )
       
     } else if (drilldown_mode() == "counties") {
       df <- county_summary_data()
-      pal <- colorQuantile("plasma", 
-                           domain = df$pct_gdp, 
-                           n = 5, 
-                           na.color = "#cccccc")
+      valid_vals <- df$pct_gdp[!is.na(df$pct_gdp) & df$pct_gdp > 0]
+      pal <- colorQuantile("plasma", domain = valid_vals, n = 5, na.color = "#cccccc")
       
       leafletProxy("map", session) %>%
         clearShapes() %>%
@@ -630,18 +632,11 @@ server <- function(input, output, session) {
           weight = 1,
           opacity = 1,
           fillOpacity = 0.7,
-          label = ~paste0(NAME, 
-                          "<br>Total: ", 
-                          scales::dollar(total),
-                          "<br>GDP: ", 
-                          scales::dollar(gdp_dollars),
-                          "<br>% GDP: ", 
-                          scales::percent(pct_gdp, accuracy = 0.1)),
-          layerId = ~GEOID
+          layerId = ~GEOID  # still clickable
         ) %>%
         addLegend(
           pal = pal,
-          values = df$pct_gdp,
+          values = valid_vals,
           title = "% GDP Obligations",
           position = "bottomright",
           labFormat = labelFormat(suffix = "%", transform = function(x) x * 100)
@@ -734,54 +729,46 @@ server <- function(input, output, session) {
   
   output$pctGDP <- renderValueBox({
     data <- filtered_data()
-    total_oblig <- NA_real_
-    gdp_value <- NA_real_
+    per_capita <- NA_real_
+    subtitle <- "Obligations per Capita"
     
     if (drilldown_mode() == "counties" && !is.null(clicked_state())) {
-      selected_state <- state_sf %>%
-        filter(STATEFP == clicked_state()) %>%
-        pull(STUSPS)
+      selected_state <- state_sf %>% filter(STATEFP == clicked_state()) %>% pull(STUSPS)
+      data <- data %>% filter(state == selected_state)
       
-      if (length(selected_state) == 1 && any(data$state == selected_state)) {
-        data <- data %>% filter(state == selected_state)
-        total_oblig <- sum(data$total_obligation, na.rm = TRUE)
-        
-        gdp_raw <- state_gdp_clean %>%
-          filter(year == input$year, state_abbr == selected_state) %>%
-          pull(gdp)
-        if (length(gdp_raw) == 1 && !is.na(gdp_raw)) {
-          gdp_value <- gdp_raw * 1e6
-        }
-      }
+      population_data <- pop_long %>%
+        filter(year == input$year, state == selected_state) %>%
+        summarise(total_population = sum(population, na.rm = TRUE)) %>%
+        pull(total_population)
+      
     } else {
-      total_oblig <- sum(data$total_obligation, na.rm = TRUE)
       selected_states <- unique(data$state)
       
-      gdp_raw <- state_gdp_clean %>%
-        filter(year == input$year, state_abbr %in% selected_states) %>%
-        summarise(gdp = sum(gdp, na.rm = TRUE)) %>%
-        pull(gdp)
-      if (length(gdp_raw) == 1 && !is.na(gdp_raw)) {
-        gdp_value <- gdp_raw * 1e6
-      }
+      population_data <- pop_long %>%
+        filter(year == input$year, state %in% selected_states) %>%
+        summarise(total_population = sum(population, na.rm = TRUE)) %>%
+        pull(total_population)
     }
     
-    pct <- if (!is.na(gdp_value) && gdp_value > 0) total_oblig / gdp_value else NA_real_
+    total_oblig <- sum(data$total_obligation, na.rm = TRUE)
+    
+    if (!is.na(population_data) && population_data > 0) {
+      per_capita <- total_oblig / population_data
+    }
     
     valueBox(
-      value = if (!is.na(pct)) {
-        if (pct < 0.0001) "< 0.01%" else scales::percent(pct, accuracy = 0.01)
+      value = if (!is.na(per_capita)) {
+        scales::dollar(per_capita, accuracy = 0.01)
       } else {
         "No Data"
       },
-      subtitle = "Obligations as % GDP",
-      icon = icon("percentage"),
+      subtitle = subtitle,
+      icon = icon("user"),
       color = "orange"
     )
   })
   
   # --- economic impact comparison --- 
-  # --- 4b) Economic Impact Value Box ---
   output$econ_valuebox <- renderValueBox({
     req(input$econ_outcome, input$econ_agency)
     df <- econ_compare_data()
@@ -1268,46 +1255,43 @@ server <- function(input, output, session) {
   })
   
   
-  # --- SBCS Revenue Changes ---
-  output$revenuePlot <- renderPlot({
-    df <- filtered_survey()
+  # Revenue Changes Plot
+  output$sbcs_revenue <- renderPlot({
+    df <- filtered_sbcs() %>%
+      filter(Survey.question == "Revenue change, prior 12 months") %>%
+      mutate(Percent = as.numeric(gsub("%", "", Percent)) / 100)
     
-    df %>%
-      count(revenue_change) %>%
-      mutate(pct = n / sum(n)) %>%
-      ggplot(aes(x = revenue_change, y = pct)) +
+    ggplot(df, aes(x = Response.option, y = Percent)) +
       geom_col(fill = "#1F77B4") +
       scale_y_continuous(labels = scales::percent) +
-      labs(title = "Small Business Revenue Changes", x = "Revenue Change", y = "% of Businesses") +
-      theme_minimal()
+      labs(x = "Revenue Change", y = "% of Businesses") +
+      theme_minimal() + coord_flip()
   })
   
-  # --- SBCS Employment Changes ---
-  output$employmentPlot <- renderPlot({
-    df <- filtered_survey()
+  # Employment Changes Plot
+  output$sbcs_employment <- renderPlot({
+    df <- filtered_sbcs() %>%
+      filter(Survey.question == "Employment change, prior 12 months") %>%
+      mutate(Percent = as.numeric(gsub("%", "", Percent)) / 100)
     
-    df %>%
-      count(employment_change) %>%
-      mutate(pct = n / sum(n)) %>%
-      ggplot(aes(x = employment_change, y = pct)) +
+    ggplot(df, aes(x = Response.option, y = Percent)) +
       geom_col(fill = "#2CA02C") +
       scale_y_continuous(labels = scales::percent) +
-      labs(title = "Small Business Employment Changes", x = "Employment Change", y = "% of Businesses") +
-      theme_minimal()
+      labs(x = "Employment Change", y = "% of Businesses") +
+      theme_minimal() + coord_flip()
   })
   
-  # --- SBCS Financing Access ---
-  output$financingPlot <- renderPlot({
-    df <- filtered_survey()
+  # Financing Access Plot
+  output$sbcs_financing <- renderPlot({
+    df <- filtered_sbcs() %>%
+      filter(Survey.question == "Best outcome on loan/LOC/merchant cash advance application(s)") %>%
+      mutate(Percent = as.numeric(gsub("%", "", Percent)) / 100)
     
-    df %>%
-      count(financing_access) %>%
-      mutate(pct = n / sum(n)) %>%
-      ggplot(aes(x = financing_access, y = pct)) +
+    ggplot(df, aes(x = Response.option, y = Percent)) +
       geom_col(fill = "#FF7F0E") +
       scale_y_continuous(labels = scales::percent) +
-      labs(title = "Small Business Financing Access", x = "Financing Outcome", y = "% of Applicants") +
-      theme_minimal()
+      labs(x = "Financing Outcome", y = "% of Applicants") +
+      theme_minimal() + coord_flip()
   })
   
   
