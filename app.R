@@ -145,6 +145,22 @@ cor_explorer_data <- fedcon %>%
   left_join(bfs_long, by = c("county_fips", "fiscal_year")) %>%
   filter(!state %in% c("AS", "GU", "PR", "MP", "VI"))
 
+## data prep for Shayna's time chart app
+# Time Series Aggregates for GDP, Income, Unemployment Rate
+gdp_natl <- state_gdp_clean %>%
+  group_by(year) %>%
+  summarise(value = sum(gdp, na.rm = TRUE), .groups = "drop")
+
+inc_natl <- acs_summary %>%
+  group_by(year) %>%
+  summarise(value = mean(per_capita_income, na.rm = TRUE), .groups = "drop")
+
+unemp_natl <- acs_summary %>%
+  group_by(year) %>%
+  summarise(value = mean(unemployment_rate, na.rm = TRUE), .groups = "drop")
+
+years_all <- sort(unique(c(gdp_natl$year, inc_natl$year, unemp_natl$year)))
+
 ## data prep for Maria's SBCS app
 # Clean column names
 colnames(sbcs) <- gsub("\\.", " ", make.names(colnames(sbcs)))
@@ -252,6 +268,22 @@ ui <- dashboardPage(
                  ),
                  fluidRow(
                    plotOutput("distPlot") %>% withSpinner(color = "#007bff")
+                 )
+        ),
+        tabPanel("National Trends",
+                 fluidRow(
+                   column(3,
+                          selectInput("natl_series", "Choose series:",
+                                      choices = c("GDP", "Per Capita Income", "Unemployment Rate"),
+                                      selected = "GDP"),
+                          sliderInput("natl_years", "Year range:",
+                                      min = min(years_all), max = max(years_all),
+                                      value = c(min(years_all), max(years_all)),
+                                      sep = "")
+                   ),
+                   column(9,
+                          plotlyOutput("natl_line_plot", height = "500px") %>% withSpinner(color = "#007bff")
+                   )
                  )
         ),
         
@@ -1072,6 +1104,26 @@ server <- function(input, output, session) {
              x = NULL, y = "Total Obligations ($)") +
         theme_minimal()
     }
+  })
+  
+  # --- National Trends Output ---
+  natl_df <- reactive({
+    yrs <- input$natl_years
+    df <- switch(input$natl_series,
+                 "GDP" = gdp_natl,
+                 "Per Capita Income" = inc_natl,
+                 "Unemployment Rate" = unemp_natl)
+    df %>% filter(year >= yrs[1], year <= yrs[2])
+  })
+  
+  output$natl_line_plot <- renderPlotly({
+    df <- natl_df()
+    plot_ly(df, x = ~year, y = ~value, type = 'scatter', mode = 'lines+markers') %>%
+      layout(
+        title = paste(input$natl_series, "over time"),
+        xaxis = list(title = "Year"),
+        yaxis = list(title = input$natl_series)
+      )
   })
   
   # --- Obligations Over Time ---
