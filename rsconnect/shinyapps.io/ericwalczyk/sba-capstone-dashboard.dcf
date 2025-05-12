@@ -1,0 +1,12 @@
+name: sba-capstone-dashboard
+title: SBA-Capstone-Dashboard
+username: ericwalczyk
+account: ericwalczyk
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14480620
+bundleId: 10272549
+url: https://ericwalczyk.shinyapps.io/sba-capstone-dashboard/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
